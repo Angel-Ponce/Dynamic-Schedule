@@ -26,9 +26,14 @@ public class View extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         container = new javax.swing.JPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        hoursPanel = new javax.swing.JPanel();
+        daysPanel = new javax.swing.JPanel();
+        centerPanel = new javax.swing.JPanel();
+        crossPanel = new javax.swing.JPanel();
+        menuBar = new javax.swing.JMenuBar();
         configMenu = new javax.swing.JMenu();
         reestartOption = new javax.swing.JMenuItem();
         separator2 = new javax.swing.JPopupMenu.Separator();
@@ -37,19 +42,104 @@ public class View extends javax.swing.JFrame {
         exitOption = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1200, 540));
+        setPreferredSize(new java.awt.Dimension(1200, 540));
 
         container.setForeground(new java.awt.Color(255, 255, 255));
+        container.setPreferredSize(new java.awt.Dimension(1200, 440));
+        container.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
-        container.setLayout(containerLayout);
-        containerLayout.setHorizontalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 972, Short.MAX_VALUE)
+        hoursPanel.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout hoursPanelLayout = new javax.swing.GroupLayout(hoursPanel);
+        hoursPanel.setLayout(hoursPanelLayout);
+        hoursPanelLayout.setHorizontalGroup(
+            hoursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
         );
-        containerLayout.setVerticalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+        hoursPanelLayout.setVerticalGroup(
+            hoursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.ipady = 400;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        container.add(hoursPanel, gridBagConstraints);
+
+        daysPanel.setBackground(new java.awt.Color(255, 204, 204));
+
+        javax.swing.GroupLayout daysPanelLayout = new javax.swing.GroupLayout(daysPanel);
+        daysPanel.setLayout(daysPanelLayout);
+        daysPanelLayout.setHorizontalGroup(
+            daysPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        daysPanelLayout.setVerticalGroup(
+            daysPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1000;
+        gridBagConstraints.ipady = 40;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        container.add(daysPanel, gridBagConstraints);
+
+        centerPanel.setBackground(new java.awt.Color(153, 153, 255));
+
+        javax.swing.GroupLayout centerPanelLayout = new javax.swing.GroupLayout(centerPanel);
+        centerPanel.setLayout(centerPanelLayout);
+        centerPanelLayout.setHorizontalGroup(
+            centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        centerPanelLayout.setVerticalGroup(
+            centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 1000;
+        gridBagConstraints.ipady = 400;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        container.add(centerPanel, gridBagConstraints);
+
+        crossPanel.setBackground(new java.awt.Color(204, 255, 255));
+
+        javax.swing.GroupLayout crossPanelLayout = new javax.swing.GroupLayout(crossPanel);
+        crossPanel.setLayout(crossPanelLayout);
+        crossPanelLayout.setHorizontalGroup(
+            crossPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        crossPanelLayout.setVerticalGroup(
+            crossPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.ipady = 40;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        container.add(crossPanel, gridBagConstraints);
 
         getContentPane().add(container, java.awt.BorderLayout.CENTER);
 
@@ -69,9 +159,9 @@ public class View extends javax.swing.JFrame {
         exitOption.setText("Salir");
         configMenu.add(exitOption);
 
-        jMenuBar1.add(configMenu);
+        menuBar.add(configMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -112,10 +202,14 @@ public class View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel centerPanel;
     private javax.swing.JMenu configMenu;
     private javax.swing.JPanel container;
+    private javax.swing.JPanel crossPanel;
+    private javax.swing.JPanel daysPanel;
     private javax.swing.JMenuItem exitOption;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel hoursPanel;
+    private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem reestartOption;
     private javax.swing.JPopupMenu.Separator separator1;
     private javax.swing.JPopupMenu.Separator separator2;
