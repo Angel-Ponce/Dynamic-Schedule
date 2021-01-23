@@ -16,6 +16,8 @@ import javax.swing.JLabel;
  */
 public class Tile extends JLabel {
 
+    public static final String HOUR = "h";
+    public static final String COURSE = "c";
     private String type;
     private String courseName;
     private String url;

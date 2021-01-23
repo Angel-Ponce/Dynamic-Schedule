@@ -34,7 +34,7 @@ public class View extends javax.swing.JFrame {
         mondayLabel = new javax.swing.JLabel();
         tuesdayLabel = new javax.swing.JLabel();
         wednesdayLabel = new javax.swing.JLabel();
-        tursdayLabel = new javax.swing.JLabel();
+        thursdayLabel = new javax.swing.JLabel();
         fridayLabel = new javax.swing.JLabel();
         centerPanel = new javax.swing.JPanel();
         crossPanel = new javax.swing.JPanel();
@@ -86,10 +86,10 @@ public class View extends javax.swing.JFrame {
         wednesdayLabel.setText("Miércoles");
         daysPanel.add(wednesdayLabel);
 
-        tursdayLabel.setForeground(new java.awt.Color(0, 0, 0));
-        tursdayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tursdayLabel.setText("Jueves");
-        daysPanel.add(tursdayLabel);
+        thursdayLabel.setForeground(new java.awt.Color(0, 0, 0));
+        thursdayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        thursdayLabel.setText("Jueves");
+        daysPanel.add(thursdayLabel);
 
         fridayLabel.setForeground(new java.awt.Color(0, 0, 0));
         fridayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -217,8 +217,8 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JPopupMenu.Separator separator2;
     public javax.swing.JPopupMenu.Separator separator3;
     public javax.swing.JMenuItem themeOption;
+    public javax.swing.JLabel thursdayLabel;
     public javax.swing.JLabel tuesdayLabel;
-    public javax.swing.JLabel tursdayLabel;
     public javax.swing.JLabel wednesdayLabel;
     // End of variables declaration//GEN-END:variables
 }
