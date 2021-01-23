@@ -28,9 +28,15 @@ public class View extends javax.swing.JFrame {
     private void initComponents() {
 
         container = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        configMenu = new javax.swing.JMenu();
+        reestartOption = new javax.swing.JMenuItem();
+        separator2 = new javax.swing.JPopupMenu.Separator();
+        themeOption = new javax.swing.JMenuItem();
+        separator1 = new javax.swing.JPopupMenu.Separator();
+        exitOption = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Horario");
 
         container.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -38,14 +44,34 @@ public class View extends javax.swing.JFrame {
         container.setLayout(containerLayout);
         containerLayout.setHorizontalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1220, Short.MAX_VALUE)
+            .addGap(0, 972, Short.MAX_VALUE)
         );
         containerLayout.setVerticalGroup(
             containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
         );
 
         getContentPane().add(container, java.awt.BorderLayout.CENTER);
+
+        configMenu.setText("Configuración");
+
+        reestartOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/reestart.png"))); // NOI18N
+        reestartOption.setText("Reiniciar horario");
+        configMenu.add(reestartOption);
+        configMenu.add(separator2);
+
+        themeOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/theme.png"))); // NOI18N
+        themeOption.setText("Tema");
+        configMenu.add(themeOption);
+        configMenu.add(separator1);
+
+        exitOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
+        exitOption.setText("Salir");
+        configMenu.add(exitOption);
+
+        jMenuBar1.add(configMenu);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -86,6 +112,13 @@ public class View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu configMenu;
     private javax.swing.JPanel container;
+    private javax.swing.JMenuItem exitOption;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem reestartOption;
+    private javax.swing.JPopupMenu.Separator separator1;
+    private javax.swing.JPopupMenu.Separator separator2;
+    private javax.swing.JMenuItem themeOption;
     // End of variables declaration//GEN-END:variables
 }
