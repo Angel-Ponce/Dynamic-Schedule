@@ -5,6 +5,8 @@
  */
 package ScheduleStructure;
 
+import java.awt.Color;
+
 
 
 /**
@@ -18,4 +20,18 @@ public class Theme{
     public static final String LIGHT = "light";
     public static final String PINK = "pink";
     public static final String PURPLE = "purple";
+    
+    public Color hoursColor;
+    public Color coursesColor;
+    public Color daysColor;
+    public Color containerColor;
+    public Color menuBarColor;
+    public Color fontColor;
+    
+    public Theme(String theme){
+        switch(theme){
+            case LIGHT:
+                break;
+        }
+    }
 }

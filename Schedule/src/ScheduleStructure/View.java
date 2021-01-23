@@ -5,6 +5,9 @@
  */
 package ScheduleStructure;
 
+import java.awt.Color;
+import javax.swing.UIManager;
+
 /**
  *
  * @author angelponce
@@ -136,6 +139,7 @@ public class View extends javax.swing.JFrame {
 
         getContentPane().add(container, java.awt.BorderLayout.CENTER);
 
+        configMenu.setForeground(new java.awt.Color(0, 0, 0));
         configMenu.setText("Configuración");
 
         addRowOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
