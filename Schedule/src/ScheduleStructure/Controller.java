@@ -13,4 +13,19 @@ package ScheduleStructure;
  */
 public class Controller {
     
+    View view;
+    Model model;
+    
+    public Controller(View view, Model model){
+        this.view = view;
+        this.model = model;
+    }
+    
+    public void init(){
+        //Default code before
+        view.setLocationRelativeTo(null);
+        view.setVisible(true);
+    }
+    
+    
 }
