@@ -28,10 +28,12 @@ public class Tile extends JLabel {
         this.courseName = courseName;
         this.url = url;
         this.hour = hour;
+        this.setOpaque(true);
         this.setBackground(Color.WHITE);
     }
 
     private void events() {
+        JLabel tile = this;
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -45,17 +47,19 @@ public class Tile extends JLabel {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
+                if (e.isPopupTrigger()) {
+                    System.out.println("Menu despegable");
+                }
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-
+                tile.setBackground(new Color(tile.getBackground().getRed(), tile.getBackground().getGreen(), tile.getBackground().getBlue(), 50));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-
+                tile.setBackground(new Color(tile.getBackground().getRed(), tile.getBackground().getGreen(), tile.getBackground().getBlue(), 100));
             }
         });
     }
