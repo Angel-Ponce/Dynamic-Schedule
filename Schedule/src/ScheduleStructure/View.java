@@ -204,7 +204,7 @@ public class View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem addRowOption;
+    public javax.swing.JMenuItem addRowOption;
     public javax.swing.JPanel centerPanel;
     public javax.swing.JMenu configMenu;
     public javax.swing.JPanel container;

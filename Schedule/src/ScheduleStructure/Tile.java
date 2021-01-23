@@ -29,7 +29,9 @@ public class Tile extends JLabel {
         this.url = url;
         this.hour = hour;
         this.setOpaque(true);
-        this.setBackground(Color.WHITE);
+        this.setBackground(background);
+        this.setVisible(true);
+        events();
     }
 
     private void events() {
@@ -54,12 +56,10 @@ public class Tile extends JLabel {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                tile.setBackground(new Color(tile.getBackground().getRed(), tile.getBackground().getGreen(), tile.getBackground().getBlue(), 50));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                tile.setBackground(new Color(tile.getBackground().getRed(), tile.getBackground().getGreen(), tile.getBackground().getBlue(), 100));
             }
         });
     }

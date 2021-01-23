@@ -16,6 +16,7 @@ public class Controller {
 
     View view;
     Model model;
+    public static Theme theme = new Theme(Theme.LIGHT);
 
     public Controller(View view, Model model) {
         this.view = view;
@@ -34,6 +35,22 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+            }
+        });
+
+        view.addRowOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                Row row = new Row(theme);
+                row.hour.setText(row.hour.getHour());
+                view.hoursPanel.add(row.hour, -1);
+                for (Tile day : row.days) {
+                    day.setText(day.getCourseName());
+                    view.centerPanel.add(day, -1);
+                }
+                view.hoursPanel.repaint();
+                view.centerPanel.repaint();
+                view.pack();
             }
         });
     }

@@ -5,19 +5,34 @@
  */
 package ScheduleStructure;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author angelponce
  */
 public class Row {
+
     Tile hour;
     Tile monday;
     Tile tuesday;
     Tile wednesday;
     Tile thursday;
     Tile friday;
-    
-    public Row(String theme){
-        
+
+    ArrayList<Tile> days = new ArrayList();
+
+    public Row(Theme th) {
+        hour = new Tile(Tile.HOUR, null, null, "Hora", th.hoursColor);
+        monday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        tuesday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        wednesday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        thursday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        friday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        days.add(monday);
+        days.add(tuesday);
+        days.add(wednesday);
+        days.add(thursday);
+        days.add(friday);
     }
 }
