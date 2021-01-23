@@ -38,7 +38,7 @@ public class View extends javax.swing.JFrame {
         fridayLabel = new javax.swing.JLabel();
         centerPanel = new javax.swing.JPanel();
         crossPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        hourLabel = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         configMenu = new javax.swing.JMenu();
         addRowOption = new javax.swing.JMenuItem();
@@ -120,10 +120,10 @@ public class View extends javax.swing.JFrame {
         crossPanel.setBackground(new java.awt.Color(204, 255, 255));
         crossPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("HORA");
-        crossPanel.add(jLabel1);
+        hourLabel.setForeground(new java.awt.Color(0, 0, 0));
+        hourLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hourLabel.setText("HORA");
+        crossPanel.add(hourLabel);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -207,18 +207,18 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JPanel crossPanel;
     public javax.swing.JPanel daysPanel;
     public javax.swing.JMenuItem exitOption;
-    private javax.swing.JLabel fridayLabel;
+    public javax.swing.JLabel fridayLabel;
+    public javax.swing.JLabel hourLabel;
     public javax.swing.JPanel hoursPanel;
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JMenuBar menuBar;
-    private javax.swing.JLabel mondayLabel;
+    public javax.swing.JLabel mondayLabel;
     public javax.swing.JMenuItem reestartOption;
     private javax.swing.JPopupMenu.Separator separator1;
     public javax.swing.JPopupMenu.Separator separator2;
     public javax.swing.JPopupMenu.Separator separator3;
     public javax.swing.JMenuItem themeOption;
-    private javax.swing.JLabel tuesdayLabel;
-    private javax.swing.JLabel tursdayLabel;
-    private javax.swing.JLabel wednesdayLabel;
+    public javax.swing.JLabel tuesdayLabel;
+    public javax.swing.JLabel tursdayLabel;
+    public javax.swing.JLabel wednesdayLabel;
     // End of variables declaration//GEN-END:variables
 }
