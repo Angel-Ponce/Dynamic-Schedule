@@ -31,37 +31,33 @@ public class View extends javax.swing.JFrame {
         container = new javax.swing.JPanel();
         hoursPanel = new javax.swing.JPanel();
         daysPanel = new javax.swing.JPanel();
+        mondayLabel = new javax.swing.JLabel();
+        tuesdayLabel = new javax.swing.JLabel();
+        wednesdayLabel = new javax.swing.JLabel();
+        tursdayLabel = new javax.swing.JLabel();
+        fridayLabel = new javax.swing.JLabel();
         centerPanel = new javax.swing.JPanel();
         crossPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         configMenu = new javax.swing.JMenu();
+        addRowOption = new javax.swing.JMenuItem();
+        separator1 = new javax.swing.JPopupMenu.Separator();
         reestartOption = new javax.swing.JMenuItem();
         separator2 = new javax.swing.JPopupMenu.Separator();
         themeOption = new javax.swing.JMenuItem();
-        separator1 = new javax.swing.JPopupMenu.Separator();
+        separator3 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1200, 540));
-        setPreferredSize(new java.awt.Dimension(1200, 540));
 
         container.setForeground(new java.awt.Color(255, 255, 255));
         container.setPreferredSize(new java.awt.Dimension(1200, 440));
         container.setLayout(new java.awt.GridBagLayout());
 
         hoursPanel.setBackground(new java.awt.Color(204, 255, 204));
-
-        javax.swing.GroupLayout hoursPanelLayout = new javax.swing.GroupLayout(hoursPanel);
-        hoursPanel.setLayout(hoursPanelLayout);
-        hoursPanelLayout.setHorizontalGroup(
-            hoursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-        );
-        hoursPanelLayout.setVerticalGroup(
-            hoursPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
+        hoursPanel.setLayout(new java.awt.GridLayout(1, 1));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -73,17 +69,32 @@ public class View extends javax.swing.JFrame {
         container.add(hoursPanel, gridBagConstraints);
 
         daysPanel.setBackground(new java.awt.Color(255, 204, 204));
+        daysPanel.setLayout(new java.awt.GridLayout(1, 5));
 
-        javax.swing.GroupLayout daysPanelLayout = new javax.swing.GroupLayout(daysPanel);
-        daysPanel.setLayout(daysPanelLayout);
-        daysPanelLayout.setHorizontalGroup(
-            daysPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        daysPanelLayout.setVerticalGroup(
-            daysPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        mondayLabel.setForeground(new java.awt.Color(0, 0, 0));
+        mondayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mondayLabel.setText("Lunes");
+        daysPanel.add(mondayLabel);
+
+        tuesdayLabel.setForeground(new java.awt.Color(0, 0, 0));
+        tuesdayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tuesdayLabel.setText("Martes");
+        daysPanel.add(tuesdayLabel);
+
+        wednesdayLabel.setForeground(new java.awt.Color(0, 0, 0));
+        wednesdayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        wednesdayLabel.setText("Miércoles");
+        daysPanel.add(wednesdayLabel);
+
+        tursdayLabel.setForeground(new java.awt.Color(0, 0, 0));
+        tursdayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tursdayLabel.setText("Jueves");
+        daysPanel.add(tursdayLabel);
+
+        fridayLabel.setForeground(new java.awt.Color(0, 0, 0));
+        fridayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fridayLabel.setText("Viernes");
+        daysPanel.add(fridayLabel);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -92,22 +103,10 @@ public class View extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 1000;
         gridBagConstraints.ipady = 40;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         container.add(daysPanel, gridBagConstraints);
 
         centerPanel.setBackground(new java.awt.Color(153, 153, 255));
-
-        javax.swing.GroupLayout centerPanelLayout = new javax.swing.GroupLayout(centerPanel);
-        centerPanel.setLayout(centerPanelLayout);
-        centerPanelLayout.setHorizontalGroup(
-            centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        centerPanelLayout.setVerticalGroup(
-            centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
+        centerPanel.setLayout(new java.awt.GridLayout(1, 5));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -119,17 +118,12 @@ public class View extends javax.swing.JFrame {
         container.add(centerPanel, gridBagConstraints);
 
         crossPanel.setBackground(new java.awt.Color(204, 255, 255));
+        crossPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        javax.swing.GroupLayout crossPanelLayout = new javax.swing.GroupLayout(crossPanel);
-        crossPanel.setLayout(crossPanelLayout);
-        crossPanelLayout.setHorizontalGroup(
-            crossPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        crossPanelLayout.setVerticalGroup(
-            crossPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("HORA");
+        crossPanel.add(jLabel1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -138,12 +132,16 @@ public class View extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 200;
         gridBagConstraints.ipady = 40;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         container.add(crossPanel, gridBagConstraints);
 
         getContentPane().add(container, java.awt.BorderLayout.CENTER);
 
         configMenu.setText("Configuración");
+
+        addRowOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
+        addRowOption.setText("Agregar fila");
+        configMenu.add(addRowOption);
+        configMenu.add(separator1);
 
         reestartOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/reestart.png"))); // NOI18N
         reestartOption.setText("Reiniciar horario");
@@ -153,7 +151,7 @@ public class View extends javax.swing.JFrame {
         themeOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/theme.png"))); // NOI18N
         themeOption.setText("Tema");
         configMenu.add(themeOption);
-        configMenu.add(separator1);
+        configMenu.add(separator3);
 
         exitOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
         exitOption.setText("Salir");
@@ -202,17 +200,25 @@ public class View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel centerPanel;
-    private javax.swing.JMenu configMenu;
-    private javax.swing.JPanel container;
-    private javax.swing.JPanel crossPanel;
-    private javax.swing.JPanel daysPanel;
-    private javax.swing.JMenuItem exitOption;
-    private javax.swing.JPanel hoursPanel;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem reestartOption;
+    private javax.swing.JMenuItem addRowOption;
+    public javax.swing.JPanel centerPanel;
+    public javax.swing.JMenu configMenu;
+    public javax.swing.JPanel container;
+    public javax.swing.JPanel crossPanel;
+    public javax.swing.JPanel daysPanel;
+    public javax.swing.JMenuItem exitOption;
+    private javax.swing.JLabel fridayLabel;
+    public javax.swing.JPanel hoursPanel;
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JMenuBar menuBar;
+    private javax.swing.JLabel mondayLabel;
+    public javax.swing.JMenuItem reestartOption;
     private javax.swing.JPopupMenu.Separator separator1;
-    private javax.swing.JPopupMenu.Separator separator2;
-    private javax.swing.JMenuItem themeOption;
+    public javax.swing.JPopupMenu.Separator separator2;
+    public javax.swing.JPopupMenu.Separator separator3;
+    public javax.swing.JMenuItem themeOption;
+    private javax.swing.JLabel tuesdayLabel;
+    private javax.swing.JLabel tursdayLabel;
+    private javax.swing.JLabel wednesdayLabel;
     // End of variables declaration//GEN-END:variables
 }
