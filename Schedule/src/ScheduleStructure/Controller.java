@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -79,32 +80,40 @@ public class Controller {
         view.createSchedule.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
-                if (res != null) {
-                    while (!res.matches("^\\d+$")) {
-                        res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
-                        if (res == null) {
-                            break;
-                        }
-                    }
+                if (properties.getLines().size() == 0) {
+                    String res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
                     if (res != null) {
-                        int rows = Integer.parseInt(res);
-                        hoursLayout.setRows(rows);
-                        centerLayout.setRows(rows);
-
-                        for (int i = 0; i < rows; i++) {
-                            Row row = new Row(theme);
-                            row.hour.setText(row.hour.getHour());
-                            view.hoursPanel.add(row.hour, -1);
-                            for (Tile day : row.days) {
-                                day.setText(day.getCourseName());
-                                view.centerPanel.add(day, -1);
+                        while (!res.matches("^\\d+$")) {
+                            res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
+                            if (res == null) {
+                                break;
                             }
-                            view.hoursPanel.repaint();
-                            view.centerPanel.repaint();
-                            view.pack();
+                        }
+                        if (res != null) {
+                            int rows = Integer.parseInt(res);
+                            hoursLayout.setRows(rows);
+                            centerLayout.setRows(rows);
+
+                            for (int i = 0; i < rows; i++) {
+                                Row row = new Row(theme);
+                                row.hour.setText(row.hour.getHour());
+                                view.hoursPanel.add(row.hour, -1);
+                                for (Tile day : row.days) {
+                                    day.setText(day.getCourseName());
+                                    view.centerPanel.add(day, -1);
+                                }
+                                view.hoursPanel.repaint();
+                                view.centerPanel.repaint();
+                                view.pack();
+                            }
+
+                            ArrayList<String> lines = new ArrayList();
+                            lines.add("hours_rows = " + rows);
+                            properties.setLines(lines);
                         }
                     }
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se puede crear un horario nuevo porque actualmente ya existe uno.\nPara crear uno nuevo reinicie el horario porfavor","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
