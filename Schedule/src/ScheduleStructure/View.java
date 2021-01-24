@@ -31,6 +31,7 @@ public class View extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        groupThemes = new javax.swing.ButtonGroup();
         container = new javax.swing.JPanel();
         hoursPanel = new javax.swing.JPanel();
         daysPanel = new javax.swing.JPanel();
@@ -50,7 +51,15 @@ public class View extends javax.swing.JFrame {
         separator2 = new javax.swing.JPopupMenu.Separator();
         reestartOption = new javax.swing.JMenuItem();
         separator3 = new javax.swing.JPopupMenu.Separator();
-        themeOption = new javax.swing.JMenuItem();
+        themeOptions = new javax.swing.JMenu();
+        lightTheme = new javax.swing.JRadioButtonMenuItem();
+        lightBlueTheme = new javax.swing.JRadioButtonMenuItem();
+        blueGrayTheme = new javax.swing.JRadioButtonMenuItem();
+        grayTheme = new javax.swing.JRadioButtonMenuItem();
+        orangeTheme = new javax.swing.JRadioButtonMenuItem();
+        pinkTheme = new javax.swing.JRadioButtonMenuItem();
+        purpleTheme = new javax.swing.JRadioButtonMenuItem();
+        darkTheme = new javax.swing.JRadioButtonMenuItem();
         separator4 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
 
@@ -164,9 +173,58 @@ public class View extends javax.swing.JFrame {
         configMenu.add(reestartOption);
         configMenu.add(separator3);
 
-        themeOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/theme.png"))); // NOI18N
-        themeOption.setText("Tema");
-        configMenu.add(themeOption);
+        themeOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/theme.png"))); // NOI18N
+        themeOptions.setText("Cambiar tema");
+
+        lightTheme.setSelected(true);
+        lightTheme.setText("Claro");
+        lightTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/light.jpeg"))); // NOI18N
+        themeOptions.add(lightTheme);
+
+        lightBlueTheme.setText("Azul-Claro");
+        lightBlueTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/light-blue.jpeg"))); // NOI18N
+        lightBlueTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lightBlueThemeActionPerformed(evt);
+            }
+        });
+        themeOptions.add(lightBlueTheme);
+
+        blueGrayTheme.setText("Gris-Azulado");
+        blueGrayTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blue-gray.jpeg"))); // NOI18N
+        themeOptions.add(blueGrayTheme);
+
+        grayTheme.setText("Gris");
+        grayTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gray.jpeg"))); // NOI18N
+        themeOptions.add(grayTheme);
+
+        orangeTheme.setText("Naranja");
+        orangeTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/orange.jpeg"))); // NOI18N
+        themeOptions.add(orangeTheme);
+
+        pinkTheme.setText("Rosa");
+        pinkTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pink.jpeg"))); // NOI18N
+        pinkTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pinkThemeActionPerformed(evt);
+            }
+        });
+        themeOptions.add(pinkTheme);
+
+        purpleTheme.setText("Violeta");
+        purpleTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purple.jpeg"))); // NOI18N
+        themeOptions.add(purpleTheme);
+
+        darkTheme.setText("Oscuro");
+        darkTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dark.jpeg"))); // NOI18N
+        darkTheme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                darkThemeActionPerformed(evt);
+            }
+        });
+        themeOptions.add(darkTheme);
+
+        configMenu.add(themeOptions);
         configMenu.add(separator4);
 
         exitOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
@@ -179,6 +237,18 @@ public class View extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pinkThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinkThemeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pinkThemeActionPerformed
+
+    private void darkThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darkThemeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_darkThemeActionPerformed
+
+    private void lightBlueThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lightBlueThemeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lightBlueThemeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,24 +287,33 @@ public class View extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenuItem addRowOption;
+    public javax.swing.JRadioButtonMenuItem blueGrayTheme;
     public javax.swing.JPanel centerPanel;
     public javax.swing.JMenu configMenu;
     public javax.swing.JPanel container;
     public javax.swing.JMenuItem createSchedule;
     public javax.swing.JPanel crossPanel;
+    public javax.swing.JRadioButtonMenuItem darkTheme;
     public javax.swing.JPanel daysPanel;
     public javax.swing.JMenuItem exitOption;
     public javax.swing.JLabel fridayLabel;
+    public javax.swing.JRadioButtonMenuItem grayTheme;
+    public javax.swing.ButtonGroup groupThemes;
     public javax.swing.JLabel hourLabel;
     public javax.swing.JPanel hoursPanel;
+    public javax.swing.JRadioButtonMenuItem lightBlueTheme;
+    public javax.swing.JRadioButtonMenuItem lightTheme;
     public javax.swing.JMenuBar menuBar;
     public javax.swing.JLabel mondayLabel;
+    public javax.swing.JRadioButtonMenuItem orangeTheme;
+    public javax.swing.JRadioButtonMenuItem pinkTheme;
+    public javax.swing.JRadioButtonMenuItem purpleTheme;
     public javax.swing.JMenuItem reestartOption;
     private javax.swing.JPopupMenu.Separator separator1;
     public javax.swing.JPopupMenu.Separator separator2;
     public javax.swing.JPopupMenu.Separator separator3;
     public javax.swing.JPopupMenu.Separator separator4;
-    public javax.swing.JMenuItem themeOption;
+    public javax.swing.JMenu themeOptions;
     public javax.swing.JLabel thursdayLabel;
     public javax.swing.JLabel tuesdayLabel;
     public javax.swing.JLabel wednesdayLabel;

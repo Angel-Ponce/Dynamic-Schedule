@@ -37,6 +37,15 @@ public class Controller {
 
     public void init() {
         //Default code before
+        chooseTheme();
+        view.groupThemes.add(view.lightTheme);
+        view.groupThemes.add(view.blueGrayTheme);
+        view.groupThemes.add(view.grayTheme);
+        view.groupThemes.add(view.pinkTheme);
+        view.groupThemes.add(view.purpleTheme);
+        view.groupThemes.add(view.darkTheme);
+        view.groupThemes.add(view.lightBlueTheme);
+        view.groupThemes.add(view.orangeTheme);
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
@@ -132,6 +141,101 @@ public class Controller {
                 }
             }
         });
+
+        view.lightTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                theme = new Theme(Theme.LIGHT);
+                chooseTheme();
+            }
+        });
+
+        view.lightBlueTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                theme = new Theme(Theme.LIGHT_BLUE);
+                chooseTheme();
+            }
+        });
+
+        view.blueGrayTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                theme = new Theme(Theme.BLUE_GRAY);
+                chooseTheme();
+            }
+        });
+
+        view.grayTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                theme = new Theme(Theme.GRAY);
+                chooseTheme();
+            }
+        });
+
+        view.orangeTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                theme = new Theme(Theme.ORANGE);
+                chooseTheme();
+            }
+        });
+
+        view.pinkTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                theme = new Theme(Theme.PINK);
+                chooseTheme();
+            }
+        });
+
+        view.purpleTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                theme = new Theme(Theme.PURPLE);
+                chooseTheme();
+            }
+        });
+
+        view.darkTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                theme = new Theme(Theme.DARK);
+                chooseTheme();
+            }
+        });
+    }
+
+    private void chooseTheme() {
+        view.crossPanel.setBackground(theme.containerColor);
+        view.container.setBackground(theme.containerColor);
+        view.daysPanel.setBackground(theme.daysColor);
+        view.hoursPanel.setBackground(theme.containerColor);
+        view.centerPanel.setBackground(theme.containerColor);
+
+        view.hourLabel.setForeground(theme.fontColor);
+        view.mondayLabel.setForeground(theme.fontColor);
+        view.tuesdayLabel.setForeground(theme.fontColor);
+        view.wednesdayLabel.setForeground(theme.fontColor);
+        view.thursdayLabel.setForeground(theme.fontColor);
+        view.fridayLabel.setForeground(theme.fontColor);
+
+        for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
+            Tile tile = (Tile) view.hoursPanel.getComponents()[i];
+            tile.setForeground(theme.fontColor);
+            tile.setBackground(theme.hoursColor);
+        }
+
+        for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
+            Tile tile = (Tile) view.centerPanel.getComponents()[i];
+            tile.setForeground(theme.fontColor);
+            tile.setBackground(theme.coursesColor);
+        }
+
+        view.hoursPanel.repaint();
+        view.centerPanel.repaint();
+        view.pack();
     }
 
 }
