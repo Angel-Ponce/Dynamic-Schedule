@@ -32,6 +32,7 @@ public class Tile extends JLabel {
 
     public static final String HOUR = "h";
     public static final String COURSE = "c";
+    public String colorChanged = "f";
     private String type;
     private String courseName;
     private String url;
@@ -105,6 +106,7 @@ public class Tile extends JLabel {
                     try {
                         Desktop.getDesktop().browse(new URI(url));
                     } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null, "Ocurrió un error al intentar abrir el enlace de reunión, intenta verificar la información", "Error", JOptionPane.ERROR_MESSAGE);
                     } catch (URISyntaxException ex) {
                         JOptionPane.showMessageDialog(null, "Ocurrió un error al intentar abrir el enlace de reunión, intenta verificar la información", "Error", JOptionPane.ERROR_MESSAGE);
                     }
@@ -164,6 +166,7 @@ public class Tile extends JLabel {
                 if (background != null) {
                     JLabel label = (JLabel) componentClicked;
                     label.setBackground(background);
+                    colorChanged = "v";
                 }
             }
         });
@@ -175,6 +178,7 @@ public class Tile extends JLabel {
                 if (background != null) {
                     JLabel label = (JLabel) componentClicked;
                     label.setBackground(background);
+                    colorChanged = "v";
                 }
             }
         });

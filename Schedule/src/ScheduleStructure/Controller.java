@@ -154,12 +154,9 @@ public class Controller {
                                 view.centerPanel.repaint();
                                 view.pack();
                             }
-
-                            ArrayList<String> lines = new ArrayList();
-                            lines.add("hours_rows = " + rows);
-                            properties.setLines(lines);
                         }
                     }
+                    chooseTheme();
                 } else {
                     JOptionPane.showMessageDialog(null, "No se puede crear un horario nuevo porque actualmente ya existe uno.\nPara crear uno nuevo reinicie el horario porfavor", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -264,13 +261,17 @@ public class Controller {
         for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.hoursPanel.getComponents()[i];
             tile.setForeground(theme.fontColor2);
-            tile.setBackground(theme.hoursColor);
+            if ("f".equals(tile.colorChanged)) {
+                tile.setBackground(theme.hoursColor);
+            }
         }
 
         for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.centerPanel.getComponents()[i];
             tile.setForeground(theme.fontColor);
-            tile.setBackground(theme.coursesColor);
+            if ("f".equals(tile.colorChanged)) {
+                tile.setBackground(theme.coursesColor);
+            }
         }
 
         view.hoursPanel.repaint();

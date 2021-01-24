@@ -33,9 +33,9 @@ public class Model {
     public void saveCourses(ArrayList<Row> rows) {
         ArrayList<String> lines = new ArrayList();
         for (Row row : rows) {
-            String rowString = row.hour.getHour() + "," + row.hour.getBackground().getRGB() + ";";
+            String rowString = row.hour.getHour() + "," + row.hour.getBackground().getRGB() + "," + row.hour.colorChanged + ";";
             for (Tile tile : row.days) {
-                rowString += tile.getCourseName() + "," + tile.getUrl() + "," + tile.getBackground().getRGB() + ";";
+                rowString += tile.getCourseName() + "," + tile.getUrl() + "," + tile.getBackground().getRGB() + "," + tile.colorChanged + ";";
             }
             lines.add(rowString);
         }
@@ -51,10 +51,12 @@ public class Model {
             tilesString = row.split(";");
             String[] tileHour = tilesString[0].split(",");
             Tile hour = new Tile(Tile.HOUR, "", "", tileHour[0], new Color(Integer.parseInt(tileHour[1])));
+            hour.colorChanged = tileHour[2];
             tiles.add(hour);
             for (int i = 1; i < tilesString.length; i++) {
                 String[] dayTile = tilesString[i].split(",");
                 Tile day = new Tile(Tile.COURSE, dayTile[0], dayTile[1], "", new Color(Integer.parseInt(dayTile[2])));
+                day.colorChanged = dayTile[3];
                 tiles.add(day);
             }
 

@@ -1,2 +1,2 @@
-5
-light_blue
+10
+dark
