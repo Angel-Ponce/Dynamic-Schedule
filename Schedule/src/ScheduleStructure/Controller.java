@@ -79,26 +79,31 @@ public class Controller {
         view.createSchedule.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.QUESTION_MESSAGE);
+                String res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
                 if (res != null) {
                     while (!res.matches("^\\d+$")) {
                         res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    int rows = Integer.parseInt(res);
-                    hoursLayout.setRows(rows);
-                    centerLayout.setRows(rows);
-
-                    for (int i = 0; i < rows; i++) {
-                        Row row = new Row(theme);
-                        row.hour.setText(row.hour.getHour());
-                        view.hoursPanel.add(row.hour, -1);
-                        for (Tile day : row.days) {
-                            day.setText(day.getCourseName());
-                            view.centerPanel.add(day, -1);
+                        if (res == null) {
+                            break;
                         }
-                        view.hoursPanel.repaint();
-                        view.centerPanel.repaint();
-                        view.pack();
+                    }
+                    if (res != null) {
+                        int rows = Integer.parseInt(res);
+                        hoursLayout.setRows(rows);
+                        centerLayout.setRows(rows);
+
+                        for (int i = 0; i < rows; i++) {
+                            Row row = new Row(theme);
+                            row.hour.setText(row.hour.getHour());
+                            view.hoursPanel.add(row.hour, -1);
+                            for (Tile day : row.days) {
+                                day.setText(day.getCourseName());
+                                view.centerPanel.add(day, -1);
+                            }
+                            view.hoursPanel.repaint();
+                            view.centerPanel.repaint();
+                            view.pack();
+                        }
                     }
                 }
             }
