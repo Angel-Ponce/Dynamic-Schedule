@@ -37,6 +37,9 @@ public class Controller {
 
     public void init() {
         //Default code before
+        ArrayList<String> props = model.getProperties();
+        theme = new Theme(props.get(1));
+        readCourses();
         chooseTheme();
         view.groupThemes.add(view.lightTheme);
         view.groupThemes.add(view.blueGrayTheme);
@@ -57,18 +60,23 @@ public class Controller {
             @Override
             public void windowClosing(WindowEvent we) {
                 ArrayList<Row> rows = new ArrayList();
+                int fin = 5;
+                int in = 0;
                 for (int i = 0; i < view.hoursPanel.getComponents().length; i++) {
                     Tile tileHour = (Tile) view.hoursPanel.getComponents()[i];
                     ArrayList<Tile> days = new ArrayList();
                     days.add(tileHour);
-                    for (int j = 0; j < 5; j++) {
+                    for (int j = in; j < fin; j++) {
                         Tile tileDay = (Tile) view.centerPanel.getComponents()[j];
                         days.add(tileDay);
                     }
                     Row row = new Row(days.get(0), days.get(1), days.get(2), days.get(3), days.get(4), days.get(5));
                     rows.add(row);
+                    fin += 5;
+                    in += 5;
                 }
                 model.saveCourses(rows);
+                model.saveProperties(rows.size(), theme.theme);
                 System.exit(0);
             }
         });
@@ -77,18 +85,23 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ArrayList<Row> rows = new ArrayList();
+                int fin = 5;
+                int in = 0;
                 for (int i = 0; i < view.hoursPanel.getComponents().length; i++) {
                     Tile tileHour = (Tile) view.hoursPanel.getComponents()[i];
                     ArrayList<Tile> days = new ArrayList();
                     days.add(tileHour);
-                    for (int j = 0; j < 5; j++) {
+                    for (int j = in; j < fin; j++) {
                         Tile tileDay = (Tile) view.centerPanel.getComponents()[j];
                         days.add(tileDay);
                     }
                     Row row = new Row(days.get(0), days.get(1), days.get(2), days.get(3), days.get(4), days.get(5));
                     rows.add(row);
+                    fin += 5;
+                    in += 5;
                 }
                 model.saveCourses(rows);
+                model.saveProperties(rows.size(), theme.theme);
                 System.exit(0);
             }
         });
@@ -115,7 +128,7 @@ public class Controller {
         view.createSchedule.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (properties.getLines().size() == 0) {
+                if (Integer.parseInt(properties.getLines().get(0)) == 0) {
                     String res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
                     if (res != null) {
                         while (!res.matches("^\\d+$")) {
@@ -162,7 +175,8 @@ public class Controller {
                     view.centerPanel.removeAll();
                     view.hoursPanel.repaint();
                     view.centerPanel.repaint();
-                    properties.clear();
+                    model.saveProperties(0, theme.theme);
+                    courses.clear();
                     view.pack();
                 }
             }
@@ -262,6 +276,26 @@ public class Controller {
         view.hoursPanel.repaint();
         view.centerPanel.repaint();
         view.pack();
+    }
+
+    private void readCourses() {
+        ArrayList<Row> rows = model.getRows();
+        ArrayList<String> props = model.getProperties();
+        int rowCount = Integer.parseInt(props.get(0));
+        hoursLayout.setRows(rowCount);
+        centerLayout.setRows(rowCount);
+
+        for (Row row : rows) {
+            row.hour.setText(row.hour.getHour());
+            view.hoursPanel.add(row.hour, -1);
+            for (Tile day : row.days) {
+                day.setText(day.getCourseName());
+                view.centerPanel.add(day, -1);
+            }
+            view.hoursPanel.repaint();
+            view.centerPanel.repaint();
+            view.pack();
+        }
     }
 
 }

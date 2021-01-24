@@ -30,7 +30,10 @@ public class Theme {
     public Color fontColor;
     public Color fontColor2;
 
+    public String theme;
+
     public Theme(String theme) {
+        this.theme = theme;
         switch (theme) {
             case LIGHT:
                 hoursColor = Color.decode("#babdbe");

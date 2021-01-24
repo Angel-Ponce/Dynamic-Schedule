@@ -61,7 +61,7 @@ public class Txt {
             pw = new PrintWriter(fr);
             clear();
             for (String l : lines) {
-                pw.append(l + "\n");
+                pw.println(l);
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información de este curso", "Errro", JOptionPane.ERROR_MESSAGE);
