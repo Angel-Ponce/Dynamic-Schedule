@@ -56,6 +56,19 @@ public class Controller {
 
             @Override
             public void windowClosing(WindowEvent we) {
+                ArrayList<Row> rows = new ArrayList();
+                for (int i = 0; i < view.hoursPanel.getComponents().length; i++) {
+                    Tile tileHour = (Tile) view.hoursPanel.getComponents()[i];
+                    ArrayList<Tile> days = new ArrayList();
+                    days.add(tileHour);
+                    for (int j = 0; j < 5; j++) {
+                        Tile tileDay = (Tile) view.centerPanel.getComponents()[j];
+                        days.add(tileDay);
+                    }
+                    Row row = new Row(days.get(0), days.get(1), days.get(2), days.get(3), days.get(4), days.get(5));
+                    rows.add(row);
+                }
+                model.saveCourses(rows);
                 System.exit(0);
             }
         });
@@ -63,6 +76,19 @@ public class Controller {
         view.exitOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ArrayList<Row> rows = new ArrayList();
+                for (int i = 0; i < view.hoursPanel.getComponents().length; i++) {
+                    Tile tileHour = (Tile) view.hoursPanel.getComponents()[i];
+                    ArrayList<Tile> days = new ArrayList();
+                    days.add(tileHour);
+                    for (int j = 0; j < 5; j++) {
+                        Tile tileDay = (Tile) view.centerPanel.getComponents()[j];
+                        days.add(tileDay);
+                    }
+                    Row row = new Row(days.get(0), days.get(1), days.get(2), days.get(3), days.get(4), days.get(5));
+                    rows.add(row);
+                }
+                model.saveCourses(rows);
                 System.exit(0);
             }
         });

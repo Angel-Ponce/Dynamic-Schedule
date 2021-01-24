@@ -57,7 +57,7 @@ public class Model {
                 Tile day = new Tile(Tile.COURSE, dayTile[0], dayTile[1], "", new Color(Integer.parseInt(dayTile[2])));
                 tiles.add(day);
             }
-            
+
             Row newRow = new Row(tiles.get(0), tiles.get(1), tiles.get(2), tiles.get(3), tiles.get(4), tiles.get(5));
             rows.add(newRow);
         }
