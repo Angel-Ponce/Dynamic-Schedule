@@ -117,6 +117,21 @@ public class Controller {
                 }
             }
         });
+        
+        view.reestartOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int res = JOptionPane.showConfirmDialog(null, "¿Está completamente seguro de eliminar el horario actual?", "Atención", JOptionPane.YES_NO_OPTION);
+                if (res==JOptionPane.YES_OPTION) {
+                    view.hoursPanel.removeAll();
+                    view.centerPanel.removeAll();
+                    view.hoursPanel.repaint();
+                    view.centerPanel.repaint();
+                    properties.clear();
+                    view.pack();
+                }
+            }
+        });
     }
 
 }

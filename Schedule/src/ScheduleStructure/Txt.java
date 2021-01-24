@@ -59,12 +59,31 @@ public class Txt {
         try {
             fr = new FileWriter(file, true);
             pw = new PrintWriter(fr);
-            pw.print("");
+            clear();
             for (String l : lines) {
                 pw.append(l + "\n");
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información de este curso", "Errro", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            try {
+                if (null != pw) {
+                    pw.close();
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información de este curso", "Errro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public void clear() {
+        FileWriter fr = null;
+        PrintWriter pw = null;
+        try {
+            fr = new FileWriter(file);
+            pw = new PrintWriter(fr);
+            fr.write("");
+        } catch (IOException e) {
         } finally {
             try {
                 if (null != pw) {
