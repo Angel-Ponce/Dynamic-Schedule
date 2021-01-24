@@ -23,13 +23,13 @@ public class Row {
 
     ArrayList<Tile> days = new ArrayList();
 
-    public Row(Theme th, JPopupMenu menuCourse, JPopupMenu menuHour) {
-        hour = new Tile(Tile.HOUR, null, null, "Hora", th.hoursColor, menuCourse, menuHour);
-        monday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor, menuCourse, menuHour);
-        tuesday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor, menuCourse, menuHour);
-        wednesday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor, menuCourse, menuHour);
-        thursday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor, menuCourse, menuHour);
-        friday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor, menuCourse, menuHour);
+    public Row(Theme th) {
+        hour = new Tile(Tile.HOUR, null, null, "Hora", th.hoursColor);
+        monday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        tuesday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        wednesday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        thursday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
+        friday = new Tile(Tile.COURSE, "Curso", "url", null, th.coursesColor);
         days.add(monday);
         days.add(tuesday);
         days.add(wednesday);

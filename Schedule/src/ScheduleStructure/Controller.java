@@ -95,7 +95,7 @@ public class Controller {
                             centerLayout.setRows(rows);
 
                             for (int i = 0; i < rows; i++) {
-                                Row row = new Row(theme, view.popupMenuCourse, view.popupMenuHour);
+                                Row row = new Row(theme);
                                 row.hour.setText(row.hour.getHour());
                                 view.hoursPanel.add(row.hour, -1);
                                 for (Tile day : row.days) {

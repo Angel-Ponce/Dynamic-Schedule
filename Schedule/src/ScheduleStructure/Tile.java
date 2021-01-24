@@ -6,7 +6,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
+import javax.swing.JSeparator;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,22 +27,29 @@ public class Tile extends JLabel {
     private String courseName;
     private String url;
     private String hour;
-    private JPopupMenu menuCourse;
-    private JPopupMenu menuHour;
+    JPopupMenu popupMenuCourse;
+    JMenuItem changeName;
+    JSeparator separator1;
+    JMenuItem changeLink;
+    JSeparator separator2;
+    JMenuItem changeBackground;
+    JPopupMenu popupMenuHour;
+    JMenuItem changeHour;
+    JSeparator separator3;
+    JMenuItem changeBackground2;
 
-    public Tile(String type, String courseName, String url, String hour, Color background, JPopupMenu menuCourse, JPopupMenu menuHour) {
+    public Tile(String type, String courseName, String url, String hour, Color background) {
         this.type = type;
         this.courseName = courseName;
         this.url = url;
         this.hour = hour;
-        this.menuCourse = menuCourse;
-        this.menuHour = menuHour;
         this.setFont(new Font("Verdana", Font.PLAIN, 15));
         this.setHorizontalAlignment(JLabel.CENTER);
         this.setOpaque(true);
         this.setBackground(background);
         this.setVisible(true);
         events();
+        initComponents();
     }
 
     private void events() {
@@ -53,10 +62,10 @@ public class Tile extends JLabel {
                 if (e.isPopupTrigger()) {
                     switch (type) {
                         case Tile.COURSE:
-                            menuCourse.show(e.getComponent(), e.getX(), e.getY());
+                            popupMenuCourse.show(e.getComponent(), e.getX(), e.getY());
                             break;
                         case Tile.HOUR:
-                            menuHour.show(e.getComponent(), e.getX(), e.getY());
+                            popupMenuHour.show(e.getComponent(), e.getX(), e.getY());
                             break;
                         default:
                             break;
@@ -69,10 +78,10 @@ public class Tile extends JLabel {
                 if (e.isPopupTrigger()) {
                     switch (type) {
                         case Tile.COURSE:
-                            menuCourse.show(e.getComponent(), e.getX(), e.getY());
+                            popupMenuCourse.show(e.getComponent(), e.getX(), e.getY());
                             break;
                         case Tile.HOUR:
-                            menuHour.show(e.getComponent(), e.getX(), e.getY());
+                            popupMenuHour.show(e.getComponent(), e.getX(), e.getY());
                             break;
                         default:
                             break;
@@ -90,6 +99,44 @@ public class Tile extends JLabel {
                 label.setBorder(null);
             }
         });
+    }
+
+    private void initComponents() {
+        popupMenuCourse = new JPopupMenu();
+        changeName = new JMenuItem();
+        separator1 = new JSeparator();
+        changeLink = new JMenuItem();
+        separator2 = new JSeparator();
+        changeBackground = new JMenuItem();
+        popupMenuHour = new JPopupMenu();
+        changeHour = new JMenuItem();
+        separator3 = new JSeparator();
+        changeBackground2 = new JMenuItem();
+        changeName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
+        changeName.setText("Cambiar nombre");
+        popupMenuCourse.add(changeName);
+        popupMenuCourse.add(separator1);
+
+        changeLink.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png")));
+        changeLink.setText("Cambiar enlace");
+
+        popupMenuCourse.add(changeLink);
+        popupMenuCourse.add(separator2);
+
+        changeBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
+        changeBackground.setText("Cambiar color");
+        popupMenuCourse.add(changeBackground);
+
+        changeHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png")));
+        changeHour.setText("Cambiar hora");
+        changeHour.setToolTipText("");
+        popupMenuHour.add(changeHour);
+        popupMenuHour.add(separator3);
+
+        changeBackground2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
+        changeBackground2.setText("Cambiar color");
+        popupMenuHour.add(changeBackground2);
+
     }
 
     public String getType() {
