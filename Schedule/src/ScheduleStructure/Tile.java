@@ -1,9 +1,8 @@
 package ScheduleStructure;
 
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 
 /*
@@ -29,8 +28,7 @@ public class Tile extends JLabel {
         this.courseName = courseName;
         this.url = url;
         this.hour = hour;
-        this.setSize(new Dimension(200,40));
-        this.setMinimumSize(new Dimension(200,40));
+        this.setHorizontalAlignment(JLabel.CENTER);
         this.setOpaque(true);
         this.setBackground(background);
         this.setVisible(true);
@@ -38,31 +36,13 @@ public class Tile extends JLabel {
     }
 
     private void events() {
-        JLabel tile = this;
-        this.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
+        this.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseReleased(MouseEvent e) {
                 if (e.isPopupTrigger()) {
                     System.out.println("Menu despegable");
                 }
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
             }
         });
     }

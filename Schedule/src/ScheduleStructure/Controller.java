@@ -5,8 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,17 +23,19 @@ public class Controller {
     public static Theme theme = new Theme(Theme.LIGHT);
     private Txt properties = new Txt("properties");
     private Txt courses = new Txt("courses");
+    private GridLayout hoursLayout;
+    private GridLayout centerLayout;
 
     public Controller(View view, Model model) {
         this.view = view;
         this.model = model;
+        hoursLayout = (GridLayout) view.hoursPanel.getLayout();
+        centerLayout = (GridLayout) view.centerPanel.getLayout();
         events();
     }
 
     public void init() {
         //Default code before
-        GridLayout hoursLayout = (GridLayout) view.hoursPanel.getLayout();
-        GridLayout centerLayout = (GridLayout) view.centerPanel.getLayout();
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
@@ -45,7 +46,6 @@ public class Controller {
 
             @Override
             public void windowClosing(WindowEvent we) {
-                
                 System.exit(0);
             }
         });
@@ -60,16 +60,47 @@ public class Controller {
         view.addRowOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                Row row = new Row(theme);
-                row.hour.setText(row.hour.getHour());
-                view.hoursPanel.add(row.hour, -1);
-                for (Tile day : row.days) {
-                    day.setText(day.getCourseName());
-                    view.centerPanel.add(day, -1);
+//                Row row = new Row(theme);
+//                row.hour.setText(row.hour.getHour());
+//                view.hoursPanel.add(row.hour, -1);
+//                for (Tile day : row.days) {
+//                    day.setText(day.getCourseName());
+//                    view.centerPanel.add(day, -1);
+//                }
+//                hoursLayout.setRows(hoursLayout.getRows() + 1);
+//                centerLayout.setRows(centerLayout.getRows() + 1);
+//                view.hoursPanel.repaint();
+//                view.centerPanel.repaint();
+//                view.pack();
+                JOptionPane.showMessageDialog(null, "Estamos trabajando en ello!", "Información", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        view.createSchedule.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.QUESTION_MESSAGE);
+                if (res != null) {
+                    while (!res.matches("^\\d+$")) {
+                        res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    int rows = Integer.parseInt(res);
+                    hoursLayout.setRows(rows);
+                    centerLayout.setRows(rows);
+
+                    for (int i = 0; i < rows; i++) {
+                        Row row = new Row(theme);
+                        row.hour.setText(row.hour.getHour());
+                        view.hoursPanel.add(row.hour, -1);
+                        for (Tile day : row.days) {
+                            day.setText(day.getCourseName());
+                            view.centerPanel.add(day, -1);
+                        }
+                        view.hoursPanel.repaint();
+                        view.centerPanel.repaint();
+                        view.pack();
+                    }
                 }
-                view.hoursPanel.repaint();
-                view.centerPanel.repaint();
-                view.pack();
             }
         });
     }

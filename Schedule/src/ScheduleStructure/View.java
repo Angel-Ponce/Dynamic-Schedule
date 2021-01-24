@@ -19,10 +19,6 @@ public class View extends javax.swing.JFrame {
      */
     public View() {
         initComponents();
-        System.out.println(crossPanel.getSize());
-        System.out.println(mondayLabel.getSize());
-        System.out.println(hoursPanel.getSize());
-        System.out.println(centerPanel.getSize());
     }
 
     /**
