@@ -49,6 +49,23 @@ public class Tile extends JLabel {
 
             @Override
             public void mouseReleased(MouseEvent e) {
+
+                if (e.isPopupTrigger()) {
+                    switch (type) {
+                        case Tile.COURSE:
+                            menuCourse.show(e.getComponent(), e.getX(), e.getY());
+                            break;
+                        case Tile.HOUR:
+                            menuHour.show(e.getComponent(), e.getX(), e.getY());
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
                 if (e.isPopupTrigger()) {
                     switch (type) {
                         case Tile.COURSE:
