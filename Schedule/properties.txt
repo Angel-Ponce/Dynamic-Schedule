@@ -1,1 +1,1 @@
-hours_rows = 10
+hours_rows = 20
