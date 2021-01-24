@@ -95,7 +95,7 @@ public class Controller {
                             centerLayout.setRows(rows);
 
                             for (int i = 0; i < rows; i++) {
-                                Row row = new Row(theme);
+                                Row row = new Row(theme, view.popupMenuCourse, view.popupMenuHour);
                                 row.hour.setText(row.hour.getHour());
                                 view.hoursPanel.add(row.hour, -1);
                                 for (Tile day : row.days) {
@@ -112,17 +112,17 @@ public class Controller {
                             properties.setLines(lines);
                         }
                     }
-                }else{
-                    JOptionPane.showMessageDialog(null, "No se puede crear un horario nuevo porque actualmente ya existe uno.\nPara crear uno nuevo reinicie el horario porfavor","Error",JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se puede crear un horario nuevo porque actualmente ya existe uno.\nPara crear uno nuevo reinicie el horario porfavor", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
-        
+
         view.reestartOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int res = JOptionPane.showConfirmDialog(null, "¿Está completamente seguro de eliminar el horario actual?", "Atención", JOptionPane.YES_NO_OPTION);
-                if (res==JOptionPane.YES_OPTION) {
+                if (res == JOptionPane.YES_OPTION) {
                     view.hoursPanel.removeAll();
                     view.centerPanel.removeAll();
                     view.hoursPanel.repaint();

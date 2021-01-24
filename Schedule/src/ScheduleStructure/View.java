@@ -31,6 +31,16 @@ public class View extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        popupMenuCourse = new javax.swing.JPopupMenu();
+        changeName = new javax.swing.JMenuItem();
+        separator4 = new javax.swing.JPopupMenu.Separator();
+        changeLink = new javax.swing.JMenuItem();
+        separator5 = new javax.swing.JPopupMenu.Separator();
+        changeBackground = new javax.swing.JMenuItem();
+        popupMenuHour = new javax.swing.JPopupMenu();
+        changeHour = new javax.swing.JMenuItem();
+        separator6 = new javax.swing.JPopupMenu.Separator();
+        changeBackground2 = new javax.swing.JMenuItem();
         container = new javax.swing.JPanel();
         hoursPanel = new javax.swing.JPanel();
         daysPanel = new javax.swing.JPanel();
@@ -47,12 +57,36 @@ public class View extends javax.swing.JFrame {
         addRowOption = new javax.swing.JMenuItem();
         separator1 = new javax.swing.JPopupMenu.Separator();
         createSchedule = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        separator7 = new javax.swing.JPopupMenu.Separator();
         reestartOption = new javax.swing.JMenuItem();
         separator2 = new javax.swing.JPopupMenu.Separator();
         themeOption = new javax.swing.JMenuItem();
         separator3 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
+
+        changeName.setText("Cambiar nombre");
+        popupMenuCourse.add(changeName);
+        popupMenuCourse.add(separator4);
+
+        changeLink.setText("Cambiar enlace");
+        changeLink.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLinkActionPerformed(evt);
+            }
+        });
+        popupMenuCourse.add(changeLink);
+        popupMenuCourse.add(separator5);
+
+        changeBackground.setText("Cambiar color");
+        popupMenuCourse.add(changeBackground);
+
+        changeHour.setText("Cambiar hora");
+        changeHour.setToolTipText("");
+        popupMenuHour.add(changeHour);
+        popupMenuHour.add(separator6);
+
+        changeBackground2.setText("Cambiar color");
+        popupMenuHour.add(changeBackground2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1200, 540));
@@ -78,26 +112,31 @@ public class View extends javax.swing.JFrame {
         daysPanel.setPreferredSize(new java.awt.Dimension(1000, 40));
         daysPanel.setLayout(new java.awt.GridLayout(1, 5));
 
+        mondayLabel.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         mondayLabel.setForeground(new java.awt.Color(0, 0, 0));
         mondayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mondayLabel.setText("Lunes");
         daysPanel.add(mondayLabel);
 
+        tuesdayLabel.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         tuesdayLabel.setForeground(new java.awt.Color(0, 0, 0));
         tuesdayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tuesdayLabel.setText("Martes");
         daysPanel.add(tuesdayLabel);
 
+        wednesdayLabel.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         wednesdayLabel.setForeground(new java.awt.Color(0, 0, 0));
         wednesdayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wednesdayLabel.setText("Miércoles");
         daysPanel.add(wednesdayLabel);
 
+        thursdayLabel.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         thursdayLabel.setForeground(new java.awt.Color(0, 0, 0));
         thursdayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         thursdayLabel.setText("Jueves");
         daysPanel.add(thursdayLabel);
 
+        fridayLabel.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         fridayLabel.setForeground(new java.awt.Color(0, 0, 0));
         fridayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fridayLabel.setText("Viernes");
@@ -126,6 +165,7 @@ public class View extends javax.swing.JFrame {
         crossPanel.setPreferredSize(new java.awt.Dimension(200, 40));
         crossPanel.setLayout(new java.awt.GridLayout(1, 0));
 
+        hourLabel.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         hourLabel.setForeground(new java.awt.Color(0, 0, 0));
         hourLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hourLabel.setText("HORA");
@@ -151,7 +191,7 @@ public class View extends javax.swing.JFrame {
         createSchedule.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/create.png"))); // NOI18N
         createSchedule.setText("Crear horario");
         configMenu.add(createSchedule);
-        configMenu.add(jSeparator1);
+        configMenu.add(separator7);
 
         reestartOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/reestart.png"))); // NOI18N
         reestartOption.setText("Reiniciar horario");
@@ -173,6 +213,10 @@ public class View extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void changeLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeLinkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeLinkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +256,11 @@ public class View extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenuItem addRowOption;
     public javax.swing.JPanel centerPanel;
+    public javax.swing.JMenuItem changeBackground;
+    public javax.swing.JMenuItem changeBackground2;
+    public javax.swing.JMenuItem changeHour;
+    public javax.swing.JMenuItem changeLink;
+    public javax.swing.JMenuItem changeName;
     public javax.swing.JMenu configMenu;
     public javax.swing.JPanel container;
     public javax.swing.JMenuItem createSchedule;
@@ -221,13 +270,18 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JLabel fridayLabel;
     public javax.swing.JLabel hourLabel;
     public javax.swing.JPanel hoursPanel;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
     public javax.swing.JMenuBar menuBar;
     public javax.swing.JLabel mondayLabel;
+    public javax.swing.JPopupMenu popupMenuCourse;
+    public javax.swing.JPopupMenu popupMenuHour;
     public javax.swing.JMenuItem reestartOption;
     private javax.swing.JPopupMenu.Separator separator1;
     public javax.swing.JPopupMenu.Separator separator2;
     public javax.swing.JPopupMenu.Separator separator3;
+    public javax.swing.JPopupMenu.Separator separator4;
+    public javax.swing.JPopupMenu.Separator separator5;
+    public javax.swing.JPopupMenu.Separator separator6;
+    public javax.swing.JPopupMenu.Separator separator7;
     public javax.swing.JMenuItem themeOption;
     public javax.swing.JLabel thursdayLabel;
     public javax.swing.JLabel tuesdayLabel;
