@@ -2,11 +2,17 @@ package ScheduleStructure;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JColorChooser;
 import javax.swing.JLabel;
@@ -97,6 +103,14 @@ public class Tile extends JLabel {
                             break;
                     }
                 }
+                if (e.getClickCount() == 2) {
+                    try {
+                        Desktop.getDesktop().browse(new URI(url));
+                    } catch (IOException ex) {
+                    } catch (URISyntaxException ex) {
+                        JOptionPane.showMessageDialog(null, "Ocurrió un error al intentar abrir el enlace de reunión, intenta verificar la información", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
             }
 
             @Override
@@ -128,6 +142,7 @@ public class Tile extends JLabel {
                 String link = JOptionPane.showInputDialog(null, "Ingrese el nuevo enlace", "Cambio de enlace", JOptionPane.INFORMATION_MESSAGE);
                 if (link.trim().length() > 0) {
                     url = link;
+                    JOptionPane.showMessageDialog(null, "Se guardo el enlace correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
