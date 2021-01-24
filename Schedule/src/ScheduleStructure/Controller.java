@@ -214,16 +214,16 @@ public class Controller {
         view.hoursPanel.setBackground(theme.containerColor);
         view.centerPanel.setBackground(theme.containerColor);
 
-        view.hourLabel.setForeground(theme.fontColor);
-        view.mondayLabel.setForeground(theme.fontColor);
-        view.tuesdayLabel.setForeground(theme.fontColor);
-        view.wednesdayLabel.setForeground(theme.fontColor);
-        view.thursdayLabel.setForeground(theme.fontColor);
-        view.fridayLabel.setForeground(theme.fontColor);
+        view.hourLabel.setForeground(theme.fontColor2);
+        view.mondayLabel.setForeground(theme.fontColor2);
+        view.tuesdayLabel.setForeground(theme.fontColor2);
+        view.wednesdayLabel.setForeground(theme.fontColor2);
+        view.thursdayLabel.setForeground(theme.fontColor2);
+        view.fridayLabel.setForeground(theme.fontColor2);
 
         for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.hoursPanel.getComponents()[i];
-            tile.setForeground(theme.fontColor);
+            tile.setForeground(theme.fontColor2);
             tile.setBackground(theme.hoursColor);
         }
 

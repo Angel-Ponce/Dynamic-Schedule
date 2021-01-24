@@ -28,6 +28,7 @@ public class Theme {
     public Color containerColor;
     public Color menuBarColor;
     public Color fontColor;
+    public Color fontColor2;
 
     public Theme(String theme) {
         switch (theme) {
@@ -38,6 +39,7 @@ public class Theme {
                 containerColor = Color.decode("#eceff1");
                 menuBarColor = Color.decode("#eceff1");
                 fontColor = Color.BLACK;
+                fontColor2 = Color.BLACK;
                 break;
             case BLUE_GRAY:
                 hoursColor = Color.decode("#000a12");
@@ -46,6 +48,7 @@ public class Theme {
                 containerColor = Color.decode("#263238");
                 menuBarColor = Color.decode("#263238");
                 fontColor = Color.WHITE;
+                fontColor2 = Color.WHITE;
                 break;
             case GRAY:
                 hoursColor = Color.decode("#494949");
@@ -54,6 +57,7 @@ public class Theme {
                 containerColor = Color.decode("#757575");
                 menuBarColor = Color.decode("#757575");
                 fontColor = Color.BLACK;
+                fontColor2 = Color.WHITE;
                 break;
             case DARK:
                 hoursColor = Color.decode("#000000");
@@ -62,6 +66,7 @@ public class Theme {
                 containerColor = Color.decode("#212121");
                 menuBarColor = Color.decode("#212121");
                 fontColor = Color.WHITE;
+                fontColor2 = Color.WHITE;
                 break;
             case PINK:
                 hoursColor = Color.decode("#c48b9f");
@@ -70,6 +75,7 @@ public class Theme {
                 containerColor = Color.decode("#f8bbd0");
                 menuBarColor = Color.decode("#f8bbd0");
                 fontColor = Color.BLACK;
+                fontColor2 = Color.BLACK;
                 break;
             case PURPLE:
                 hoursColor = Color.decode("#af8eb5");
@@ -78,6 +84,7 @@ public class Theme {
                 containerColor = Color.decode("#e1bee7");
                 menuBarColor = Color.decode("#e1bee7");
                 fontColor = Color.BLACK;
+                fontColor2 = Color.BLACK;
                 break;
             case LIGHT_BLUE:
                 hoursColor = Color.decode("#82b3c9");
@@ -86,6 +93,7 @@ public class Theme {
                 containerColor = Color.decode("#b3e5fc");
                 menuBarColor = Color.decode("#b3e5fc");
                 fontColor = Color.BLACK;
+                fontColor2 = Color.BLACK;
                 break;
             case ORANGE:
                 hoursColor = Color.decode("#c88719");
@@ -94,6 +102,7 @@ public class Theme {
                 containerColor = Color.decode("#ffb74d");
                 menuBarColor = Color.decode("#ffb74d");
                 fontColor = Color.BLACK;
+                fontColor2 = Color.BLACK;
                 break;
             default:
                 hoursColor = Color.decode("#babdbe");
@@ -102,6 +111,7 @@ public class Theme {
                 containerColor = Color.decode("#eceff1");
                 menuBarColor = Color.decode("#eceff1");
                 fontColor = Color.BLACK;
+                fontColor2 = Color.BLACK;
                 break;
         }
     }
