@@ -1,6 +1,7 @@
 package ScheduleStructure;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
@@ -28,6 +29,8 @@ public class Tile extends JLabel {
         this.courseName = courseName;
         this.url = url;
         this.hour = hour;
+        this.setSize(new Dimension(200,40));
+        this.setMinimumSize(new Dimension(200,40));
         this.setOpaque(true);
         this.setBackground(background);
         this.setVisible(true);

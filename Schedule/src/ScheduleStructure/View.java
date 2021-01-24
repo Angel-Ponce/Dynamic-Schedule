@@ -19,6 +19,10 @@ public class View extends javax.swing.JFrame {
      */
     public View() {
         initComponents();
+        System.out.println(crossPanel.getSize());
+        System.out.println(mondayLabel.getSize());
+        System.out.println(hoursPanel.getSize());
+        System.out.println(centerPanel.getSize());
     }
 
     /**
@@ -46,6 +50,8 @@ public class View extends javax.swing.JFrame {
         configMenu = new javax.swing.JMenu();
         addRowOption = new javax.swing.JMenuItem();
         separator1 = new javax.swing.JPopupMenu.Separator();
+        createSchedule = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         reestartOption = new javax.swing.JMenuItem();
         separator2 = new javax.swing.JPopupMenu.Separator();
         themeOption = new javax.swing.JMenuItem();
@@ -60,18 +66,20 @@ public class View extends javax.swing.JFrame {
         container.setLayout(new java.awt.GridBagLayout());
 
         hoursPanel.setBackground(new java.awt.Color(204, 255, 204));
+        hoursPanel.setMinimumSize(new java.awt.Dimension(200, 400));
+        hoursPanel.setPreferredSize(new java.awt.Dimension(200, 400));
         hoursPanel.setLayout(new java.awt.GridLayout(1, 1));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 200;
-        gridBagConstraints.ipady = 400;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         container.add(hoursPanel, gridBagConstraints);
 
         daysPanel.setBackground(new java.awt.Color(255, 204, 204));
+        daysPanel.setMinimumSize(new java.awt.Dimension(1000, 40));
+        daysPanel.setPreferredSize(new java.awt.Dimension(1000, 40));
         daysPanel.setLayout(new java.awt.GridLayout(1, 5));
 
         mondayLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -103,24 +111,23 @@ public class View extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1000;
-        gridBagConstraints.ipady = 40;
         gridBagConstraints.weightx = 1.0;
         container.add(daysPanel, gridBagConstraints);
 
         centerPanel.setBackground(new java.awt.Color(153, 153, 255));
+        centerPanel.setMinimumSize(new java.awt.Dimension(1000, 400));
+        centerPanel.setPreferredSize(new java.awt.Dimension(1000, 400));
         centerPanel.setLayout(new java.awt.GridLayout(1, 5));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 1000;
-        gridBagConstraints.ipady = 400;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         container.add(centerPanel, gridBagConstraints);
 
         crossPanel.setBackground(new java.awt.Color(204, 255, 255));
+        crossPanel.setPreferredSize(new java.awt.Dimension(200, 40));
         crossPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         hourLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -132,8 +139,6 @@ public class View extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 200;
-        gridBagConstraints.ipady = 40;
         gridBagConstraints.weightx = 1.0;
         container.add(crossPanel, gridBagConstraints);
 
@@ -146,6 +151,11 @@ public class View extends javax.swing.JFrame {
         addRowOption.setText("Agregar fila");
         configMenu.add(addRowOption);
         configMenu.add(separator1);
+
+        createSchedule.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/create.png"))); // NOI18N
+        createSchedule.setText("Crear horario");
+        configMenu.add(createSchedule);
+        configMenu.add(jSeparator1);
 
         reestartOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/reestart.png"))); // NOI18N
         reestartOption.setText("Reiniciar horario");
@@ -208,12 +218,14 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JPanel centerPanel;
     public javax.swing.JMenu configMenu;
     public javax.swing.JPanel container;
+    public javax.swing.JMenuItem createSchedule;
     public javax.swing.JPanel crossPanel;
     public javax.swing.JPanel daysPanel;
     public javax.swing.JMenuItem exitOption;
     public javax.swing.JLabel fridayLabel;
     public javax.swing.JLabel hourLabel;
     public javax.swing.JPanel hoursPanel;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     public javax.swing.JMenuBar menuBar;
     public javax.swing.JLabel mondayLabel;
     public javax.swing.JMenuItem reestartOption;
