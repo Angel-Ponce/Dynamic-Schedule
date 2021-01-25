@@ -178,11 +178,11 @@ public class View extends javax.swing.JFrame {
 
         lightTheme.setSelected(true);
         lightTheme.setText("Claro");
-        lightTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/light.jpeg"))); // NOI18N
+        lightTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/light.png"))); // NOI18N
         themeOptions.add(lightTheme);
 
         lightBlueTheme.setText("Azul-Claro");
-        lightBlueTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/light-blue.jpeg"))); // NOI18N
+        lightBlueTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/light-blue.png"))); // NOI18N
         lightBlueTheme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lightBlueThemeActionPerformed(evt);
@@ -191,19 +191,19 @@ public class View extends javax.swing.JFrame {
         themeOptions.add(lightBlueTheme);
 
         blueGrayTheme.setText("Gris-Azulado");
-        blueGrayTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blue-gray.jpeg"))); // NOI18N
+        blueGrayTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blue-gray.png"))); // NOI18N
         themeOptions.add(blueGrayTheme);
 
         grayTheme.setText("Gris");
-        grayTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gray.jpeg"))); // NOI18N
+        grayTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gray.png"))); // NOI18N
         themeOptions.add(grayTheme);
 
         orangeTheme.setText("Naranja");
-        orangeTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/orange.jpeg"))); // NOI18N
+        orangeTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/orange.png"))); // NOI18N
         themeOptions.add(orangeTheme);
 
         pinkTheme.setText("Rosa");
-        pinkTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pink.jpeg"))); // NOI18N
+        pinkTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pink.png"))); // NOI18N
         pinkTheme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pinkThemeActionPerformed(evt);
@@ -212,11 +212,11 @@ public class View extends javax.swing.JFrame {
         themeOptions.add(pinkTheme);
 
         purpleTheme.setText("Violeta");
-        purpleTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purple.jpeg"))); // NOI18N
+        purpleTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purple.png"))); // NOI18N
         themeOptions.add(purpleTheme);
 
         darkTheme.setText("Oscuro");
-        darkTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dark.jpeg"))); // NOI18N
+        darkTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dark.png"))); // NOI18N
         darkTheme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 darkThemeActionPerformed(evt);

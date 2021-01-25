@@ -1,2 +1,2 @@
-10
-purple
+15
+orange

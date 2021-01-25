@@ -84,7 +84,7 @@
                     <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Claro"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/light.jpeg"/>
+                      <Image iconType="3" name="/Images/light.png"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -95,7 +95,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Azul-Claro"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/light-blue.jpeg"/>
+                      <Image iconType="3" name="/Images/light-blue.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -109,7 +109,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Gris-Azulado"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/blue-gray.jpeg"/>
+                      <Image iconType="3" name="/Images/blue-gray.png"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -120,7 +120,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Gris"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/gray.jpeg"/>
+                      <Image iconType="3" name="/Images/gray.png"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -131,7 +131,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Naranja"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/orange.jpeg"/>
+                      <Image iconType="3" name="/Images/orange.png"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -142,7 +142,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Rosa"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/pink.jpeg"/>
+                      <Image iconType="3" name="/Images/pink.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -156,7 +156,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Violeta"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/purple.jpeg"/>
+                      <Image iconType="3" name="/Images/purple.png"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -167,7 +167,7 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Oscuro"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/dark.jpeg"/>
+                      <Image iconType="3" name="/Images/dark.png"/>
                     </Property>
                   </Properties>
                   <Events>
