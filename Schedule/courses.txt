@@ -1,5 +1,5 @@
-Hora,-3896417,f;Nombre random,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;
-Hora,-3896417,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;
-Hora,-3896417,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;
-Hora,-3896417,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;
-Hora,-3896417,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;Curso,url,-4353,f;
+Hora,-16777216,f;Nombre random,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;
+Hora,-16777216,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;
+Hora,-16777216,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;
+Hora,-16777216,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;
+Hora,-16777216,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;Curso,url,-12040120,f;

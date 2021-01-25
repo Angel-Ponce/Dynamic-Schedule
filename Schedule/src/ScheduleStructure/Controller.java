@@ -57,6 +57,11 @@ public class Controller {
         view.groupThemes.add(view.darkTheme);
         view.groupThemes.add(view.lightBlueTheme);
         view.groupThemes.add(view.orangeTheme);
+        view.groupFonts.add(view.verdanaFontOption);
+        view.groupFonts.add(view.timesNewRomanFontOption);
+        view.groupFonts.add(view.blackHighlightFontOption);
+        view.groupFonts.add(view.lettersFontOption);
+        view.groupFonts.add(view.josephSophiaFontOption);
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
@@ -258,7 +263,7 @@ public class Controller {
                 chooseFont(font.customFont);
             }
         });
-        
+
         view.blackHighlightFontOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -266,7 +271,7 @@ public class Controller {
                 chooseFont(font.customFont);
             }
         });
-        
+
         view.verdanaFontOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -274,7 +279,7 @@ public class Controller {
                 chooseFont(font.customFont);
             }
         });
-        
+
         view.lettersFontOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -282,7 +287,7 @@ public class Controller {
                 chooseFont(font.customFont);
             }
         });
-        
+
         view.josephSophiaFontOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
