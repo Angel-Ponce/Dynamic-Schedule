@@ -1,2 +1,2 @@
-15
-orange
+10
+dark

@@ -38,6 +38,10 @@ public class Controller {
     public void init() {
         //Default code before
         ArrayList<String> props = model.getProperties();
+        if (props.size() == 0) {
+            model.saveProperties(0, Theme.LIGHT);
+        }
+        props = model.getProperties();
         theme = new Theme(props.get(1));
         readCourses();
         chooseTheme();
