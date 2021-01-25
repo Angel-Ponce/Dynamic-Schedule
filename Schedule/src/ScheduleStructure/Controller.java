@@ -47,7 +47,7 @@ public class Controller {
         theme = new Theme(props.get(1));
         font = new CustomFont(props.get(2));
         readCourses();
-        chooseFont(font.customFont);
+        chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
         view.groupThemes.add(view.lightTheme);
         view.groupThemes.add(view.blueGrayTheme);
@@ -260,7 +260,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 font = new CustomFont(CustomFont.TIMESNEWROMAN);
-                chooseFont(font.customFont);
+                chooseFont(font.customFont, font.customFontBold);
             }
         });
 
@@ -268,7 +268,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 font = new CustomFont(CustomFont.BLACKHIGHLIGHT);
-                chooseFont(font.customFont);
+                chooseFont(font.customFont, font.customFontBold);
             }
         });
 
@@ -276,7 +276,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 font = new CustomFont(CustomFont.VERDANA);
-                chooseFont(font.customFont);
+                chooseFont(font.customFont, font.customFontBold);
             }
         });
 
@@ -284,7 +284,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 font = new CustomFont(CustomFont.LETTERS);
-                chooseFont(font.customFont);
+                chooseFont(font.customFont, font.customFontBold);
             }
         });
 
@@ -292,7 +292,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 font = new CustomFont(CustomFont.JOSEPHSOPHIA);
-                chooseFont(font.customFont);
+                chooseFont(font.customFont, font.customFontBold);
             }
         });
     }
@@ -334,18 +334,18 @@ public class Controller {
         view.pack();
     }
 
-    private void chooseFont(Font font) {
+    private void chooseFont(Font font, Font fontBold) {
         view.setFont(font);
         view.hourLabel.setFont(font);
-        view.mondayLabel.setFont(font);
-        view.tuesdayLabel.setFont(font);
-        view.wednesdayLabel.setFont(font);
-        view.thursdayLabel.setFont(font);
-        view.fridayLabel.setFont(font);
+        view.mondayLabel.setFont(fontBold);
+        view.tuesdayLabel.setFont(fontBold);
+        view.wednesdayLabel.setFont(fontBold);
+        view.thursdayLabel.setFont(fontBold);
+        view.fridayLabel.setFont(fontBold);
 
         for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.hoursPanel.getComponents()[i];
-            tile.setFont(font);
+            tile.setFont(fontBold);
         }
 
         for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {

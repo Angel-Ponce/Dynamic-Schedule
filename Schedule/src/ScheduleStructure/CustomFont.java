@@ -7,8 +7,6 @@ package ScheduleStructure;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -25,6 +23,7 @@ public class CustomFont {
     public static final String JOSEPHSOPHIA = "josephsophia";
 
     public Font customFont;
+    public Font customFontBold;
     public String fontString;
 
     public CustomFont(String font) {
@@ -32,15 +31,19 @@ public class CustomFont {
         switch (font) {
             case VERDANA:
                 customFont = new Font("Verdana", Font.PLAIN, 15);
+                customFontBold = new Font("Verdana", Font.BOLD, 15);
                 break;
             case TIMESNEWROMAN:
                 customFont = new Font("Times New Roman", Font.PLAIN, 20);
+                customFontBold = new Font("Times New Roman", Font.BOLD, 20);
                 break;
             case BLACKHIGHLIGHT: {
                 try {
                     InputStream is = getClass().getResourceAsStream("/Fonts/BLACK HIGHLIGHT.ttf");
                     customFont = Font.createFont(Font.TRUETYPE_FONT, is);
                     customFont = customFont.deriveFont(20f);
+
+                    customFontBold = customFont;
                 } catch (FontFormatException | IOException ex) {
                     ex.printStackTrace();
                 }
@@ -51,6 +54,8 @@ public class CustomFont {
                     InputStream is = getClass().getResourceAsStream("/Fonts/Letters for Learners.ttf");
                     customFont = Font.createFont(Font.TRUETYPE_FONT, is);
                     customFont = customFont.deriveFont(30f);
+
+                    customFontBold = customFont;
                 } catch (FontFormatException | IOException ex) {
                     ex.printStackTrace();
                 }
@@ -61,6 +66,8 @@ public class CustomFont {
                     InputStream is = getClass().getResourceAsStream("/Fonts/josephsophia.ttf");
                     customFont = Font.createFont(Font.TRUETYPE_FONT, is);
                     customFont = customFont.deriveFont(30f);
+
+                    customFontBold = customFont;
                 } catch (FontFormatException | IOException ex) {
                     ex.printStackTrace();
                 }
