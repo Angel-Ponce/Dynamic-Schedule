@@ -17,10 +17,11 @@ public class Model {
     private Txt properties = new Txt("properties");
     private Txt courses = new Txt("courses");
 
-    public void saveProperties(int rowCount, String theme) {
+    public void saveProperties(int rowCount, String theme, String font) {
         ArrayList<String> lines = new ArrayList();
         lines.add(String.valueOf(rowCount));
         lines.add(theme);
+        lines.add(font);
         properties.setLines(lines);
     }
 

@@ -1,5 +1,6 @@
 package ScheduleStructure;
 
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +27,7 @@ public class Controller {
     private Txt courses = new Txt("courses");
     private GridLayout hoursLayout;
     private GridLayout centerLayout;
+    private CustomFont font;
 
     public Controller(View view, Model model) {
         this.view = view;
@@ -39,11 +41,13 @@ public class Controller {
         //Default code before
         ArrayList<String> props = model.getProperties();
         if (props.size() == 0) {
-            model.saveProperties(0, Theme.LIGHT);
+            model.saveProperties(0, Theme.LIGHT, CustomFont.VERDANA);
         }
         props = model.getProperties();
         theme = new Theme(props.get(1));
+        font = new CustomFont(props.get(2));
         readCourses();
+        chooseFont(font.customFont);
         chooseTheme();
         view.groupThemes.add(view.lightTheme);
         view.groupThemes.add(view.blueGrayTheme);
@@ -80,7 +84,7 @@ public class Controller {
                     in += 5;
                 }
                 model.saveCourses(rows);
-                model.saveProperties(rows.size(), theme.theme);
+                model.saveProperties(rows.size(), theme.theme, font.fontString);
                 System.exit(0);
             }
         });
@@ -105,7 +109,7 @@ public class Controller {
                     in += 5;
                 }
                 model.saveCourses(rows);
-                model.saveProperties(rows.size(), theme.theme);
+                model.saveProperties(rows.size(), theme.theme, font.fontString);
                 System.exit(0);
             }
         });
@@ -176,7 +180,7 @@ public class Controller {
                     view.centerPanel.removeAll();
                     view.hoursPanel.repaint();
                     view.centerPanel.repaint();
-                    model.saveProperties(0, theme.theme);
+                    model.saveProperties(0, theme.theme, font.fontString);
                     courses.clear();
                     view.pack();
                 }
@@ -246,6 +250,46 @@ public class Controller {
                 chooseTheme();
             }
         });
+
+        view.timesNewRomanFontOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                font = new CustomFont(CustomFont.TIMESNEWROMAN);
+                chooseFont(font.customFont);
+            }
+        });
+        
+        view.blackHighlightFontOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                font = new CustomFont(CustomFont.BLACKHIGHLIGHT);
+                chooseFont(font.customFont);
+            }
+        });
+        
+        view.verdanaFontOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                font = new CustomFont(CustomFont.VERDANA);
+                chooseFont(font.customFont);
+            }
+        });
+        
+        view.lettersFontOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                font = new CustomFont(CustomFont.LETTERS);
+                chooseFont(font.customFont);
+            }
+        });
+        
+        view.josephSophiaFontOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                font = new CustomFont(CustomFont.JOSEPHSOPHIA);
+                chooseFont(font.customFont);
+            }
+        });
     }
 
     private void chooseTheme() {
@@ -278,6 +322,30 @@ public class Controller {
             if ("f".equals(tile.getColorChanged())) {
                 tile.setBackground(theme.coursesColor);
             }
+        }
+
+        view.hoursPanel.repaint();
+        view.centerPanel.repaint();
+        view.pack();
+    }
+
+    private void chooseFont(Font font) {
+        view.setFont(font);
+        view.hourLabel.setFont(font);
+        view.mondayLabel.setFont(font);
+        view.tuesdayLabel.setFont(font);
+        view.wednesdayLabel.setFont(font);
+        view.thursdayLabel.setFont(font);
+        view.fridayLabel.setFont(font);
+
+        for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
+            Tile tile = (Tile) view.hoursPanel.getComponents()[i];
+            tile.setFont(font);
+        }
+
+        for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
+            Tile tile = (Tile) view.centerPanel.getComponents()[i];
+            tile.setFont(font);
         }
 
         view.hoursPanel.repaint();

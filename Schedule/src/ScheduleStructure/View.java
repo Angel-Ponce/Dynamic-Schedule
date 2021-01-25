@@ -61,9 +61,17 @@ public class View extends javax.swing.JFrame {
         purpleTheme = new javax.swing.JRadioButtonMenuItem();
         darkTheme = new javax.swing.JRadioButtonMenuItem();
         separator4 = new javax.swing.JPopupMenu.Separator();
+        fontOptions = new javax.swing.JMenu();
+        verdanaFontOption = new javax.swing.JMenuItem();
+        timesNewRomanFontOption = new javax.swing.JMenuItem();
+        blackHighlightFontOption = new javax.swing.JMenuItem();
+        lettersFontOption = new javax.swing.JMenuItem();
+        josephSophiaFontOption = new javax.swing.JMenuItem();
+        separator5 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Horario");
         setMinimumSize(new java.awt.Dimension(1200, 540));
 
         container.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,6 +235,32 @@ public class View extends javax.swing.JFrame {
         configMenu.add(themeOptions);
         configMenu.add(separator4);
 
+        fontOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/font.png"))); // NOI18N
+        fontOptions.setText("Cambiar fuente");
+
+        verdanaFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
+        verdanaFontOption.setText("Verdana");
+        fontOptions.add(verdanaFontOption);
+
+        timesNewRomanFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
+        timesNewRomanFontOption.setText("TimesNewRoman");
+        fontOptions.add(timesNewRomanFontOption);
+
+        blackHighlightFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
+        blackHighlightFontOption.setText("Black Highlight");
+        fontOptions.add(blackHighlightFontOption);
+
+        lettersFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
+        lettersFontOption.setText("Letters");
+        fontOptions.add(lettersFontOption);
+
+        josephSophiaFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
+        josephSophiaFontOption.setText("JosephSophia");
+        fontOptions.add(josephSophiaFontOption);
+
+        configMenu.add(fontOptions);
+        configMenu.add(separator5);
+
         exitOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
         exitOption.setText("Salir");
         configMenu.add(exitOption);
@@ -287,6 +321,7 @@ public class View extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenuItem addRowOption;
+    public javax.swing.JMenuItem blackHighlightFontOption;
     public javax.swing.JRadioButtonMenuItem blueGrayTheme;
     public javax.swing.JPanel centerPanel;
     public javax.swing.JMenu configMenu;
@@ -296,11 +331,14 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JRadioButtonMenuItem darkTheme;
     public javax.swing.JPanel daysPanel;
     public javax.swing.JMenuItem exitOption;
+    public javax.swing.JMenu fontOptions;
     public javax.swing.JLabel fridayLabel;
     public javax.swing.JRadioButtonMenuItem grayTheme;
     public javax.swing.ButtonGroup groupThemes;
     public javax.swing.JLabel hourLabel;
     public javax.swing.JPanel hoursPanel;
+    public javax.swing.JMenuItem josephSophiaFontOption;
+    public javax.swing.JMenuItem lettersFontOption;
     public javax.swing.JRadioButtonMenuItem lightBlueTheme;
     public javax.swing.JRadioButtonMenuItem lightTheme;
     public javax.swing.JMenuBar menuBar;
@@ -313,9 +351,12 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JPopupMenu.Separator separator2;
     public javax.swing.JPopupMenu.Separator separator3;
     public javax.swing.JPopupMenu.Separator separator4;
+    public javax.swing.JPopupMenu.Separator separator5;
     public javax.swing.JMenu themeOptions;
     public javax.swing.JLabel thursdayLabel;
+    public javax.swing.JMenuItem timesNewRomanFontOption;
     public javax.swing.JLabel tuesdayLabel;
+    public javax.swing.JMenuItem verdanaFontOption;
     public javax.swing.JLabel wednesdayLabel;
     // End of variables declaration//GEN-END:variables
 }
