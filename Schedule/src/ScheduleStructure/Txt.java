@@ -23,16 +23,16 @@ public class Txt {
     private File file;
     private ArrayList<String> lines = new ArrayList();
 
-    public Txt(String nameCourse) {
+    public Txt(String fileName) {
         try {
-            file = new File(nameCourse + ".txt");
+            file = new File(fileName + ".txt");
             if (file.createNewFile()) {
                 System.out.println("file created succesfully");
             } else {
                 System.out.println("file already exist");
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información de este curso", "Errro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información" + fileName, "Errro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
