@@ -133,10 +133,12 @@ public class Tile extends JLabel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre", "Cambio de nombre", JOptionPane.INFORMATION_MESSAGE);
-                if (name.trim().length() > 0) {
-                    JLabel label = (JLabel) componentClicked;
-                    label.setText(name.trim());
-                    courseName = name;
+                if (name != null) {
+                    if (name.trim().length() > 0) {
+                        JLabel label = (JLabel) componentClicked;
+                        label.setText(name.trim());
+                        courseName = name;
+                    }
                 }
             }
         });
@@ -145,9 +147,11 @@ public class Tile extends JLabel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String link = JOptionPane.showInputDialog(null, "Ingrese el nuevo enlace", "Cambio de enlace", JOptionPane.INFORMATION_MESSAGE);
-                if (link.trim().length() > 0) {
-                    url = link;
-                    JOptionPane.showMessageDialog(null, "Se guardo el enlace correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+                if (link != null) {
+                    if (link.trim().length() > 0) {
+                        url = link;
+                        JOptionPane.showMessageDialog(null, "Se guardo el enlace correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+                    }
                 }
             }
         });
@@ -156,10 +160,12 @@ public class Tile extends JLabel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String newHour = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre", "Cambio de nombre", JOptionPane.INFORMATION_MESSAGE);
-                if (newHour.trim().length() > 0) {
-                    JLabel label = (JLabel) componentClicked;
-                    label.setText(newHour.trim());
-                    hour = newHour;
+                if (newHour != null) {
+                    if (newHour.trim().length() > 0) {
+                        JLabel label = (JLabel) componentClicked;
+                        label.setText(newHour.trim());
+                        hour = newHour;
+                    }
                 }
             }
         });
