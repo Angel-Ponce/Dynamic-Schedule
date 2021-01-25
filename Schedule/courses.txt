@@ -2,7 +2,7 @@ Hora,-3635431,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,
 Hora,-3635431,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;
 Hora,-3635431,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;
 Hora,-3635431,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;
-Hora,-3635431,f;Curso,url,-5763,f;Nombre de Curso,https://facebook.com,-10066177,v;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;
+Hora,-3635431,f;Curso,url,-5763,f;Nombre de Curso,https://facebook.com,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;
 Hora,-3635431,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;
 Hora,-3635431,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;
 Hora,-3635431,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;Curso,url,-5763,f;

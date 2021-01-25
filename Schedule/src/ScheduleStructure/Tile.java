@@ -32,7 +32,8 @@ public class Tile extends JLabel {
 
     public static final String HOUR = "h";
     public static final String COURSE = "c";
-    public String colorChanged = "f";
+    private String colorChanged = "f";
+    private Theme theme;
     private String type;
     private String courseName;
     private String url;
@@ -47,6 +48,8 @@ public class Tile extends JLabel {
     private JMenuItem changeHour;
     private JSeparator separator3;
     private JMenuItem changeBackground2;
+    private JMenuItem quitColor;
+    private JMenuItem quitColor2;
     private Component componentClicked = null;
 
     public Tile(String type, String courseName, String url, String hour, Color background) {
@@ -110,6 +113,8 @@ public class Tile extends JLabel {
                     } catch (URISyntaxException ex) {
                         JOptionPane.showMessageDialog(null, "Ocurrió un error al intentar abrir el enlace de reunión, intenta verificar la información", "Error", JOptionPane.ERROR_MESSAGE);
                     }
+                } else {
+                    //Window information tile
                 }
             }
 
@@ -166,7 +171,7 @@ public class Tile extends JLabel {
                 if (background != null) {
                     JLabel label = (JLabel) componentClicked;
                     label.setBackground(background);
-                    colorChanged = "v";
+                    setColorChanged("v");
                 }
             }
         });
@@ -178,8 +183,26 @@ public class Tile extends JLabel {
                 if (background != null) {
                     JLabel label = (JLabel) componentClicked;
                     label.setBackground(background);
-                    colorChanged = "v";
+                    setColorChanged("v");
                 }
+            }
+        });
+
+        quitColor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JLabel label = (JLabel) componentClicked;
+                label.setBackground(getTheme().coursesColor);
+                setColorChanged("f");
+            }
+        });
+
+        quitColor2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JLabel label = (JLabel) componentClicked;
+                label.setBackground(getTheme().hoursColor);
+                setColorChanged("f");
             }
         });
     }
@@ -195,6 +218,9 @@ public class Tile extends JLabel {
         changeHour = new JMenuItem();
         separator3 = new JSeparator();
         changeBackground2 = new JMenuItem();
+        quitColor = new JMenuItem();
+        quitColor2 = new JMenuItem();
+
         changeName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
         changeName.setText("Cambiar nombre");
         popupMenuCourse.add(changeName);
@@ -219,6 +245,14 @@ public class Tile extends JLabel {
         changeBackground2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
         changeBackground2.setText("Cambiar color");
         popupMenuHour.add(changeBackground2);
+
+        quitColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/noColor.png")));
+        quitColor.setText("Quitar color");
+        popupMenuCourse.add(quitColor);
+
+        quitColor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/noColor.png")));
+        quitColor2.setText("Quitar color");
+        popupMenuHour.add(quitColor2);
 
     }
 
@@ -252,6 +286,22 @@ public class Tile extends JLabel {
 
     public void setHour(String hour) {
         this.hour = hour;
+    }
+
+    public String getColorChanged() {
+        return colorChanged;
+    }
+
+    public void setColorChanged(String colorChanged) {
+        this.colorChanged = colorChanged;
+    }
+
+    public Theme getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Theme theme) {
+        this.theme = theme;
     }
 
 }

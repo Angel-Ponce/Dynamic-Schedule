@@ -261,7 +261,8 @@ public class Controller {
         for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.hoursPanel.getComponents()[i];
             tile.setForeground(theme.fontColor2);
-            if ("f".equals(tile.colorChanged)) {
+            tile.setTheme(theme);
+            if ("f".equals(tile.getColorChanged())) {
                 tile.setBackground(theme.hoursColor);
             }
         }
@@ -269,7 +270,8 @@ public class Controller {
         for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.centerPanel.getComponents()[i];
             tile.setForeground(theme.fontColor);
-            if ("f".equals(tile.colorChanged)) {
+            tile.setTheme(theme);
+            if ("f".equals(tile.getColorChanged())) {
                 tile.setBackground(theme.coursesColor);
             }
         }
