@@ -1,5 +1,0 @@
-Hora,-8211511,f;Nombre random,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;
-Hora,-8211511,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;
-Hora,-8211511,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;
-Hora,-8211511,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;
-Hora,-8211511,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;Curso,url,-1638401,f;
