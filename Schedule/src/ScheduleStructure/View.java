@@ -185,11 +185,13 @@ public class View extends javax.swing.JFrame {
         themeOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/theme.png"))); // NOI18N
         themeOptions.setText("Cambiar tema");
 
+        groupThemes.add(lightTheme);
         lightTheme.setSelected(true);
         lightTheme.setText("Claro");
         lightTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/light.png"))); // NOI18N
         themeOptions.add(lightTheme);
 
+        groupThemes.add(lightBlueTheme);
         lightBlueTheme.setText("Azul-Claro");
         lightBlueTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/light-blue.png"))); // NOI18N
         lightBlueTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -199,18 +201,22 @@ public class View extends javax.swing.JFrame {
         });
         themeOptions.add(lightBlueTheme);
 
+        groupThemes.add(blueGrayTheme);
         blueGrayTheme.setText("Gris-Azulado");
         blueGrayTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blue-gray.png"))); // NOI18N
         themeOptions.add(blueGrayTheme);
 
+        groupThemes.add(grayTheme);
         grayTheme.setText("Gris");
         grayTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gray.png"))); // NOI18N
         themeOptions.add(grayTheme);
 
+        groupThemes.add(orangeTheme);
         orangeTheme.setText("Naranja");
         orangeTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/orange.png"))); // NOI18N
         themeOptions.add(orangeTheme);
 
+        groupThemes.add(pinkTheme);
         pinkTheme.setText("Rosa");
         pinkTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pink.png"))); // NOI18N
         pinkTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -220,10 +226,12 @@ public class View extends javax.swing.JFrame {
         });
         themeOptions.add(pinkTheme);
 
+        groupThemes.add(purpleTheme);
         purpleTheme.setText("Violeta");
         purpleTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purple.png"))); // NOI18N
         themeOptions.add(purpleTheme);
 
+        groupThemes.add(darkTheme);
         darkTheme.setText("Oscuro");
         darkTheme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dark.png"))); // NOI18N
         darkTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -239,6 +247,7 @@ public class View extends javax.swing.JFrame {
         fontOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/font.png"))); // NOI18N
         fontOptions.setText("Cambiar fuente");
 
+        groupFonts.add(verdanaFontOption);
         verdanaFontOption.setSelected(true);
         verdanaFontOption.setText("Verdana");
         verdanaFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
@@ -249,6 +258,7 @@ public class View extends javax.swing.JFrame {
         });
         fontOptions.add(verdanaFontOption);
 
+        groupFonts.add(timesNewRomanFontOption);
         timesNewRomanFontOption.setText("Times New Roman");
         timesNewRomanFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
         timesNewRomanFontOption.addActionListener(new java.awt.event.ActionListener() {
@@ -258,6 +268,7 @@ public class View extends javax.swing.JFrame {
         });
         fontOptions.add(timesNewRomanFontOption);
 
+        groupFonts.add(blackHighlightFontOption);
         blackHighlightFontOption.setText("Black Highlight");
         blackHighlightFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
         blackHighlightFontOption.addActionListener(new java.awt.event.ActionListener() {
@@ -267,6 +278,7 @@ public class View extends javax.swing.JFrame {
         });
         fontOptions.add(blackHighlightFontOption);
 
+        groupFonts.add(lettersFontOption);
         lettersFontOption.setText("Letters");
         lettersFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
         lettersFontOption.addActionListener(new java.awt.event.ActionListener() {
@@ -276,6 +288,7 @@ public class View extends javax.swing.JFrame {
         });
         fontOptions.add(lettersFontOption);
 
+        groupFonts.add(josephSophiaFontOption);
         josephSophiaFontOption.setText("JosephSophia");
         josephSophiaFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
         josephSophiaFontOption.addActionListener(new java.awt.event.ActionListener() {

@@ -105,7 +105,7 @@ public class Tile extends JLabel {
                             break;
                     }
                 }
-                if (e.getClickCount() == 2) {
+                if (e.getClickCount() == 2 && !getType().equals(Tile.HOUR)) {
                     try {
                         Desktop.getDesktop().browse(new URI(url));
                     } catch (IOException ex) {

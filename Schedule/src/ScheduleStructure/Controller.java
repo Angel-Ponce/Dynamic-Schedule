@@ -49,19 +49,6 @@ public class Controller {
         readCourses();
         chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
-        view.groupThemes.add(view.lightTheme);
-        view.groupThemes.add(view.blueGrayTheme);
-        view.groupThemes.add(view.grayTheme);
-        view.groupThemes.add(view.pinkTheme);
-        view.groupThemes.add(view.purpleTheme);
-        view.groupThemes.add(view.darkTheme);
-        view.groupThemes.add(view.lightBlueTheme);
-        view.groupThemes.add(view.orangeTheme);
-        view.groupFonts.add(view.verdanaFontOption);
-        view.groupFonts.add(view.timesNewRomanFontOption);
-        view.groupFonts.add(view.blackHighlightFontOption);
-        view.groupFonts.add(view.lettersFontOption);
-        view.groupFonts.add(view.josephSophiaFontOption);
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
@@ -134,7 +121,6 @@ public class Controller {
 //                view.hoursPanel.repaint();
 //                view.centerPanel.repaint();
 //                view.pack();
-                JOptionPane.showMessageDialog(null, "Estamos trabajando en ello!", "Información", JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
@@ -142,10 +128,10 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (Integer.parseInt(properties.getLines().get(0)) == 0) {
-                    String res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
+                    String res = JOptionPane.showInputDialog(null, "¿Cuántas horas (filas) tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
                     if (res != null) {
                         while (!res.matches("^\\d+$")) {
-                            res = JOptionPane.showInputDialog(null, "¿Cuántas filas tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
+                            res = JOptionPane.showInputDialog(null, "¿Cuántas horas (filas) tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
                             if (res == null) {
                                 break;
                             }
@@ -170,6 +156,7 @@ public class Controller {
                         }
                     }
                     chooseTheme();
+                    chooseFont(font.customFont, font.customFontBold);
                 } else {
                     JOptionPane.showMessageDialog(null, "No se puede crear un horario nuevo porque actualmente ya existe uno.\nPara crear uno nuevo reinicie el horario porfavor", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -313,18 +300,18 @@ public class Controller {
 
         for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.hoursPanel.getComponents()[i];
-            tile.setForeground(theme.fontColor2);
             tile.setTheme(theme);
             if ("f".equals(tile.getColorChanged())) {
+                tile.setForeground(theme.fontColor2);
                 tile.setBackground(theme.hoursColor);
             }
         }
 
         for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.centerPanel.getComponents()[i];
-            tile.setForeground(theme.fontColor);
             tile.setTheme(theme);
             if ("f".equals(tile.getColorChanged())) {
+                tile.setForeground(theme.fontColor);
                 tile.setBackground(theme.coursesColor);
             }
         }

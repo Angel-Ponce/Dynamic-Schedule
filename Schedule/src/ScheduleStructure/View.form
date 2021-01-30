@@ -86,6 +86,9 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="lightTheme">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupThemes"/>
+                    </Property>
                     <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Claro"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -98,6 +101,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="lightBlueTheme">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupThemes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Azul-Claro"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/light-blue.png"/>
@@ -112,6 +118,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="blueGrayTheme">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupThemes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Gris-Azulado"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/blue-gray.png"/>
@@ -123,6 +132,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="grayTheme">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupThemes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Gris"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/gray.png"/>
@@ -134,6 +146,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="orangeTheme">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupThemes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Naranja"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/orange.png"/>
@@ -145,6 +160,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="pinkTheme">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupThemes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Rosa"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/pink.png"/>
@@ -159,6 +177,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="purpleTheme">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupThemes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Violeta"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/purple.png"/>
@@ -170,6 +191,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="darkTheme">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupThemes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Oscuro"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/dark.png"/>
@@ -202,6 +226,9 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="verdanaFontOption">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupFonts"/>
+                    </Property>
                     <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Verdana"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -217,6 +244,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="timesNewRomanFontOption">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupFonts"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Times New Roman"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/f.png"/>
@@ -231,6 +261,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="blackHighlightFontOption">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupFonts"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Black Highlight"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/f.png"/>
@@ -245,6 +278,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="lettersFontOption">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupFonts"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Letters"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/f.png"/>
@@ -259,6 +295,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JRadioButtonMenuItem" name="josephSophiaFontOption">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="groupFonts"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="JosephSophia"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/Images/f.png"/>
