@@ -32,7 +32,7 @@ public class Txt {
                 System.out.println("file already exist");
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información" + fileName, "Errro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información" + fileName, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -48,7 +48,7 @@ public class Txt {
                 lines.add(linea);
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información de este curso", "Errro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información", "Error", JOptionPane.ERROR_MESSAGE);
         }
         return lines;
     }
@@ -64,14 +64,14 @@ public class Txt {
                 pw.println(l);
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información de este curso", "Errro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información", "Error", JOptionPane.ERROR_MESSAGE);
         } finally {
             try {
                 if (null != pw) {
                     pw.close();
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información de este curso", "Errro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -90,7 +90,7 @@ public class Txt {
                     pw.close();
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información de este curso", "Errro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
