@@ -114,18 +114,21 @@ public class Controller {
         view.addRowOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-//                Row row = new Row(theme);
-//                row.hour.setText(row.hour.getHour());
-//                view.hoursPanel.add(row.hour, -1);
-//                for (Tile day : row.days) {
-//                    day.setText(day.getCourseName());
-//                    view.centerPanel.add(day, -1);
-//                }
-//                hoursLayout.setRows(hoursLayout.getRows() + 1);
-//                centerLayout.setRows(centerLayout.getRows() + 1);
-//                view.hoursPanel.repaint();
-//                view.centerPanel.repaint();
-//                view.pack();
+                Row row = new Row(theme);
+                row.hour.setText(row.hour.getHour());
+                view.hoursPanel.add(row.hour, -1);
+                for (Tile day : row.days) {
+                    day.setText(day.getCourseName());
+                    view.centerPanel.add(day, -1);
+                }
+                hoursLayout.setRows(hoursLayout.getRows() + 1);
+                centerLayout.setRows(centerLayout.getRows() + 1);
+                view.hoursPanel.repaint();
+                view.centerPanel.repaint();
+                view.pack();
+                chooseTheme();
+                chooseFont(font.customFont, font.customFontBold);
+                model.saveProperties(hoursLayout.getRows(), theme.theme, font.fontString);
             }
         });
 
@@ -143,25 +146,9 @@ public class Controller {
                         }
                         if (res != null) {
                             int rows = Integer.parseInt(res);
-                            hoursLayout.setRows(rows);
-                            centerLayout.setRows(rows);
-
-                            for (int i = 0; i < rows; i++) {
-                                Row row = new Row(theme);
-                                row.hour.setText(row.hour.getHour());
-                                view.hoursPanel.add(row.hour, -1);
-                                for (Tile day : row.days) {
-                                    day.setText(day.getCourseName());
-                                    view.centerPanel.add(day, -1);
-                                }
-                                view.hoursPanel.repaint();
-                                view.centerPanel.repaint();
-                                view.pack();
-                            }
+                            insertRows(rows);
                         }
                     }
-                    chooseTheme();
-                    chooseFont(font.customFont, font.customFontBold);
                 } else {
                     JOptionPane.showMessageDialog(null, "No se puede crear un horario nuevo porque actualmente ya existe uno.\nPara crear uno nuevo reinicie el horario porfavor", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -178,6 +165,8 @@ public class Controller {
                     view.hoursPanel.repaint();
                     view.centerPanel.repaint();
                     model.saveProperties(0, theme.theme, font.fontString);
+                    hoursLayout.setRows(0);
+                    centerLayout.setRows(0);
                     courses.clear();
                     view.pack();
                 }
@@ -368,6 +357,25 @@ public class Controller {
             view.centerPanel.repaint();
             view.pack();
         }
+    }
+
+    private void insertRows(int rows) {
+        hoursLayout.setRows(rows);
+        centerLayout.setRows(rows);
+        for (int i = 0; i < rows; i++) {
+            Row row = new Row(theme);
+            row.hour.setText(row.hour.getHour());
+            view.hoursPanel.add(row.hour, -1);
+            for (Tile day : row.days) {
+                day.setText(day.getCourseName());
+                view.centerPanel.add(day, -1);
+            }
+            view.hoursPanel.repaint();
+            view.centerPanel.repaint();
+            view.pack();
+        }
+        chooseTheme();
+        chooseFont(font.customFont, font.customFontBold);
     }
 
     class Process extends Thread {
