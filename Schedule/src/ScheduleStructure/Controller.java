@@ -1,6 +1,5 @@
 package ScheduleStructure;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
-import javax.swing.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -64,9 +62,6 @@ public class Controller {
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
-
-    int count = 0;
-    Timer timer;
 
     private void events() {
 
@@ -152,16 +147,6 @@ public class Controller {
                     String res = view.responseQuestion.getText();
                     if (!res.isEmpty() && accept) {
                         while (!res.matches("^\\d+$")) {
-                            count = 0;
-                            timer = new Timer(50, (ActionEvent ae) -> {
-                                view.responseQuestion.setBackground(Color.decode("#ff7373"));
-                                count++;
-                                if (count == 10) {
-                                    view.responseQuestion.setBackground(Color.WHITE);
-                                    timer.stop();
-                                }
-                            });
-                            timer.start();
                             accept = false;
                             view.responseQuestion.setText("");
                             view.popupQuestion.setVisible(true);
