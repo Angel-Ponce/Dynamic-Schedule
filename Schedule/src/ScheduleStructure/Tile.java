@@ -159,7 +159,7 @@ public class Tile extends JLabel {
         changeHour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String newHour = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre", "Cambio de nombre", JOptionPane.INFORMATION_MESSAGE);
+                String newHour = JOptionPane.showInputDialog(null, "Ingrese la nueva hora", "Cambio de nombre", JOptionPane.INFORMATION_MESSAGE);
                 if (newHour != null) {
                     if (newHour.trim().length() > 0) {
                         JLabel label = (JLabel) componentClicked;

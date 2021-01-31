@@ -49,11 +49,11 @@ public class Controller {
         theme = new Theme(props.get(1));
         font = new CustomFont(props.get(2));
         view.popupCharge.setLocationRelativeTo(null);
-        Process process = new Process(view.popupCharge, view.progressBar);
-        process.run();
         readCourses();
         chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
+        Process process = new Process(view.popupCharge, view.progressBar);
+        process.run();
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
@@ -386,7 +386,6 @@ public class Controller {
                 dialog.setVisible(true);
                 for (int i = 1; i <= 100; i++) {
                     progress.setValue(i);
-                    System.out.println(i);
                     Process.sleep(7);
                 }
                 dialog.setVisible(false);
