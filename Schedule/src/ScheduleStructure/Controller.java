@@ -293,11 +293,20 @@ public class Controller {
         view.thursdayLabel.setForeground(theme.fontColor2);
         view.fridayLabel.setForeground(theme.fontColor2);
 
+        Tile.THEME = theme;
+
+        if (view.hoursPanel.getComponents().length > 0) {
+            Tile.containerInformation.setBackground(theme.daysColor);
+            Tile.messageInformation.setForeground(theme.fontColor2);
+            Tile.aceptButton.setBackground(theme.containerColor);
+            Tile.aceptButton.setForeground(theme.fontColor);
+        }
+
         for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.hoursPanel.getComponents()[i];
             tile.setTheme(theme);
+            tile.setForeground(theme.fontColor2);
             if ("f".equals(tile.getColorChanged())) {
-                tile.setForeground(theme.fontColor2);
                 tile.setBackground(theme.hoursColor);
             }
         }
@@ -305,8 +314,8 @@ public class Controller {
         for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
             Tile tile = (Tile) view.centerPanel.getComponents()[i];
             tile.setTheme(theme);
+            tile.setForeground(theme.fontColor);
             if ("f".equals(tile.getColorChanged())) {
-                tile.setForeground(theme.fontColor);
                 tile.setBackground(theme.coursesColor);
             }
         }

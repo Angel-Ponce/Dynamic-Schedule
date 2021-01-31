@@ -23,18 +23,12 @@ public class Row {
     ArrayList<Tile> days = new ArrayList();
 
     public Row(Theme th) {
-        hour = new Tile(Tile.HOUR, "", "", "Hora", th.hoursColor);
-        hour.setTheme(th);
-        monday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor);
-        monday.setTheme(th);
-        tuesday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor);
-        tuesday.setTheme(th);
-        wednesday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor);
-        wednesday.setTheme(th);
-        thursday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor);
-        thursday.setTheme(th);
-        friday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor);
-        friday.setTheme(th);
+        hour = new Tile(Tile.HOUR, "", "", "Hora", th.hoursColor, th);
+        monday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor, th);
+        tuesday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor, th);
+        wednesday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor, th);
+        thursday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor, th);
+        friday = new Tile(Tile.COURSE, "Curso", "url", "", th.coursesColor, th);
         days.add(monday);
         days.add(tuesday);
         days.add(wednesday);

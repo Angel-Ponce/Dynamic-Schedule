@@ -1,23 +1,32 @@
 package ScheduleStructure;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JColorChooser;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JSeparator;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -49,15 +58,25 @@ public class Tile extends JLabel {
     private JSeparator separator3;
     private JMenuItem changeBackground2;
     private JMenuItem quitColor;
+    private JSeparator separator4;
     private JMenuItem quitColor2;
-    private Component componentClicked = null;
+    private JSeparator separator5;
+    public static Theme THEME = new Theme(new Txt("properties").getLines().get(1));
+    public static JDialog popupInformation;
+    public static JPanel containerInformation;
+    public static JLabel messageInformation;
+    public static JTextField informationField;
+    public static JButton aceptButton;
+    public static Component componentClicked = null;
+    public static boolean changeProperty = false;
 
-    public Tile(String type, String courseName, String url, String hour, Color background) {
+    public Tile(String type, String courseName, String url, String hour, Color background, Theme theme) {
         initComponents();
         this.type = type;
         this.courseName = courseName;
         this.url = url;
         this.hour = hour;
+        this.theme = theme;
         this.setFont(new Font("Verdana", Font.PLAIN, 15));
         this.setHorizontalAlignment(JLabel.CENTER);
         this.setOpaque(true);
@@ -132,13 +151,15 @@ public class Tile extends JLabel {
         changeName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre", "Cambio de nombre", JOptionPane.INFORMATION_MESSAGE);
-                if (name != null) {
-                    if (name.trim().length() > 0) {
-                        JLabel label = (JLabel) componentClicked;
-                        label.setText(name.trim());
-                        courseName = name;
-                    }
+                messageInformation.setText("Ingrese el nuevo nombre:");
+                informationField.setText(getCourseName());
+                popupInformation.setVisible(true);
+                String name = informationField.getText();
+                if (name != null && changeProperty) {
+                    JLabel label = (JLabel) componentClicked;
+                    label.setText(name.trim());
+                    courseName = name;
+                    changeProperty = false;
                 }
             }
         });
@@ -146,12 +167,14 @@ public class Tile extends JLabel {
         changeLink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String link = JOptionPane.showInputDialog(null, "Ingrese el nuevo enlace", "Cambio de enlace", JOptionPane.INFORMATION_MESSAGE);
-                if (link != null) {
-                    if (link.trim().length() > 0) {
-                        url = link;
-                        JOptionPane.showMessageDialog(null, "Se guardo el enlace correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-                    }
+                messageInformation.setText("Ingrese el nuevo enlace");
+                informationField.setText(getUrl());
+                popupInformation.setVisible(true);
+                String link = informationField.getText();
+                if (link != null && changeProperty) {
+                    url = link;
+                    changeProperty = false;
+                    JOptionPane.showMessageDialog(null, "Se guardo el enlace correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
@@ -159,13 +182,15 @@ public class Tile extends JLabel {
         changeHour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String newHour = JOptionPane.showInputDialog(null, "Ingrese la nueva hora", "Cambio de nombre", JOptionPane.INFORMATION_MESSAGE);
-                if (newHour != null) {
-                    if (newHour.trim().length() > 0) {
-                        JLabel label = (JLabel) componentClicked;
-                        label.setText(newHour.trim());
-                        hour = newHour;
-                    }
+                messageInformation.setText("Ingrese la nueva hora");
+                informationField.setText(getHour());
+                popupInformation.setVisible(true);
+                String newHour = informationField.getText();
+                if (newHour != null && changeProperty) {
+                    JLabel label = (JLabel) componentClicked;
+                    label.setText(newHour.trim());
+                    hour = newHour;
+                    changeProperty = false;
                 }
             }
         });
@@ -213,6 +238,26 @@ public class Tile extends JLabel {
                 setColorChanged("f");
             }
         });
+
+        Tile.aceptButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                changeProperty = true;
+                Tile.popupInformation.setVisible(false);
+            }
+        });
+
+        Tile.informationField.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+                if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+                    changeProperty = true;
+                    Tile.popupInformation.setVisible(false);
+                }
+            }
+
+        });
     }
 
     private void initComponents() {
@@ -227,7 +272,9 @@ public class Tile extends JLabel {
         separator3 = new JSeparator();
         changeBackground2 = new JMenuItem();
         quitColor = new JMenuItem();
+        separator4 = new JSeparator();
         quitColor2 = new JMenuItem();
+        separator5 = new JSeparator();
 
         changeName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
         changeName.setText("Cambiar nombre");
@@ -243,6 +290,7 @@ public class Tile extends JLabel {
         changeBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
         changeBackground.setText("Cambiar color");
         popupMenuCourse.add(changeBackground);
+        popupMenuCourse.add(separator4);
 
         changeHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png")));
         changeHour.setText("Cambiar hora");
@@ -253,6 +301,7 @@ public class Tile extends JLabel {
         changeBackground2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
         changeBackground2.setText("Cambiar color");
         popupMenuHour.add(changeBackground2);
+        popupMenuHour.add(separator5);
 
         quitColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/noColor.png")));
         quitColor.setText("Quitar color");
@@ -261,6 +310,43 @@ public class Tile extends JLabel {
         quitColor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/noColor.png")));
         quitColor2.setText("Quitar color");
         popupMenuHour.add(quitColor2);
+
+        popupInformation = new JDialog((JDialog) null, true);
+        popupInformation.setBounds(0, 0, 500, 150);
+        popupInformation.setMinimumSize(new Dimension(500, 150));
+        popupInformation.setLocationRelativeTo(null);
+        popupInformation.setLayout(new BorderLayout());
+
+        containerInformation = new JPanel();
+        containerInformation.setBounds(0, 0, 500, 100);
+        containerInformation.setBackground(THEME.daysColor);
+        containerInformation.setVisible(true);
+        GridLayout gl = new GridLayout();
+        gl.setColumns(1);
+        gl.setRows(3);
+        containerInformation.setLayout(gl);
+        popupInformation.add(containerInformation);
+
+        messageInformation = new JLabel();
+        messageInformation.setForeground(THEME.fontColor2);
+        messageInformation.setFont(new Font("Verdana", Font.BOLD, 14));
+        messageInformation.setHorizontalAlignment(JLabel.CENTER);
+        messageInformation.setVisible(true);
+        containerInformation.add(messageInformation, -1);
+
+        informationField = new JTextField();
+        informationField.setForeground(Color.BLACK);
+        informationField.setFont(new Font("Verdana", Font.PLAIN, 14));
+        informationField.setVisible(true);
+        containerInformation.add(informationField, -1);
+
+        aceptButton = new JButton("Aceptar");
+        aceptButton.setSize(500, 50);
+        aceptButton.setBackground(THEME.containerColor);
+        aceptButton.setForeground(THEME.fontColor);
+        aceptButton.setFont(new Font("Verdana", Font.BOLD, 14));
+        aceptButton.setVisible(true);
+        containerInformation.add(aceptButton, -1);
 
     }
 

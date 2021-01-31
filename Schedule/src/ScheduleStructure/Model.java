@@ -51,12 +51,12 @@ public class Model {
             ArrayList<Tile> tiles = new ArrayList();
             tilesString = row.split(";");
             String[] tileHour = tilesString[0].split(",");
-            Tile hour = new Tile(Tile.HOUR, "", "", tileHour[0], new Color(Integer.parseInt(tileHour[1])));
+            Tile hour = new Tile(Tile.HOUR, "", "", tileHour[0], new Color(Integer.parseInt(tileHour[1])), null);
             hour.setColorChanged(tileHour[2]);
             tiles.add(hour);
             for (int i = 1; i < tilesString.length; i++) {
                 String[] dayTile = tilesString[i].split(",");
-                Tile day = new Tile(Tile.COURSE, dayTile[0], dayTile[1], "", new Color(Integer.parseInt(dayTile[2])));
+                Tile day = new Tile(Tile.COURSE, dayTile[0], dayTile[1], "", new Color(Integer.parseInt(dayTile[2])), null);
                 day.setColorChanged(dayTile[3]);
                 tiles.add(day);
             }
