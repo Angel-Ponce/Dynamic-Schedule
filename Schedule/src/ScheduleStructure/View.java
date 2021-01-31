@@ -75,19 +75,21 @@ public class View extends javax.swing.JFrame {
         separator5 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
 
-        popupCharge.setMinimumSize(new java.awt.Dimension(400, 100));
-        popupCharge.setModal(true);
+        popupCharge.setMinimumSize(new java.awt.Dimension(400, 50));
         popupCharge.setUndecorated(true);
-        popupCharge.setPreferredSize(new java.awt.Dimension(400, 100));
-        popupCharge.setSize(new java.awt.Dimension(400, 100));
+        popupCharge.setPreferredSize(new java.awt.Dimension(400, 50));
+        popupCharge.setSize(new java.awt.Dimension(400, 50));
 
+        containerProgressBar.setBackground(new java.awt.Color(51, 51, 51));
         containerProgressBar.setLayout(new java.awt.GridLayout(2, 1));
 
+        infoChargeLabel.setForeground(new java.awt.Color(255, 255, 255));
         infoChargeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         infoChargeLabel.setText("Leyendo los archivos de configuración...");
         containerProgressBar.add(infoChargeLabel);
 
-        progressBar.setIndeterminate(true);
+        progressBar.setBackground(new java.awt.Color(51, 51, 51));
+        progressBar.setForeground(new java.awt.Color(255, 255, 255));
         containerProgressBar.add(progressBar);
 
         popupCharge.getContentPane().add(containerProgressBar, java.awt.BorderLayout.CENTER);

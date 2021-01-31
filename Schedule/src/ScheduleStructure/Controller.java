@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -46,6 +48,9 @@ public class Controller {
         props = model.getProperties();
         theme = new Theme(props.get(1));
         font = new CustomFont(props.get(2));
+        view.popupCharge.setLocationRelativeTo(null);
+        Process process = new Process(view.popupCharge, view.progressBar);
+        process.run();
         readCourses();
         chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
@@ -362,6 +367,33 @@ public class Controller {
             view.hoursPanel.repaint();
             view.centerPanel.repaint();
             view.pack();
+        }
+    }
+
+    class Process extends Thread {
+
+        JDialog dialog;
+        JProgressBar progress;
+
+        public Process(JDialog dialog, JProgressBar progress) {
+            this.dialog = dialog;
+            this.progress = progress;
+        }
+
+        @Override
+        public void run() {
+            try {
+                dialog.setVisible(true);
+                for (int i = 1; i <= 100; i++) {
+                    progress.setValue(i);
+                    System.out.println(i);
+                    Process.sleep(7);
+                }
+                dialog.setVisible(false);
+                this.interrupt();
+            } catch (InterruptedException ex) {
+            } catch (Throwable ex) {
+            }
         }
     }
 
