@@ -37,6 +37,11 @@ public class View extends javax.swing.JFrame {
         containerProgressBar = new javax.swing.JPanel();
         infoChargeLabel = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
+        popupQuestion = new javax.swing.JDialog();
+        containerQuestion = new javax.swing.JPanel();
+        questionLabel = new javax.swing.JLabel();
+        responseQuestion = new javax.swing.JTextField();
+        acceptQuestion = new javax.swing.JButton();
         container = new javax.swing.JPanel();
         hoursPanel = new javax.swing.JPanel();
         daysPanel = new javax.swing.JPanel();
@@ -77,7 +82,6 @@ public class View extends javax.swing.JFrame {
 
         popupCharge.setMinimumSize(new java.awt.Dimension(400, 50));
         popupCharge.setUndecorated(true);
-        popupCharge.setPreferredSize(new java.awt.Dimension(400, 50));
         popupCharge.setSize(new java.awt.Dimension(400, 50));
 
         containerProgressBar.setBackground(new java.awt.Color(51, 51, 51));
@@ -93,6 +97,26 @@ public class View extends javax.swing.JFrame {
         containerProgressBar.add(progressBar);
 
         popupCharge.getContentPane().add(containerProgressBar, java.awt.BorderLayout.CENTER);
+
+        popupQuestion.setMinimumSize(new java.awt.Dimension(400, 150));
+        popupQuestion.setModal(true);
+        popupQuestion.setSize(new java.awt.Dimension(400, 150));
+
+        containerQuestion.setLayout(new java.awt.GridLayout(3, 1));
+
+        questionLabel.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        questionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        questionLabel.setText("¿Cuántas horas (filas) tendrá su horario?");
+        containerQuestion.add(questionLabel);
+
+        responseQuestion.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        containerQuestion.add(responseQuestion);
+
+        acceptQuestion.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        acceptQuestion.setText("Aceptar");
+        containerQuestion.add(acceptQuestion);
+
+        popupQuestion.getContentPane().add(containerQuestion, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Horario");
@@ -403,6 +427,7 @@ public class View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton acceptQuestion;
     public javax.swing.JMenuItem addRowOption;
     public javax.swing.JRadioButtonMenuItem blackHighlightFontOption;
     public javax.swing.JRadioButtonMenuItem blueGrayTheme;
@@ -410,6 +435,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JMenu configMenu;
     public javax.swing.JPanel container;
     public javax.swing.JPanel containerProgressBar;
+    public javax.swing.JPanel containerQuestion;
     public javax.swing.JMenuItem createSchedule;
     public javax.swing.JPanel crossPanel;
     public javax.swing.JRadioButtonMenuItem darkTheme;
@@ -432,9 +458,12 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JRadioButtonMenuItem orangeTheme;
     public javax.swing.JRadioButtonMenuItem pinkTheme;
     public javax.swing.JDialog popupCharge;
+    public javax.swing.JDialog popupQuestion;
     public javax.swing.JProgressBar progressBar;
     public javax.swing.JRadioButtonMenuItem purpleTheme;
+    public javax.swing.JLabel questionLabel;
     public javax.swing.JMenuItem reestartOption;
+    public javax.swing.JTextField responseQuestion;
     private javax.swing.JPopupMenu.Separator separator1;
     public javax.swing.JPopupMenu.Separator separator2;
     public javax.swing.JPopupMenu.Separator separator3;

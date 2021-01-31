@@ -1,15 +1,19 @@
 package ScheduleStructure;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
+import javax.swing.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,6 +34,7 @@ public class Controller {
     private GridLayout hoursLayout;
     private GridLayout centerLayout;
     private CustomFont font;
+    public static boolean accept = false;
 
     public Controller(View view, Model model) {
         this.view = view;
@@ -42,13 +47,14 @@ public class Controller {
     public void init() {
         //Default code before
         ArrayList<String> props = model.getProperties();
-        if (props.size() == 0) {
+        if (props.isEmpty()) {
             model.saveProperties(0, Theme.LIGHT, CustomFont.VERDANA);
         }
         props = model.getProperties();
         theme = new Theme(props.get(1));
         font = new CustomFont(props.get(2));
         view.popupCharge.setLocationRelativeTo(null);
+        view.popupQuestion.setLocationRelativeTo(null);
         readCourses();
         chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
@@ -58,6 +64,9 @@ public class Controller {
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
+
+    int count = 0;
+    Timer timer;
 
     private void events() {
 
@@ -136,18 +145,35 @@ public class Controller {
         view.createSchedule.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Integer.parseInt(properties.getLines().get(0)) == 0) {
-                    String res = JOptionPane.showInputDialog(null, "¿Cuántas horas (filas) tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
-                    if (res != null) {
+                if (view.hoursPanel.getComponents().length == 0) {
+                    accept = false;
+                    view.responseQuestion.setText("");
+                    view.popupQuestion.setVisible(true);
+                    String res = view.responseQuestion.getText();
+                    if (!res.isEmpty() && accept) {
                         while (!res.matches("^\\d+$")) {
-                            res = JOptionPane.showInputDialog(null, "¿Cuántas horas (filas) tendrá su horario?", "Configuarción", JOptionPane.INFORMATION_MESSAGE);
-                            if (res == null) {
+                            count = 0;
+                            timer = new Timer(50, (ActionEvent ae) -> {
+                                view.responseQuestion.setBackground(Color.decode("#ff7373"));
+                                count++;
+                                if (count == 10) {
+                                    view.responseQuestion.setBackground(Color.WHITE);
+                                    timer.stop();
+                                }
+                            });
+                            timer.start();
+                            accept = false;
+                            view.responseQuestion.setText("");
+                            view.popupQuestion.setVisible(true);
+                            res = view.responseQuestion.getText();
+                            if (!accept) {
                                 break;
                             }
                         }
-                        if (res != null) {
+                        if (!res.isEmpty() && accept) {
                             int rows = Integer.parseInt(res);
                             insertRows(rows);
+                            accept = false;
                         }
                     }
                 } else {
@@ -172,6 +198,26 @@ public class Controller {
                     view.pack();
                 }
             }
+        });
+
+        view.acceptQuestion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                accept = true;
+                view.popupQuestion.setVisible(false);
+            }
+        });
+
+        view.responseQuestion.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+                if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+                    accept = true;
+                    view.popupQuestion.setVisible(false);
+                }
+            }
+
         });
 
         view.lightTheme.addActionListener(new ActionListener() {
@@ -292,6 +338,11 @@ public class Controller {
         view.wednesdayLabel.setForeground(theme.fontColor2);
         view.thursdayLabel.setForeground(theme.fontColor2);
         view.fridayLabel.setForeground(theme.fontColor2);
+
+        view.containerQuestion.setBackground(theme.daysColor);
+        view.questionLabel.setForeground(theme.fontColor2);
+        view.acceptQuestion.setBackground(theme.containerColor);
+        view.acceptQuestion.setForeground(theme.fontColor);
 
         Tile.THEME = theme;
 
