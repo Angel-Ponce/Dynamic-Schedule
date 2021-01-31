@@ -33,6 +33,10 @@ public class View extends javax.swing.JFrame {
 
         groupThemes = new javax.swing.ButtonGroup();
         groupFonts = new javax.swing.ButtonGroup();
+        popupCharge = new javax.swing.JDialog();
+        containerProgressBar = new javax.swing.JPanel();
+        infoChargeLabel = new javax.swing.JLabel();
+        progressBar = new javax.swing.JProgressBar();
         container = new javax.swing.JPanel();
         hoursPanel = new javax.swing.JPanel();
         daysPanel = new javax.swing.JPanel();
@@ -70,6 +74,23 @@ public class View extends javax.swing.JFrame {
         josephSophiaFontOption = new javax.swing.JRadioButtonMenuItem();
         separator5 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
+
+        popupCharge.setMinimumSize(new java.awt.Dimension(400, 100));
+        popupCharge.setModal(true);
+        popupCharge.setUndecorated(true);
+        popupCharge.setPreferredSize(new java.awt.Dimension(400, 100));
+        popupCharge.setSize(new java.awt.Dimension(400, 100));
+
+        containerProgressBar.setLayout(new java.awt.GridLayout(2, 1));
+
+        infoChargeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        infoChargeLabel.setText("Leyendo los archivos de configuración...");
+        containerProgressBar.add(infoChargeLabel);
+
+        progressBar.setIndeterminate(true);
+        containerProgressBar.add(progressBar);
+
+        popupCharge.getContentPane().add(containerProgressBar, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Horario");
@@ -386,6 +407,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JPanel centerPanel;
     public javax.swing.JMenu configMenu;
     public javax.swing.JPanel container;
+    public javax.swing.JPanel containerProgressBar;
     public javax.swing.JMenuItem createSchedule;
     public javax.swing.JPanel crossPanel;
     public javax.swing.JRadioButtonMenuItem darkTheme;
@@ -398,6 +420,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.ButtonGroup groupThemes;
     public javax.swing.JLabel hourLabel;
     public javax.swing.JPanel hoursPanel;
+    public javax.swing.JLabel infoChargeLabel;
     public javax.swing.JRadioButtonMenuItem josephSophiaFontOption;
     public javax.swing.JRadioButtonMenuItem lettersFontOption;
     public javax.swing.JRadioButtonMenuItem lightBlueTheme;
@@ -406,6 +429,8 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JLabel mondayLabel;
     public javax.swing.JRadioButtonMenuItem orangeTheme;
     public javax.swing.JRadioButtonMenuItem pinkTheme;
+    public javax.swing.JDialog popupCharge;
+    public javax.swing.JProgressBar progressBar;
     public javax.swing.JRadioButtonMenuItem purpleTheme;
     public javax.swing.JMenuItem reestartOption;
     private javax.swing.JPopupMenu.Separator separator1;

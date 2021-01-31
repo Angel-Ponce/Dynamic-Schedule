@@ -199,6 +199,7 @@ public class Tile extends JLabel {
             public void actionPerformed(ActionEvent e) {
                 JLabel label = (JLabel) componentClicked;
                 label.setBackground(getTheme().coursesColor);
+                label.setForeground(getTheme().fontColor);
                 setColorChanged("f");
             }
         });
@@ -208,6 +209,7 @@ public class Tile extends JLabel {
             public void actionPerformed(ActionEvent e) {
                 JLabel label = (JLabel) componentClicked;
                 label.setBackground(getTheme().hoursColor);
+                label.setForeground(getTheme().fontColor2);
                 setColorChanged("f");
             }
         });
