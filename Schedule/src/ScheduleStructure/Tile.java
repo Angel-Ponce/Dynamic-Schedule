@@ -167,7 +167,7 @@ public class Tile extends JLabel {
         changeLink.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                messageInformation.setText("Ingrese el nuevo enlace");
+                messageInformation.setText("Ingrese el nuevo enlace:");
                 informationField.setText(getUrl());
                 popupInformation.setVisible(true);
                 String link = informationField.getText();
@@ -182,7 +182,7 @@ public class Tile extends JLabel {
         changeHour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                messageInformation.setText("Ingrese la nueva hora");
+                messageInformation.setText("Ingrese la nueva hora:");
                 informationField.setText(getHour());
                 popupInformation.setVisible(true);
                 String newHour = informationField.getText();
@@ -198,7 +198,7 @@ public class Tile extends JLabel {
         changeBackground.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Color background = JColorChooser.showDialog(null, "Escoga un color", Color.WHITE);
+                Color background = JColorChooser.showDialog(null, "Escoja un color", Color.WHITE);
                 if (background != null) {
                     JLabel label = (JLabel) componentClicked;
                     label.setBackground(background);
@@ -210,7 +210,7 @@ public class Tile extends JLabel {
         changeBackground2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Color background = JColorChooser.showDialog(null, "Escoga un color", Color.WHITE);
+                Color background = JColorChooser.showDialog(null, "Escoja un color", Color.WHITE);
                 if (background != null) {
                     JLabel label = (JLabel) componentClicked;
                     label.setBackground(background);
