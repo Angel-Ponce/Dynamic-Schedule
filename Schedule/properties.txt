@@ -1,3 +1,3 @@
-0
-dark
-verdana
+7
+purple
+letters

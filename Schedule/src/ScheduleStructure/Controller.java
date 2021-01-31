@@ -52,6 +52,7 @@ public class Controller {
         readCourses();
         chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
+        selectRadioButtons(theme.theme, font.fontString);
         Process process = new Process(view.popupCharge, view.progressBar);
         process.run();
         view.setLocationRelativeTo(null);
@@ -376,6 +377,58 @@ public class Controller {
         }
         chooseTheme();
         chooseFont(font.customFont, font.customFontBold);
+    }
+
+    private void selectRadioButtons(String theme, String font) {
+        switch (theme) {
+            case Theme.BLUE_GRAY:
+                view.blueGrayTheme.setSelected(true);
+                break;
+            case Theme.DARK:
+                view.darkTheme.setSelected(true);
+                break;
+            case Theme.GRAY:
+                view.grayTheme.setSelected(true);
+                break;
+            case Theme.LIGHT:
+                view.lightTheme.setSelected(true);
+                break;
+            case Theme.LIGHT_BLUE:
+                view.lightBlueTheme.setSelected(true);
+                break;
+            case Theme.ORANGE:
+                view.orangeTheme.setSelected(true);
+                break;
+            case Theme.PINK:
+                view.pinkTheme.setSelected(true);
+                break;
+            case Theme.PURPLE:
+                view.purpleTheme.setSelected(true);
+                break;
+            default:
+                view.lightTheme.setSelected(true);
+                break;
+        }
+        switch (font) {
+            case CustomFont.BLACKHIGHLIGHT:
+                view.blackHighlightFontOption.setSelected(true);
+                break;
+            case CustomFont.JOSEPHSOPHIA:
+                view.josephSophiaFontOption.setSelected(true);
+                break;
+            case CustomFont.LETTERS:
+                view.lettersFontOption.setSelected(true);
+                break;
+            case CustomFont.TIMESNEWROMAN:
+                view.timesNewRomanFontOption.setSelected(true);
+                break;
+            case CustomFont.VERDANA:
+                view.verdanaFontOption.setSelected(true);
+                break;
+            default:
+                view.verdanaFontOption.setSelected(true);
+                break;
+        }
     }
 
     class Process extends Thread {
