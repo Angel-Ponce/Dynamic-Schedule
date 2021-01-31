@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
@@ -59,6 +60,7 @@ public class Controller {
         selectRadioButtons(theme.theme, font.fontString);
         Process process = new Process(view.popupCharge, view.progressBar);
         process.run();
+        view.setIconImage(new ImageIcon(getClass().getResource("/Images/calendar.png")).getImage());
         view.setLocationRelativeTo(null);
         view.setVisible(true);
     }
