@@ -336,6 +336,7 @@ public class Tile extends JLabel {
 
         informationField = new JTextField();
         informationField.setForeground(Color.BLACK);
+        informationField.setHorizontalAlignment(JTextField.CENTER);
         informationField.setFont(new Font("Verdana", Font.PLAIN, 14));
         informationField.setVisible(true);
         containerInformation.add(informationField, -1);

@@ -110,6 +110,7 @@ public class View extends javax.swing.JFrame {
         containerQuestion.add(questionLabel);
 
         responseQuestion.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        responseQuestion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         containerQuestion.add(responseQuestion);
 
         acceptQuestion.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
