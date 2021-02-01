@@ -78,6 +78,8 @@ public class View extends javax.swing.JFrame {
         lettersFontOption = new javax.swing.JRadioButtonMenuItem();
         josephSophiaFontOption = new javax.swing.JRadioButtonMenuItem();
         separator5 = new javax.swing.JPopupMenu.Separator();
+        gridOption = new javax.swing.JRadioButtonMenuItem();
+        separator6 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
 
         popupCharge.setMinimumSize(new java.awt.Dimension(400, 50));
@@ -214,6 +216,7 @@ public class View extends javax.swing.JFrame {
 
         configMenu.setForeground(new java.awt.Color(0, 0, 0));
         configMenu.setText("Configuración");
+        configMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         addRowOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
         addRowOption.setText("Agregar fila");
@@ -296,7 +299,6 @@ public class View extends javax.swing.JFrame {
         fontOptions.setText("Cambiar fuente");
 
         groupFonts.add(verdanaFontOption);
-        verdanaFontOption.setSelected(true);
         verdanaFontOption.setText("Verdana");
         verdanaFontOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/f.png"))); // NOI18N
         verdanaFontOption.addActionListener(new java.awt.event.ActionListener() {
@@ -349,6 +351,17 @@ public class View extends javax.swing.JFrame {
         configMenu.add(fontOptions);
         configMenu.add(separator5);
 
+        gridOption.setText("Ver celdas");
+        gridOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grid.png"))); // NOI18N
+        gridOption.setRolloverEnabled(false);
+        gridOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gridOptionActionPerformed(evt);
+            }
+        });
+        configMenu.add(gridOption);
+        configMenu.add(separator6);
+
         exitOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
         exitOption.setText("Salir");
         configMenu.add(exitOption);
@@ -391,6 +404,10 @@ public class View extends javax.swing.JFrame {
     private void josephSophiaFontOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_josephSophiaFontOptionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_josephSophiaFontOptionActionPerformed
+
+    private void gridOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gridOptionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gridOptionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,6 +462,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JMenu fontOptions;
     public javax.swing.JLabel fridayLabel;
     public javax.swing.JRadioButtonMenuItem grayTheme;
+    public javax.swing.JRadioButtonMenuItem gridOption;
     public javax.swing.ButtonGroup groupFonts;
     public javax.swing.ButtonGroup groupThemes;
     public javax.swing.JLabel hourLabel;
@@ -470,6 +488,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JPopupMenu.Separator separator3;
     public javax.swing.JPopupMenu.Separator separator4;
     public javax.swing.JPopupMenu.Separator separator5;
+    public javax.swing.JPopupMenu.Separator separator6;
     public javax.swing.JMenu themeOptions;
     public javax.swing.JLabel thursdayLabel;
     public javax.swing.JRadioButtonMenuItem timesNewRomanFontOption;

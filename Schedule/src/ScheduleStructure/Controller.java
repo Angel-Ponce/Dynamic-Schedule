@@ -27,12 +27,16 @@ public class Controller {
 
     View view;
     Model model;
+    public static final String SEE_GRID = "YesM";
+    public static final String NO_SEE_GRID = "NoM";
     public static Theme theme = new Theme(Theme.LIGHT);
     private Txt properties = new Txt("properties");
     private Txt courses = new Txt("courses");
     private GridLayout hoursLayout;
     private GridLayout centerLayout;
     private CustomFont font;
+    private String seeGrid = "NoM";
+    private boolean gridSelected = false;
     public static boolean accept = false;
 
     public Controller(View view, Model model) {
@@ -46,8 +50,11 @@ public class Controller {
     public void init() {
         //Default code before
         ArrayList<String> props = model.getProperties();
+        if (props.size() == 3) {
+            model.saveProperties(Integer.parseInt(props.get(0)), props.get(1), props.get(2), Controller.NO_SEE_GRID);
+        }
         if (props.isEmpty()) {
-            model.saveProperties(0, Theme.LIGHT, CustomFont.VERDANA);
+            model.saveProperties(0, Theme.LIGHT, CustomFont.VERDANA, Controller.NO_SEE_GRID);
         }
         props = model.getProperties();
         theme = new Theme(props.get(1));
@@ -88,7 +95,7 @@ public class Controller {
                     in += 5;
                 }
                 model.saveCourses(rows);
-                model.saveProperties(rows.size(), theme.theme, font.fontString);
+                model.saveProperties(rows.size(), theme.theme, font.fontString, seeGrid);
                 System.exit(0);
             }
         });
@@ -113,7 +120,7 @@ public class Controller {
                     in += 5;
                 }
                 model.saveCourses(rows);
-                model.saveProperties(rows.size(), theme.theme, font.fontString);
+                model.saveProperties(rows.size(), theme.theme, font.fontString, seeGrid);
                 System.exit(0);
             }
         });
@@ -135,7 +142,7 @@ public class Controller {
                 view.pack();
                 chooseTheme();
                 chooseFont(font.customFont, font.customFontBold);
-                model.saveProperties(hoursLayout.getRows(), theme.theme, font.fontString);
+                model.saveProperties(hoursLayout.getRows(), theme.theme, font.fontString, seeGrid);
             }
         });
 
@@ -178,7 +185,7 @@ public class Controller {
                     view.centerPanel.removeAll();
                     view.hoursPanel.repaint();
                     view.centerPanel.repaint();
-                    model.saveProperties(0, theme.theme, font.fontString);
+                    model.saveProperties(0, theme.theme, font.fontString, seeGrid);
                     hoursLayout.setRows(0);
                     centerLayout.setRows(0);
                     courses.clear();
@@ -205,6 +212,19 @@ public class Controller {
                 }
             }
 
+        });
+
+        view.gridOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (!gridSelected) {
+                    seeGrid = Controller.SEE_GRID;
+                    gridSelected = true;
+                } else {
+                    seeGrid = Controller.NO_SEE_GRID;
+                    gridSelected = false;
+                }
+            }
         });
 
         view.lightTheme.addActionListener(new ActionListener() {
