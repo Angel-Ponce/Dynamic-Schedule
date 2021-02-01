@@ -1,5 +1,6 @@
 package ScheduleStructure;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -9,8 +10,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
@@ -36,7 +39,7 @@ public class Controller {
     private GridLayout centerLayout;
     private CustomFont font;
     private String seeGrid = "NoM";
-    private boolean gridSelected = false;
+    public static boolean gridSelected = false;
     public static boolean accept = false;
 
     public Controller(View view, Model model) {
@@ -59,12 +62,13 @@ public class Controller {
         props = model.getProperties();
         theme = new Theme(props.get(1));
         font = new CustomFont(props.get(2));
+        seeGrid = props.get(3);
         view.popupCharge.setLocationRelativeTo(null);
         view.popupQuestion.setLocationRelativeTo(null);
+        selectRadioButtons(theme.theme, font.fontString, seeGrid);
         readCourses();
         chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
-        selectRadioButtons(theme.theme, font.fontString);
         Process process = new Process(view.popupCharge, view.progressBar);
         process.run();
         view.setIconImage(new ImageIcon(getClass().getResource("/Images/calendar.png")).getImage());
@@ -130,9 +134,15 @@ public class Controller {
             public void actionPerformed(ActionEvent ae) {
                 Row row = new Row(theme);
                 row.hour.setText(row.hour.getHour());
+                if (gridSelected) {
+                    row.hour.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                }
                 view.hoursPanel.add(row.hour, -1);
                 for (Tile day : row.days) {
                     day.setText(day.getCourseName());
+                    if (gridSelected) {
+                        day.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                    }
                     view.centerPanel.add(day, -1);
                 }
                 hoursLayout.setRows(hoursLayout.getRows() + 1);
@@ -219,9 +229,35 @@ public class Controller {
             public void actionPerformed(ActionEvent ae) {
                 if (!gridSelected) {
                     seeGrid = Controller.SEE_GRID;
+                    view.hourLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                    for (int i = 0; i < view.daysPanel.getComponents().length; i++) {
+                        JLabel label = (JLabel) view.daysPanel.getComponents()[i];
+                        label.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                    }
+                    for (int i = 0; i < view.hoursPanel.getComponents().length; i++) {
+                        Tile tile = (Tile) view.hoursPanel.getComponents()[i];
+                        tile.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                    }
+                    for (int i = 0; i < view.centerPanel.getComponents().length; i++) {
+                        Tile tile = (Tile) view.centerPanel.getComponents()[i];
+                        tile.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                    }
                     gridSelected = true;
                 } else {
                     seeGrid = Controller.NO_SEE_GRID;
+                    view.hourLabel.setBorder(null);
+                    for (int i = 0; i < view.daysPanel.getComponents().length; i++) {
+                        JLabel label = (JLabel) view.daysPanel.getComponents()[i];
+                        label.setBorder(null);
+                    }
+                    for (int i = 0; i < view.hoursPanel.getComponents().length; i++) {
+                        Tile tile = (Tile) view.hoursPanel.getComponents()[i];
+                        tile.setBorder(null);
+                    }
+                    for (int i = 0; i < view.centerPanel.getComponents().length; i++) {
+                        Tile tile = (Tile) view.centerPanel.getComponents()[i];
+                        tile.setBorder(null);
+                    }
                     gridSelected = false;
                 }
             }
@@ -416,9 +452,15 @@ public class Controller {
 
         for (Row row : rows) {
             row.hour.setText(row.hour.getHour());
+            if (gridSelected) {
+                row.hour.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+            }
             view.hoursPanel.add(row.hour, -1);
             for (Tile day : row.days) {
                 day.setText(day.getCourseName());
+                if (gridSelected) {
+                    day.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                }
                 view.centerPanel.add(day, -1);
             }
             view.hoursPanel.repaint();
@@ -433,9 +475,15 @@ public class Controller {
         for (int i = 0; i < rows; i++) {
             Row row = new Row(theme);
             row.hour.setText(row.hour.getHour());
+            if (gridSelected) {
+                row.hour.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+            }
             view.hoursPanel.add(row.hour, -1);
             for (Tile day : row.days) {
                 day.setText(day.getCourseName());
+                if (gridSelected) {
+                    day.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                }
                 view.centerPanel.add(day, -1);
             }
             view.hoursPanel.repaint();
@@ -446,7 +494,7 @@ public class Controller {
         chooseFont(font.customFont, font.customFontBold);
     }
 
-    private void selectRadioButtons(String theme, String font) {
+    private void selectRadioButtons(String theme, String font, String seeGrid) {
         switch (theme) {
             case Theme.BLUE_GRAY:
                 view.blueGrayTheme.setSelected(true);
@@ -495,6 +543,18 @@ public class Controller {
             default:
                 view.verdanaFontOption.setSelected(true);
                 break;
+        }
+        if (seeGrid.equals(Controller.SEE_GRID)) {
+            view.gridOption.setSelected(true);
+            view.hourLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+            for (int i = 0; i < view.daysPanel.getComponents().length; i++) {
+                JLabel label = (JLabel) view.daysPanel.getComponents()[i];
+                label.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+            }
+            gridSelected = true;
+        } else {
+            view.gridOption.setSelected(false);
+            gridSelected = false;
         }
     }
 

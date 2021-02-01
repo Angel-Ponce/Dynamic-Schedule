@@ -139,12 +139,16 @@ public class Tile extends JLabel {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                label.setBorder(BorderFactory.createLineBorder(Color.CYAN, 2, true));
+                label.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3, false));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                label.setBorder(null);
+                if (Controller.gridSelected) {
+                    label.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
+                } else {
+                    label.setBorder(null);
+                }
             }
         });
 
