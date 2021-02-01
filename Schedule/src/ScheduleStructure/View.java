@@ -353,7 +353,6 @@ public class View extends javax.swing.JFrame {
 
         gridOption.setText("Ver celdas");
         gridOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grid.png"))); // NOI18N
-        gridOption.setRolloverEnabled(false);
         gridOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gridOptionActionPerformed(evt);
