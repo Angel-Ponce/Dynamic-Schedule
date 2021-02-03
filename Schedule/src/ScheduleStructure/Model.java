@@ -75,13 +75,15 @@ public class Model {
             GroupCell groupCell = (GroupCell) gson.fromJson(row, GroupCell.class);
             Cell cellHour = gson.fromJson(groupCell.getCellHour(), Cell.class);
             Tile hourTile = new Tile(Tile.HOUR, "", "", cellHour.getHour(), new Color(Integer.parseInt(cellHour.getColor())), null);
+            hourTile.setColorChanged(cellHour.getColorChanged());
             tiles.add(hourTile);
             for (String day : groupCell.getCellDays()) {
                 Cell cellDay = gson.fromJson(day, Cell.class);
                 Tile dayTile = new Tile(Tile.COURSE, cellDay.getCourseName(), cellDay.getUrl(), "", new Color(Integer.parseInt(cellDay.getColor())), null);
+                dayTile.setColorChanged(cellDay.getColorChanged());
                 tiles.add(dayTile);
             }
-            rows.add(new Row(tiles.get(0),tiles.get(1),tiles.get(2),tiles.get(3),tiles.get(4),tiles.get(5)));
+            rows.add(new Row(tiles.get(0), tiles.get(1), tiles.get(2), tiles.get(3), tiles.get(4), tiles.get(5)));
         }
         return rows;
     }
