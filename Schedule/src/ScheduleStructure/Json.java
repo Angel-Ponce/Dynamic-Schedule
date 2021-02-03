@@ -5,7 +5,9 @@
  */
 package ScheduleStructure;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,6 +21,7 @@ import javax.swing.JOptionPane;
 public class Json {
 
     public File file;
+    private ArrayList<String> objects = new ArrayList();
 
     public Json(String fileName) {
         try {
@@ -33,15 +36,32 @@ public class Json {
         }
 
     }
+    
+    public ArrayList<String> getJsons() {
+        objects.clear();
+        FileReader fr = null;
+        BufferedReader bf = null;
+        try {
+            fr = new FileReader(file);
+            bf = new BufferedReader(fr);
+            String linea;
+            while ((linea = bf.readLine()) != null) {
+                objects.add(linea);
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error, no se encontro el archivo de información", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return objects;
+    }
 
-    public void saveJson(ArrayList<String> objs) {
+    public void saveJsons(ArrayList<String> objects) {
         FileWriter fr = null;
         PrintWriter pw = null;
         try {
             fr = new FileWriter(file, true);
             pw = new PrintWriter(fr);
             clear();
-            for (String obj : objs) {
+            for (String obj : objects) {
                 pw.println(obj);
             }
         } catch (IOException e) {

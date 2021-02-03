@@ -1,5 +1,6 @@
 package ScheduleStructure;
 
+import com.google.gson.Gson;
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -14,57 +15,163 @@ import java.util.ArrayList;
  */
 public class Model {
 
-    private Txt properties = new Txt("properties");
-    private Txt courses = new Txt("courses");
+    private Json properties = new Json("properties");
+    private Json courses = new Json("courses");
+    private Gson gson = new Gson();
+
+    public Model() {
+        if (properties.getJsons().isEmpty()) {
+            ArrayList<String> objects = new ArrayList();
+            Properties props = new Properties("0", Theme.LIGHT, CustomFont.VERDANA, Controller.NO_SEE_GRID);
+            objects.add(gson.toJson(props));
+            properties.saveJsons(objects);
+        }
+        Properties props = (Properties) gson.fromJson(this.properties.getJsons().get(0), Properties.class);
+        if (props.getGrid() == null) {
+            ArrayList<String> objects = new ArrayList();
+            props.setGrid(Controller.NO_SEE_GRID);
+            objects.add(gson.toJson(props));
+            properties.saveJsons(objects);
+        }
+    }
 
     public void saveProperties(int rowCount, String theme, String font, String margins) {
-        ArrayList<String> lines = new ArrayList();
-        lines.add(String.valueOf(rowCount));
-        lines.add(theme);
-        lines.add(font);
-        lines.add(margins);
-        properties.setLines(lines);
+        Properties props = new Properties(String.valueOf(rowCount), theme, font, margins);
+        ArrayList<String> objects = new ArrayList();
+        objects.add(gson.toJson(props));
+        properties.saveJsons(objects);
     }
 
     public ArrayList<String> getProperties() {
         ArrayList<String> properties = new ArrayList();
-        properties = this.properties.getLines();
+        Properties props = (Properties) gson.fromJson(this.properties.getJsons().get(0), Properties.class);
+        properties.add(props.getRowCount());
+        properties.add(props.getTheme());
+        properties.add(props.getFont());
+        properties.add(props.getGrid());
         return properties;
     }
 
     public void saveCourses(ArrayList<Row> rows) {
-        ArrayList<String> lines = new ArrayList();
+        ArrayList<String> rowsJson = new ArrayList();
         for (Row row : rows) {
-            String rowString = row.hour.getHour() + "," + row.hour.getBackground().getRGB() + "," + row.hour.getColorChanged() + ";";
-            for (Tile tile : row.days) {
-                rowString += tile.getCourseName() + "," + tile.getUrl() + "," + tile.getBackground().getRGB() + "," + tile.getColorChanged() + ";";
+            GroupCell rowJson = new GroupCell();
+            Cell cellHour = new Cell(row.hour.getHour(), "", "", String.valueOf(row.hour.getBackground().getRGB()), row.hour.getColorChanged());
+            rowJson.setCellHour(gson.toJson(cellHour, Cell.class));
+            for (Tile day : row.days) {
+                Cell cellDay = new Cell("", day.getCourseName(), day.getUrl(), String.valueOf(day.getBackground().getRGB()), day.getColorChanged());
+                rowJson.cellDays.add(gson.toJson(cellDay, Cell.class));
             }
-            lines.add(rowString);
+            rowsJson.add(gson.toJson(rowJson, GroupCell.class));
         }
-        courses.setLines(lines);
+        courses.saveJsons(rowsJson);
     }
 
     public ArrayList<Row> getRows() {
         ArrayList<Row> rows = new ArrayList();
-        ArrayList<String> rowsString = this.courses.getLines();
-        String[] tilesString = null;
+        ArrayList<String> rowsString = courses.getJsons();
         for (String row : rowsString) {
             ArrayList<Tile> tiles = new ArrayList();
-            tilesString = row.split(";");
-            String[] tileHour = tilesString[0].split(",");
-            Tile hour = new Tile(Tile.HOUR, "", "", tileHour[0], new Color(Integer.parseInt(tileHour[1])), null);
-            hour.setColorChanged(tileHour[2]);
-            tiles.add(hour);
-            for (int i = 1; i < tilesString.length; i++) {
-                String[] dayTile = tilesString[i].split(",");
-                Tile day = new Tile(Tile.COURSE, dayTile[0], dayTile[1], "", new Color(Integer.parseInt(dayTile[2])), null);
-                day.setColorChanged(dayTile[3]);
-                tiles.add(day);
+            GroupCell groupCell = (GroupCell) gson.fromJson(row, GroupCell.class);
+            Cell cellHour = gson.fromJson(groupCell.getCellHour(), Cell.class);
+            Tile hourTile = new Tile(Tile.HOUR, "", "", cellHour.getHour(), new Color(Integer.parseInt(cellHour.getColor())), null);
+            tiles.add(hourTile);
+            for (String day : groupCell.getCellDays()) {
+                Cell cellDay = gson.fromJson(day, Cell.class);
+                Tile dayTile = new Tile(Tile.COURSE, cellDay.getCourseName(), cellDay.getUrl(), "", new Color(Integer.parseInt(cellDay.getColor())), null);
+                tiles.add(dayTile);
             }
-
-            Row newRow = new Row(tiles.get(0), tiles.get(1), tiles.get(2), tiles.get(3), tiles.get(4), tiles.get(5));
-            rows.add(newRow);
+            rows.add(new Row(tiles.get(0),tiles.get(1),tiles.get(2),tiles.get(3),tiles.get(4),tiles.get(5)));
         }
         return rows;
+    }
+
+    class GroupCell {
+
+        private String cellHour;
+        private ArrayList<String> cellDays = new ArrayList();
+
+        public GroupCell() {
+
+        }
+
+        public GroupCell(String cellHour) {
+            this.cellHour = cellHour;
+        }
+
+        public ArrayList<String> getCellDays() {
+            return cellDays;
+        }
+
+        public void setCellDays(ArrayList<String> cellDays) {
+            this.cellDays = cellDays;
+        }
+
+        public String getCellHour() {
+            return cellHour;
+        }
+
+        public void setCellHour(String cellHour) {
+            this.cellHour = cellHour;
+        }
+
+    }
+
+    class Cell {
+
+        private String hour;
+        private String courseName;
+        private String url;
+        private String color;
+        private String colorChanged;
+
+        public Cell(String hour, String courseName, String url, String color, String colorChanged) {
+            this.hour = hour;
+            this.courseName = courseName;
+            this.url = url;
+            this.color = color;
+            this.colorChanged = colorChanged;
+        }
+
+        public String getColorChanged() {
+            return colorChanged;
+        }
+
+        public void setColorChanged(String colorChanged) {
+            this.colorChanged = colorChanged;
+        }
+
+        public String getHour() {
+            return hour;
+        }
+
+        public void setHour(String hour) {
+            this.hour = hour;
+        }
+
+        public String getCourseName() {
+            return courseName;
+        }
+
+        public void setCourseName(String courseName) {
+            this.courseName = courseName;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        public void setColor(String color) {
+            this.color = color;
+        }
+
     }
 }

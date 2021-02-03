@@ -61,7 +61,7 @@ public class Tile extends JLabel {
     private JSeparator separator4;
     private JMenuItem quitColor2;
     private JSeparator separator5;
-    public static Theme THEME = new Theme(new Txt("properties").getLines().get(1));
+    public static Theme THEME = new Theme(new Model().getProperties().get(1));
     public static JDialog popupInformation;
     public static JPanel containerInformation;
     public static JLabel messageInformation;

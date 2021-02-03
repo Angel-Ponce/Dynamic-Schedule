@@ -33,10 +33,9 @@ public class Controller {
     public static final String SEE_GRID = "YesM";
     public static final String NO_SEE_GRID = "NoM";
     public static Theme theme = new Theme(Theme.LIGHT);
-    private Txt properties = new Txt("properties");
-    private Txt courses = new Txt("courses");
-    private GridLayout hoursLayout;
-    private GridLayout centerLayout;
+    private final Json courses = new Json("courses");
+    private final GridLayout hoursLayout;
+    private final GridLayout centerLayout;
     private CustomFont font;
     private String seeGrid = "NoM";
     public static boolean gridSelected = false;
@@ -53,13 +52,6 @@ public class Controller {
     public void init() {
         //Default code before
         ArrayList<String> props = model.getProperties();
-        if (props.size() == 3) {
-            model.saveProperties(Integer.parseInt(props.get(0)), props.get(1), props.get(2), Controller.NO_SEE_GRID);
-        }
-        if (props.isEmpty()) {
-            model.saveProperties(0, Theme.LIGHT, CustomFont.VERDANA, Controller.NO_SEE_GRID);
-        }
-        props = model.getProperties();
         theme = new Theme(props.get(1));
         font = new CustomFont(props.get(2));
         seeGrid = props.get(3);
