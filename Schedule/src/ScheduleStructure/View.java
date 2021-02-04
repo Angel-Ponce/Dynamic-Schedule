@@ -186,7 +186,7 @@ public class View extends javax.swing.JFrame {
         centerPanel.setBackground(new java.awt.Color(153, 153, 255));
         centerPanel.setMinimumSize(new java.awt.Dimension(1000, 400));
         centerPanel.setPreferredSize(new java.awt.Dimension(1000, 400));
-        centerPanel.setLayout(new java.awt.GridLayout(1, 5));
+        centerPanel.setLayout(new java.awt.GridLayout(0, 5));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
