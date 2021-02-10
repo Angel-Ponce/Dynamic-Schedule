@@ -23,8 +23,8 @@ $git clone https://github.com/Angel-Ponce/Dynamic-Schedule
 ## Important files
 | File | Description |
 | ------ | ------ |
-| `properties.txt` | Contains basic system configuration information |
-| `courses.txt` | It contains all the information of the courses registered in the schedule |
+| `properties.json` | Contains basic system configuration information |
+| `courses.json` | It contains all the information of the courses registered in the schedule |
 
 ### It is important that once configured these files are not removed
 
