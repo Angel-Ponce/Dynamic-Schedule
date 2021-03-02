@@ -176,7 +176,16 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="separator1">
+            <MenuItem class="javax.swing.JMenuItem" name="addCourseOption">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/bloc.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Agregar curso"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="createSchedule">
               <Properties>
@@ -185,11 +194,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Crear horario"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="separator2">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
@@ -345,11 +349,6 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="separator4">
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </MenuItem>
             <Menu class="javax.swing.JMenu" name="fontOptions">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -448,11 +447,6 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="separator5">
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </MenuItem>
             <MenuItem class="javax.swing.JRadioButtonMenuItem" name="gridOption">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver celdas"/>

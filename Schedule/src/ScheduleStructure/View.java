@@ -5,9 +5,6 @@
  */
 package ScheduleStructure;
 
-import java.awt.Color;
-import javax.swing.UIManager;
-
 /**
  *
  * @author angelponce
@@ -56,9 +53,8 @@ public class View extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         configMenu = new javax.swing.JMenu();
         addRowOption = new javax.swing.JMenuItem();
-        separator1 = new javax.swing.JPopupMenu.Separator();
+        addCourseOption = new javax.swing.JMenuItem();
         createSchedule = new javax.swing.JMenuItem();
-        separator2 = new javax.swing.JPopupMenu.Separator();
         reestartOption = new javax.swing.JMenuItem();
         separator3 = new javax.swing.JPopupMenu.Separator();
         themeOptions = new javax.swing.JMenu();
@@ -70,14 +66,12 @@ public class View extends javax.swing.JFrame {
         pinkTheme = new javax.swing.JRadioButtonMenuItem();
         purpleTheme = new javax.swing.JRadioButtonMenuItem();
         darkTheme = new javax.swing.JRadioButtonMenuItem();
-        separator4 = new javax.swing.JPopupMenu.Separator();
         fontOptions = new javax.swing.JMenu();
         verdanaFontOption = new javax.swing.JRadioButtonMenuItem();
         timesNewRomanFontOption = new javax.swing.JRadioButtonMenuItem();
         blackHighlightFontOption = new javax.swing.JRadioButtonMenuItem();
         lettersFontOption = new javax.swing.JRadioButtonMenuItem();
         josephSophiaFontOption = new javax.swing.JRadioButtonMenuItem();
-        separator5 = new javax.swing.JPopupMenu.Separator();
         gridOption = new javax.swing.JRadioButtonMenuItem();
         separator6 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
@@ -221,12 +215,14 @@ public class View extends javax.swing.JFrame {
         addRowOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
         addRowOption.setText("Agregar fila");
         configMenu.add(addRowOption);
-        configMenu.add(separator1);
+
+        addCourseOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bloc.png"))); // NOI18N
+        addCourseOption.setText("Agregar curso");
+        configMenu.add(addCourseOption);
 
         createSchedule.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/create.png"))); // NOI18N
         createSchedule.setText("Crear horario");
         configMenu.add(createSchedule);
-        configMenu.add(separator2);
 
         reestartOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/reestart.png"))); // NOI18N
         reestartOption.setText("Reiniciar horario");
@@ -293,7 +289,6 @@ public class View extends javax.swing.JFrame {
         themeOptions.add(darkTheme);
 
         configMenu.add(themeOptions);
-        configMenu.add(separator4);
 
         fontOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/font.png"))); // NOI18N
         fontOptions.setText("Cambiar fuente");
@@ -349,7 +344,6 @@ public class View extends javax.swing.JFrame {
         fontOptions.add(josephSophiaFontOption);
 
         configMenu.add(fontOptions);
-        configMenu.add(separator5);
 
         gridOption.setText("Ver celdas");
         gridOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grid.png"))); // NOI18N
@@ -445,6 +439,7 @@ public class View extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton acceptQuestion;
+    public javax.swing.JMenuItem addCourseOption;
     public javax.swing.JMenuItem addRowOption;
     public javax.swing.JRadioButtonMenuItem blackHighlightFontOption;
     public javax.swing.JRadioButtonMenuItem blueGrayTheme;
@@ -482,11 +477,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JLabel questionLabel;
     public javax.swing.JMenuItem reestartOption;
     public javax.swing.JTextField responseQuestion;
-    private javax.swing.JPopupMenu.Separator separator1;
-    public javax.swing.JPopupMenu.Separator separator2;
     public javax.swing.JPopupMenu.Separator separator3;
-    public javax.swing.JPopupMenu.Separator separator4;
-    public javax.swing.JPopupMenu.Separator separator5;
     public javax.swing.JPopupMenu.Separator separator6;
     public javax.swing.JMenu themeOptions;
     public javax.swing.JLabel thursdayLabel;

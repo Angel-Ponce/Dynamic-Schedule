@@ -88,6 +88,7 @@ public class Model {
         return rows;
     }
 
+    //<editor-fold defaultstate="collapsed" desc="Class GroupCell">
     class GroupCell {
 
         private String cellHour;
@@ -118,7 +119,9 @@ public class Model {
         }
 
     }
+//</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc="Class Cell">
     class Cell {
 
         private String hour;
@@ -176,4 +179,6 @@ public class Model {
         }
 
     }
+//</editor-fold>
+
 }

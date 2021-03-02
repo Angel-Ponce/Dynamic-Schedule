@@ -549,6 +549,7 @@ public class Controller {
             gridSelected = false;
         }
     }
+    //<editor-fold defaultstate="collapsed" desc="Class Process">
 
     class Process extends Thread {
 
@@ -574,6 +575,8 @@ public class Controller {
             } catch (Throwable ex) {
             }
         }
+
     }
+//</editor-fold>
 
 }
