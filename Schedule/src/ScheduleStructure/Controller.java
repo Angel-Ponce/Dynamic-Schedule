@@ -527,6 +527,9 @@ public class Controller {
             Tile.messageInformation.setForeground(theme.fontColor2);
             Tile.aceptButton.setBackground(theme.containerColor);
             Tile.aceptButton.setForeground(theme.fontColor);
+            Tile.checkBoxContainer.setBackground(theme.daysColor);
+            Tile.checkBoxInformation.setBackground(theme.daysColor);
+            Tile.checkBoxInformation.setForeground(theme.fontColor2);
         }
 
         for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
