@@ -49,18 +49,13 @@ public class Tile extends JLabel {
     private String hour;
     private JPopupMenu popupMenuCourse;
     private JMenuItem changeName;
-    private JSeparator separator1;
     private JMenuItem changeLink;
-    private JSeparator separator2;
     private JMenuItem changeBackground;
     private JPopupMenu popupMenuHour;
     private JMenuItem changeHour;
-    private JSeparator separator3;
     private JMenuItem changeBackground2;
     private JMenuItem quitColor;
-    private JSeparator separator4;
     private JMenuItem quitColor2;
-    private JSeparator separator5;
     public static Theme THEME = new Theme(new Model().getProperties().get(1));
     public static JDialog popupInformation;
     public static JPanel containerInformation;
@@ -267,46 +262,36 @@ public class Tile extends JLabel {
     private void initComponents() {
         popupMenuCourse = new JPopupMenu();
         changeName = new JMenuItem();
-        separator1 = new JSeparator();
         changeLink = new JMenuItem();
-        separator2 = new JSeparator();
         changeBackground = new JMenuItem();
         popupMenuHour = new JPopupMenu();
         changeHour = new JMenuItem();
-        separator3 = new JSeparator();
         changeBackground2 = new JMenuItem();
         quitColor = new JMenuItem();
-        separator4 = new JSeparator();
         quitColor2 = new JMenuItem();
-        separator5 = new JSeparator();
 
         changeName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
         changeName.setText("Cambiar nombre");
         popupMenuCourse.add(changeName);
-        popupMenuCourse.add(separator1);
 
         changeLink.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png")));
         changeLink.setText("Cambiar enlace");
 
         popupMenuCourse.add(changeLink);
-        popupMenuCourse.add(separator2);
 
         changeBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
         changeBackground.setText("Cambiar color");
         popupMenuCourse.add(changeBackground);
-        popupMenuCourse.add(separator4);
-
+   
         changeHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png")));
         changeHour.setText("Cambiar hora");
         changeHour.setToolTipText("");
         popupMenuHour.add(changeHour);
-        popupMenuHour.add(separator3);
 
         changeBackground2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
         changeBackground2.setText("Cambiar color");
         popupMenuHour.add(changeBackground2);
-        popupMenuHour.add(separator5);
-
+        
         quitColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/noColor.png")));
         quitColor.setText("Quitar color");
         popupMenuCourse.add(quitColor);

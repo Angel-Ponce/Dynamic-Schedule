@@ -1,6 +1,7 @@
 package ScheduleStructure;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -40,6 +43,7 @@ public class Controller {
     private String seeGrid = "NoM";
     public static boolean gridSelected = false;
     public static boolean accept = false;
+    private static Component componentI;
 
     public Controller(View view, Model model) {
         this.view = view;
@@ -61,6 +65,7 @@ public class Controller {
         readCourses();
         chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
+        listenerOnCells();
         Process process = new Process(view.popupCharge, view.progressBar);
         process.run();
         view.setIconImage(new ImageIcon(getClass().getResource("/Images/calendar.png")).getImage());
@@ -458,6 +463,20 @@ public class Controller {
             view.hoursPanel.repaint();
             view.centerPanel.repaint();
             view.pack();
+        }
+    }
+
+    private void listenerOnCells() {
+        for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
+            componentI = view.centerPanel.getComponent(i);
+            PropertyChangeListener pchl = new PropertyChangeListener() {
+                @Override
+                public void propertyChange(PropertyChangeEvent evt) {
+                    Tile label = (Tile) evt.getSource();
+                    System.out.println(label.getText());
+                }
+            };
+            componentI.addPropertyChangeListener("text", pchl);
         }
     }
 
