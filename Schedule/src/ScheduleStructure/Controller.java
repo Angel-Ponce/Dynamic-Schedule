@@ -402,10 +402,10 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 view.hoursPanel1.removeAll();
                 view.centerPanel1.removeAll();
+                GridLayout gl1 = (GridLayout) view.hoursPanel1.getLayout();
+                gl1.setColumns(1);
+                gl1.setRows(hoursLayout.getRows());
                 for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
-                    GridLayout gl = (GridLayout) view.hoursPanel1.getLayout();
-                    gl.setColumns(1);
-                    gl.setRows(hoursLayout.getRows());
                     Tile tileOriginal = (Tile) view.hoursPanel.getComponent(i);
                     Tile tileCopied = new Tile(Tile.HOUR, "", "", tileOriginal.getHour(), tileOriginal.getBackground(), Tile.THEME);
                     tileCopied.setText(tileCopied.getHour());
@@ -427,13 +427,13 @@ public class Controller {
                     });
                     view.hoursPanel1.add(tileCopied, -1);
                 }
-
+                GridLayout gl2 = (GridLayout) view.centerPanel.getLayout();
+                gl2.setColumns(5);
+                gl2.setRows(centerLayout.getRows());
                 for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
-                    GridLayout gl = (GridLayout) view.centerPanel.getLayout();
-                    gl.setColumns(5);
-                    gl.setRows(centerLayout.getRows());
                     Tile tileOriginal = (Tile) view.centerPanel.getComponent(i);
                     Tile tileCopied = new Tile("", tileOriginal.getCourseName(), tileOriginal.getUrl(), "", tileOriginal.getBackground(), Tile.THEME);
+                    tileCopied.setColorChanged(tileOriginal.getColorChanged(), false);
                     tileCopied.setText(tileCopied.getCourseName());
                     tileCopied.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
                     for (MouseListener ml : tileCopied.getMouseListeners()) {
