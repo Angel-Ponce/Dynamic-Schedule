@@ -46,6 +46,7 @@ public class View extends javax.swing.JFrame {
         areaCourseName = new javax.swing.JTextField();
         labelUrlCourse = new javax.swing.JLabel();
         areaUrlCourse = new javax.swing.JTextField();
+        btnChoseColor = new javax.swing.JButton();
         hoursPanel1 = new javax.swing.JPanel();
         daysPanel1 = new javax.swing.JPanel();
         mondayLabel1 = new javax.swing.JLabel();
@@ -146,15 +147,22 @@ public class View extends javax.swing.JFrame {
         labelNameCourse.setText("Nombre del curso: ");
         informationPanel.add(labelNameCourse);
 
-        areaCourseName.setPreferredSize(new java.awt.Dimension(250, 24));
+        areaCourseName.setPreferredSize(new java.awt.Dimension(225, 24));
         informationPanel.add(areaCourseName);
 
         labelUrlCourse.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         labelUrlCourse.setText("Enlace de conexión: ");
         informationPanel.add(labelUrlCourse);
 
-        areaUrlCourse.setPreferredSize(new java.awt.Dimension(250, 24));
+        areaUrlCourse.setPreferredSize(new java.awt.Dimension(225, 24));
         informationPanel.add(areaUrlCourse);
+
+        btnChoseColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png"))); // NOI18N
+        btnChoseColor.setMaximumSize(new java.awt.Dimension(24, 24));
+        btnChoseColor.setMinimumSize(new java.awt.Dimension(24, 24));
+        btnChoseColor.setPreferredSize(new java.awt.Dimension(24, 24));
+        btnChoseColor.setSize(new java.awt.Dimension(24, 24));
+        informationPanel.add(btnChoseColor);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -581,6 +589,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JTextField areaUrlCourse;
     public javax.swing.JRadioButtonMenuItem blackHighlightFontOption;
     public javax.swing.JRadioButtonMenuItem blueGrayTheme;
+    public javax.swing.JButton btnChoseColor;
     public javax.swing.JPanel centerPanel;
     public javax.swing.JPanel centerPanel1;
     public javax.swing.JMenu configMenu;

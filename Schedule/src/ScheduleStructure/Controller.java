@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -43,6 +44,7 @@ public class Controller {
     private String seeGrid = "NoM";
     public static boolean gridSelected = false;
     public static boolean accept = false;
+    public static Color colorCourse = theme.coursesColor;
 
     public Controller(View view, Model model) {
         this.view = view;
@@ -366,14 +368,40 @@ public class Controller {
             }
         });
 
+        view.btnChoseColor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                colorCourse = JColorChooser.showDialog(null, "Escoja un color", Color.WHITE);
+            }
+        });
+
+        view.popupAddCourse.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent we) {
+                view.popupAddCourse.setVisible(false);
+                for (int i = 0; i < view.centerPanel1.getComponentCount(); i++) {
+                    Tile tileComponent = (Tile) view.centerPanel1.getComponent(i);
+                    if (!tileComponent.getText().isEmpty()) {
+                        Tile tileOriginal = (Tile) view.centerPanel.getComponent(view.centerPanel1.getComponentZOrder(tileComponent));
+                        tileOriginal.setCourseName(tileComponent.getCourseName(), false);
+                        tileOriginal.setUrl(tileComponent.getUrl(), false);
+                        tileOriginal.setBackground(tileComponent.getBackground());
+                        tileOriginal.setColorChanged(tileComponent.getColorChanged(), false);
+                        tileOriginal.setText(tileComponent.getCourseName());
+                    }
+                }
+                view.popupAddCourse.setVisible(false);
+                view.setVisible(true);
+            }
+
+        });
+
         view.addCourseOption.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 view.hoursPanel1.removeAll();
                 view.centerPanel1.removeAll();
-                for (int i = 0; i < view.daysPanel1.getComponentCount(); i++) {
-
-                }
                 for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
                     GridLayout gl = (GridLayout) view.hoursPanel1.getLayout();
                     gl.setColumns(1);
@@ -416,6 +444,24 @@ public class Controller {
                     }
                     tileCopied.addMouseListener(new MouseAdapter() {
                         @Override
+                        public void mouseClicked(MouseEvent me) {
+                            if (tileCopied.getText().isEmpty()) {
+                                tileCopied.setText(view.areaCourseName.getText());
+                                tileCopied.setCourseName(view.areaCourseName.getText(), false);
+                                tileCopied.setUrl(view.areaUrlCourse.getText(), false);
+                                tileCopied.setBackground(colorCourse);
+                                if (colorCourse != theme.coursesColor) {
+                                    tileCopied.setColorChanged("v", false);
+                                } else {
+                                    tileCopied.setColorChanged("f", false);
+                                }
+                            } else {
+                                tileCopied.setText("");
+                                tileCopied.setBackground(theme.coursesColor);
+                            }
+                        }
+
+                        @Override
                         public void mouseEntered(MouseEvent me) {
                             tileCopied.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3, false));
                         }
@@ -428,6 +474,10 @@ public class Controller {
                     tileCopied.setForeground(Tile.THEME.fontColor);
                     view.centerPanel1.add(tileCopied, -1);
                 }
+                colorCourse = theme.coursesColor;
+                view.areaCourseName.setText("");
+                view.areaUrlCourse.setText("");
+                view.setVisible(false);
                 view.popupAddCourse.setVisible(true);
             }
         });
@@ -468,6 +518,7 @@ public class Controller {
         view.questionLabel.setForeground(theme.fontColor2);
         view.acceptQuestion.setBackground(theme.containerColor);
         view.acceptQuestion.setForeground(theme.fontColor);
+        view.btnChoseColor.setBackground(theme.coursesColor);
 
         Tile.THEME = theme;
 
