@@ -157,6 +157,25 @@ public class Controller {
             }
         });
 
+        view.deleteRowOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if (view.hoursPanel.getComponentCount() != 0) {
+                    view.hoursPanel.remove(view.hoursPanel.getComponentCount() - 1);
+                    hoursLayout.setRows(hoursLayout.getRows() - 1);
+                    int limit = view.centerPanel.getComponentCount() - 6;
+                    for (int i = view.centerPanel.getComponentCount() - 1; i > limit; i--) {
+                        System.out.println(i);
+                        view.centerPanel.remove(i);
+                    }
+                    centerLayout.setRows(centerLayout.getRows() - 1);
+                    view.hoursPanel.repaint();
+                    view.centerPanel.repaint();
+                    view.pack();
+                }
+            }
+        });
+
         view.createSchedule.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

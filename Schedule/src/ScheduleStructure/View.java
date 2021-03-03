@@ -74,6 +74,7 @@ public class View extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         configMenu = new javax.swing.JMenu();
         addRowOption = new javax.swing.JMenuItem();
+        deleteRowOption = new javax.swing.JMenuItem();
         addCourseOption = new javax.swing.JMenuItem();
         createSchedule = new javax.swing.JMenuItem();
         reestartOption = new javax.swing.JMenuItem();
@@ -138,7 +139,6 @@ public class View extends javax.swing.JFrame {
 
         popupAddCourse.setMinimumSize(new java.awt.Dimension(800, 470));
         popupAddCourse.setModal(true);
-        popupAddCourse.setPreferredSize(new java.awt.Dimension(800, 470));
 
         container1.setForeground(new java.awt.Color(255, 255, 255));
         container1.setLayout(new java.awt.GridBagLayout());
@@ -164,7 +164,6 @@ public class View extends javax.swing.JFrame {
         btnChoseColor.setMaximumSize(new java.awt.Dimension(24, 24));
         btnChoseColor.setMinimumSize(new java.awt.Dimension(24, 24));
         btnChoseColor.setPreferredSize(new java.awt.Dimension(24, 24));
-        btnChoseColor.setSize(new java.awt.Dimension(24, 24));
         informationPanel.add(btnChoseColor);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -362,6 +361,10 @@ public class View extends javax.swing.JFrame {
         addRowOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
         addRowOption.setText("Agregar fila");
         configMenu.add(addRowOption);
+
+        deleteRowOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))); // NOI18N
+        deleteRowOption.setText("Eliminar fila");
+        configMenu.add(deleteRowOption);
 
         addCourseOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bloc.png"))); // NOI18N
         addCourseOption.setText("Agregar curso");
@@ -594,6 +597,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JRadioButtonMenuItem darkTheme;
     public javax.swing.JPanel daysPanel;
     public javax.swing.JPanel daysPanel1;
+    public javax.swing.JMenuItem deleteRowOption;
     public javax.swing.JMenuItem exitOption;
     public javax.swing.JMenu fontOptions;
     public javax.swing.JLabel fridayLabel;
