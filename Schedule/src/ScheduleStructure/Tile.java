@@ -310,7 +310,7 @@ public class Tile extends JLabel {
         popupMenuHour.add(quitColor2);
 
         popupInformation = new JDialog((JDialog) null, true);
-        popupInformation.setBounds(0, 0, 500, 150);
+        popupInformation.setBounds(0, 0, 500, 200);
         popupInformation.setMinimumSize(new Dimension(500, 150));
         popupInformation.setLocationRelativeTo(null);
         popupInformation.setLayout(new BorderLayout());
