@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -18,6 +19,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -25,7 +27,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
-import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
 /*
@@ -61,6 +62,8 @@ public class Tile extends JLabel {
     public static JPanel containerInformation;
     public static JLabel messageInformation;
     public static JTextField informationField;
+    public static JPanel checkBoxContainer;
+    public static JCheckBox checkBoxInformation;
     public static JButton aceptButton;
     public static Component componentClicked = null;
     public static boolean changeProperty = false;
@@ -92,10 +95,12 @@ public class Tile extends JLabel {
                         case Tile.COURSE:
                             popupMenuCourse.show(e.getComponent(), e.getX(), e.getY());
                             componentClicked = e.getComponent();
+                            checkBoxInformation.setEnabled(true);
                             break;
                         case Tile.HOUR:
                             popupMenuHour.show(e.getComponent(), e.getX(), e.getY());
                             componentClicked = e.getComponent();
+                            checkBoxInformation.setEnabled(false);
                             break;
                         default:
                             break;
@@ -110,10 +115,12 @@ public class Tile extends JLabel {
                         case Tile.COURSE:
                             popupMenuCourse.show(e.getComponent(), e.getX(), e.getY());
                             componentClicked = e.getComponent();
+                            checkBoxInformation.setEnabled(true);
                             break;
                         case Tile.HOUR:
                             popupMenuHour.show(e.getComponent(), e.getX(), e.getY());
                             componentClicked = e.getComponent();
+                            checkBoxInformation.setEnabled(false);
                             break;
                         default:
                             break;
@@ -282,7 +289,7 @@ public class Tile extends JLabel {
         changeBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
         changeBackground.setText("Cambiar color");
         popupMenuCourse.add(changeBackground);
-   
+
         changeHour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png")));
         changeHour.setText("Cambiar hora");
         changeHour.setToolTipText("");
@@ -291,7 +298,7 @@ public class Tile extends JLabel {
         changeBackground2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/color.png")));
         changeBackground2.setText("Cambiar color");
         popupMenuHour.add(changeBackground2);
-        
+
         quitColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/noColor.png")));
         quitColor.setText("Quitar color");
         popupMenuCourse.add(quitColor);
@@ -312,7 +319,7 @@ public class Tile extends JLabel {
         containerInformation.setVisible(true);
         GridLayout gl = new GridLayout();
         gl.setColumns(1);
-        gl.setRows(3);
+        gl.setRows(4);
         containerInformation.setLayout(gl);
         popupInformation.add(containerInformation);
 
@@ -325,10 +332,20 @@ public class Tile extends JLabel {
 
         informationField = new JTextField();
         informationField.setForeground(Color.BLACK);
+        informationField.setSize(500,50);
         informationField.setHorizontalAlignment(JTextField.CENTER);
         informationField.setFont(new Font("Verdana", Font.PLAIN, 14));
         informationField.setVisible(true);
         containerInformation.add(informationField, -1);
+
+        checkBoxContainer = new JPanel();
+        checkBoxContainer.setBackground(THEME.daysColor);
+        checkBoxContainer.setVisible(true);
+        checkBoxContainer.setLayout(new FlowLayout());
+        containerInformation.add(checkBoxContainer, -1);
+
+        checkBoxInformation = new JCheckBox("¿Desea aplicar los cambios a todas las celdas de este curso?", true);
+        checkBoxContainer.add(checkBoxInformation, -1);
 
         aceptButton = new JButton("Aceptar");
         aceptButton.setSize(500, 50);
