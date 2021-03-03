@@ -1,7 +1,6 @@
 package ScheduleStructure;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -10,8 +9,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -43,7 +40,6 @@ public class Controller {
     private String seeGrid = "NoM";
     public static boolean gridSelected = false;
     public static boolean accept = false;
-    private static Component componentI;
 
     public Controller(View view, Model model) {
         this.view = view;
@@ -468,15 +464,53 @@ public class Controller {
 
     private void listenerOnCells() {
         for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
-            componentI = view.centerPanel.getComponent(i);
-            PropertyChangeListener pchl = new PropertyChangeListener() {
+            Tile tile = (Tile) view.centerPanel.getComponent(i);
+            tile.addTileListener(new TileListener() {
                 @Override
-                public void propertyChange(PropertyChangeEvent evt) {
-                    Tile label = (Tile) evt.getSource();
-                    System.out.println(label.getText());
+                public void nameChanged(Tile tile) {
+                    if (Tile.checkBoxInformation.isSelected()) {
+                        for (int j = 0; j < view.centerPanel.getComponentCount(); j++) {
+                            Tile tileI = (Tile) view.centerPanel.getComponent(j);
+                            if (tileI.getCourseName().equals(tile.getOldCourseName())) {
+                                tileI.setCourseName(tile.getCourseName(), false);
+                                tileI.setText(tile.getCourseName());
+                                tile.setText(tile.getCourseName());
+                            }
+                        }
+                    } else {
+                        tile.setText(tile.getCourseName());
+                    }
                 }
-            };
-            componentI.addPropertyChangeListener("text", pchl);
+
+                @Override
+                public void urlChanged(Tile tile) {
+                    if (Tile.checkBoxInformation.isSelected()) {
+                        for (int j = 0; j < view.centerPanel.getComponentCount(); j++) {
+                            Tile tileI = (Tile) view.centerPanel.getComponent(j);
+                            if (tileI.getCourseName().equals(tile.getCourseName())) {
+                                tileI.setUrl(tile.getUrl(), false);
+                            }
+                        }
+                    } else {
+
+                    }
+                }
+
+                @Override
+                public void backgroundChanged(Tile tile) {
+                    if (Tile.checkBoxInformation.isSelected()) {
+                        for (int j = 0; j < view.centerPanel.getComponentCount(); j++) {
+                            Tile tileI = (Tile) view.centerPanel.getComponent(j);
+                            if (tileI.getCourseName().equals(tile.getCourseName())) {
+                                tileI.setColorChanged(tile.getColorChanged(), false);
+                                tileI.setBackground(tile.getBackground());
+                            }
+                        }
+                    } else {
+
+                    }
+                }
+            });
         }
     }
 

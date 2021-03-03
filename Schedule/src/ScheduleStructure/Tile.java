@@ -43,9 +43,11 @@ public class Tile extends JLabel {
     public static final String HOUR = "h";
     public static final String COURSE = "c";
     private String colorChanged = "f";
+    private TileListener tileListener;
     private Theme theme;
     private String type;
     private String courseName;
+    private String oldCourseName;
     private String url;
     private String hour;
     private JPopupMenu popupMenuCourse;
@@ -164,7 +166,7 @@ public class Tile extends JLabel {
                 if (name != null && changeProperty) {
                     JLabel label = (JLabel) componentClicked;
                     label.setText(name.trim());
-                    courseName = name;
+                    setCourseName(name);
                     changeProperty = false;
                 }
             }
@@ -178,7 +180,7 @@ public class Tile extends JLabel {
                 popupInformation.setVisible(true);
                 String link = informationField.getText();
                 if (link != null && changeProperty) {
-                    url = link;
+                    setUrl(link);
                     changeProperty = false;
                     JOptionPane.showMessageDialog(null, "Se guardo el enlace correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -220,7 +222,7 @@ public class Tile extends JLabel {
                 if (background != null) {
                     JLabel label = (JLabel) componentClicked;
                     label.setBackground(background);
-                    setColorChanged("v");
+                    setColorChanged("v", false);
                 }
             }
         });
@@ -241,7 +243,7 @@ public class Tile extends JLabel {
                 JLabel label = (JLabel) componentClicked;
                 label.setBackground(getTheme().hoursColor);
                 label.setForeground(getTheme().fontColor2);
-                setColorChanged("f");
+                setColorChanged("f", false);
             }
         });
 
@@ -332,7 +334,7 @@ public class Tile extends JLabel {
 
         informationField = new JTextField();
         informationField.setForeground(Color.BLACK);
-        informationField.setSize(500,50);
+        informationField.setSize(500, 50);
         informationField.setHorizontalAlignment(JTextField.CENTER);
         informationField.setFont(new Font("Verdana", Font.PLAIN, 14));
         informationField.setVisible(true);
@@ -370,6 +372,14 @@ public class Tile extends JLabel {
     }
 
     public void setCourseName(String courseName) {
+        setOldCourseName(this.courseName);
+        this.courseName = courseName;
+        if (tileListener != null) {
+            tileListener.nameChanged(this);
+        }
+    }
+
+    public void setCourseName(String courseName, boolean v) {
         this.courseName = courseName;
     }
 
@@ -378,6 +388,13 @@ public class Tile extends JLabel {
     }
 
     public void setUrl(String url) {
+        this.url = url;
+        if (tileListener != null) {
+            tileListener.urlChanged(this);
+        }
+    }
+
+    public void setUrl(String url, boolean v) {
         this.url = url;
     }
 
@@ -395,6 +412,13 @@ public class Tile extends JLabel {
 
     public void setColorChanged(String colorChanged) {
         this.colorChanged = colorChanged;
+        if (tileListener != null) {
+            tileListener.backgroundChanged(this);
+        }
+    }
+
+    public void setColorChanged(String colorChanged, boolean v) {
+        this.colorChanged = colorChanged;
     }
 
     public Theme getTheme() {
@@ -403,6 +427,18 @@ public class Tile extends JLabel {
 
     public void setTheme(Theme theme) {
         this.theme = theme;
+    }
+
+    public void addTileListener(TileListener tl) {
+        this.tileListener = tl;
+    }
+
+    public String getOldCourseName() {
+        return oldCourseName;
+    }
+
+    public void setOldCourseName(String oldCourseName) {
+        this.oldCourseName = oldCourseName;
     }
 
 }
