@@ -57,6 +57,7 @@ public class Controller {
         seeGrid = props.get(3);
         view.popupCharge.setLocationRelativeTo(null);
         view.popupQuestion.setLocationRelativeTo(null);
+        view.popupAddCourse.setLocationRelativeTo(null);
         selectRadioButtons(theme.theme, font.fontString, seeGrid);
         readCourses();
         chooseFont(font.customFont, font.customFontBold);
@@ -357,6 +358,34 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 font = new CustomFont(CustomFont.JOSEPHSOPHIA);
                 chooseFont(font.customFont, font.customFontBold);
+            }
+        });
+
+        view.addCourseOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.hoursPanel1.removeAll();
+                view.centerPanel1.removeAll();
+                for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
+                    GridLayout gl = (GridLayout) view.hoursPanel1.getLayout();
+                    gl.setColumns(1);
+                    gl.setRows(hoursLayout.getRows());
+                    Tile tileOriginal = (Tile) view.hoursPanel.getComponent(i);
+                    Tile tileCopied = new Tile(Tile.HOUR, "", "", tileOriginal.getHour(), tileOriginal.getBackground(), Tile.THEME);
+                    tileCopied.setText(tileCopied.getHour());
+                    view.hoursPanel1.add(tileCopied, -1);
+                }
+                
+                for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
+                    GridLayout gl = (GridLayout) view.centerPanel.getLayout();
+                    gl.setColumns(5);
+                    gl.setRows(centerLayout.getRows());
+                    Tile tileOriginal = (Tile) view.centerPanel.getComponent(i);
+                    Tile tileCopied = new Tile("", tileOriginal.getCourseName(), tileOriginal.getUrl(), "", tileOriginal.getBackground(), Tile.THEME);
+                    tileCopied.setText(tileCopied.getCourseName());
+                    view.centerPanel1.add(tileCopied, -1);
+                }
+                view.popupAddCourse.setVisible(true);
             }
         });
     }
