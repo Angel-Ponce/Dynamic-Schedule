@@ -42,6 +42,10 @@ public class View extends javax.swing.JFrame {
         popupAddCourse = new javax.swing.JDialog();
         container1 = new javax.swing.JPanel();
         informationPanel = new javax.swing.JPanel();
+        labelNameCourse = new javax.swing.JLabel();
+        areaCourseName = new javax.swing.JTextField();
+        labelUrlCourse = new javax.swing.JLabel();
+        areaUrlCourse = new javax.swing.JTextField();
         hoursPanel1 = new javax.swing.JPanel();
         daysPanel1 = new javax.swing.JPanel();
         mondayLabel1 = new javax.swing.JLabel();
@@ -135,8 +139,23 @@ public class View extends javax.swing.JFrame {
         container1.setForeground(new java.awt.Color(255, 255, 255));
         container1.setLayout(new java.awt.GridBagLayout());
 
-        informationPanel.setMinimumSize(new java.awt.Dimension(800, 75));
-        informationPanel.setPreferredSize(new java.awt.Dimension(800, 300));
+        informationPanel.setMinimumSize(new java.awt.Dimension(800, 35));
+        informationPanel.setPreferredSize(new java.awt.Dimension(800, 35));
+
+        labelNameCourse.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        labelNameCourse.setText("Nombre del curso: ");
+        informationPanel.add(labelNameCourse);
+
+        areaCourseName.setPreferredSize(new java.awt.Dimension(250, 24));
+        informationPanel.add(areaCourseName);
+
+        labelUrlCourse.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        labelUrlCourse.setText("Enlace de conexión: ");
+        informationPanel.add(labelUrlCourse);
+
+        areaUrlCourse.setPreferredSize(new java.awt.Dimension(250, 24));
+        informationPanel.add(areaUrlCourse);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -164,30 +183,35 @@ public class View extends javax.swing.JFrame {
         mondayLabel1.setForeground(new java.awt.Color(0, 0, 0));
         mondayLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mondayLabel1.setText("Lunes");
+        mondayLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         daysPanel1.add(mondayLabel1);
 
         tuesdayLabel1.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         tuesdayLabel1.setForeground(new java.awt.Color(0, 0, 0));
         tuesdayLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tuesdayLabel1.setText("Martes");
+        tuesdayLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         daysPanel1.add(tuesdayLabel1);
 
         wednesdayLabel1.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         wednesdayLabel1.setForeground(new java.awt.Color(0, 0, 0));
         wednesdayLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wednesdayLabel1.setText("Miércoles");
+        wednesdayLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         daysPanel1.add(wednesdayLabel1);
 
         thursdayLabel1.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         thursdayLabel1.setForeground(new java.awt.Color(0, 0, 0));
         thursdayLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         thursdayLabel1.setText("Jueves");
+        thursdayLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         daysPanel1.add(thursdayLabel1);
 
         fridayLabel1.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
         fridayLabel1.setForeground(new java.awt.Color(0, 0, 0));
         fridayLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fridayLabel1.setText("Viernes");
+        fridayLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         daysPanel1.add(fridayLabel1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -215,6 +239,7 @@ public class View extends javax.swing.JFrame {
         hourLabel1.setForeground(new java.awt.Color(0, 0, 0));
         hourLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hourLabel1.setText("HORA");
+        hourLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
         crossPanel1.add(hourLabel1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -229,7 +254,6 @@ public class View extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Horario");
         setMinimumSize(new java.awt.Dimension(1200, 540));
-        setPreferredSize(new java.awt.Dimension(1200, 540));
 
         container.setForeground(new java.awt.Color(255, 255, 255));
         container.setPreferredSize(new java.awt.Dimension(1200, 440));
@@ -553,6 +577,8 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JButton acceptQuestion;
     public javax.swing.JMenuItem addCourseOption;
     public javax.swing.JMenuItem addRowOption;
+    public javax.swing.JTextField areaCourseName;
+    public javax.swing.JTextField areaUrlCourse;
     public javax.swing.JRadioButtonMenuItem blackHighlightFontOption;
     public javax.swing.JRadioButtonMenuItem blueGrayTheme;
     public javax.swing.JPanel centerPanel;
@@ -581,8 +607,10 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JPanel hoursPanel;
     public javax.swing.JPanel hoursPanel1;
     public javax.swing.JLabel infoChargeLabel;
-    private javax.swing.JPanel informationPanel;
+    public javax.swing.JPanel informationPanel;
     public javax.swing.JRadioButtonMenuItem josephSophiaFontOption;
+    public javax.swing.JLabel labelNameCourse;
+    public javax.swing.JLabel labelUrlCourse;
     public javax.swing.JRadioButtonMenuItem lettersFontOption;
     public javax.swing.JRadioButtonMenuItem lightBlueTheme;
     public javax.swing.JRadioButtonMenuItem lightTheme;

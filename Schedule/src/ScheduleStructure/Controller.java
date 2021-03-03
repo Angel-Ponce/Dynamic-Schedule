@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -128,12 +131,14 @@ public class Controller {
             public void actionPerformed(ActionEvent ae) {
                 Row row = new Row(theme);
                 row.hour.setText(row.hour.getHour());
+                addListenerOnTile(row.hour);
                 if (gridSelected) {
                     row.hour.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
                 }
                 view.hoursPanel.add(row.hour, -1);
                 for (Tile day : row.days) {
                     day.setText(day.getCourseName());
+                    addListenerOnTile(day);
                     if (gridSelected) {
                         day.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
                     }
@@ -366,6 +371,9 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 view.hoursPanel1.removeAll();
                 view.centerPanel1.removeAll();
+                for (int i = 0; i < view.daysPanel1.getComponentCount(); i++) {
+
+                }
                 for (int i = 0; i < view.hoursPanel.getComponentCount(); i++) {
                     GridLayout gl = (GridLayout) view.hoursPanel1.getLayout();
                     gl.setColumns(1);
@@ -373,9 +381,25 @@ public class Controller {
                     Tile tileOriginal = (Tile) view.hoursPanel.getComponent(i);
                     Tile tileCopied = new Tile(Tile.HOUR, "", "", tileOriginal.getHour(), tileOriginal.getBackground(), Tile.THEME);
                     tileCopied.setText(tileCopied.getHour());
+                    tileCopied.setForeground(Tile.THEME.fontColor2);
+                    tileCopied.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                    for (MouseListener ml : tileCopied.getMouseListeners()) {
+                        tileCopied.removeMouseListener(ml);
+                    }
+                    tileCopied.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseEntered(MouseEvent me) {
+                            tileCopied.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3, false));
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent me) {
+                            tileCopied.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                        }
+                    });
                     view.hoursPanel1.add(tileCopied, -1);
                 }
-                
+
                 for (int i = 0; i < view.centerPanel.getComponentCount(); i++) {
                     GridLayout gl = (GridLayout) view.centerPanel.getLayout();
                     gl.setColumns(5);
@@ -383,6 +407,25 @@ public class Controller {
                     Tile tileOriginal = (Tile) view.centerPanel.getComponent(i);
                     Tile tileCopied = new Tile("", tileOriginal.getCourseName(), tileOriginal.getUrl(), "", tileOriginal.getBackground(), Tile.THEME);
                     tileCopied.setText(tileCopied.getCourseName());
+                    tileCopied.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                    for (MouseListener ml : tileCopied.getMouseListeners()) {
+                        tileCopied.removeMouseListener(ml);
+                    }
+                    if (tileCopied.getCourseName().equals("Curso")) {
+                        tileCopied.setText("");
+                    }
+                    tileCopied.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseEntered(MouseEvent me) {
+                            tileCopied.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3, false));
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent me) {
+                            tileCopied.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+                        }
+                    });
+                    tileCopied.setForeground(Tile.THEME.fontColor);
                     view.centerPanel1.add(tileCopied, -1);
                 }
                 view.popupAddCourse.setVisible(true);
@@ -403,6 +446,23 @@ public class Controller {
         view.wednesdayLabel.setForeground(theme.fontColor2);
         view.thursdayLabel.setForeground(theme.fontColor2);
         view.fridayLabel.setForeground(theme.fontColor2);
+
+        view.crossPanel1.setBackground(theme.containerColor);
+        view.container1.setBackground(theme.containerColor);
+        view.daysPanel1.setBackground(theme.daysColor);
+        view.hoursPanel1.setBackground(theme.containerColor);
+        view.centerPanel1.setBackground(theme.containerColor);
+
+        view.hourLabel1.setForeground(theme.fontColor2);
+        view.mondayLabel1.setForeground(theme.fontColor2);
+        view.tuesdayLabel1.setForeground(theme.fontColor2);
+        view.wednesdayLabel1.setForeground(theme.fontColor2);
+        view.thursdayLabel1.setForeground(theme.fontColor2);
+        view.fridayLabel1.setForeground(theme.fontColor2);
+
+        view.informationPanel.setBackground(theme.coursesColor);
+        view.labelNameCourse.setForeground(theme.fontColor);
+        view.labelUrlCourse.setForeground(theme.fontColor);
 
         view.containerQuestion.setBackground(theme.daysColor);
         view.questionLabel.setForeground(theme.fontColor2);
@@ -543,18 +603,69 @@ public class Controller {
         }
     }
 
+    private void addListenerOnTile(Tile tile) {
+        tile.addTileListener(new TileListener() {
+            @Override
+            public void nameChanged(Tile tile) {
+                if (Tile.checkBoxInformation.isSelected()) {
+                    for (int j = 0; j < view.centerPanel.getComponentCount(); j++) {
+                        Tile tileI = (Tile) view.centerPanel.getComponent(j);
+                        if (tileI.getCourseName().equals(tile.getOldCourseName())) {
+                            tileI.setCourseName(tile.getCourseName(), false);
+                            tileI.setText(tile.getCourseName());
+                            tile.setText(tile.getCourseName());
+                        }
+                    }
+                } else {
+                    tile.setText(tile.getCourseName());
+                }
+            }
+
+            @Override
+            public void urlChanged(Tile tile) {
+                if (Tile.checkBoxInformation.isSelected()) {
+                    for (int j = 0; j < view.centerPanel.getComponentCount(); j++) {
+                        Tile tileI = (Tile) view.centerPanel.getComponent(j);
+                        if (tileI.getCourseName().equals(tile.getCourseName())) {
+                            tileI.setUrl(tile.getUrl(), false);
+                        }
+                    }
+                } else {
+
+                }
+            }
+
+            @Override
+            public void backgroundChanged(Tile tile) {
+                if (Tile.checkBoxInformation.isSelected()) {
+                    for (int j = 0; j < view.centerPanel.getComponentCount(); j++) {
+                        Tile tileI = (Tile) view.centerPanel.getComponent(j);
+                        if (tileI.getCourseName().equals(tile.getCourseName())) {
+                            tileI.setColorChanged(tile.getColorChanged(), false);
+                            tileI.setBackground(tile.getBackground());
+                        }
+                    }
+                } else {
+
+                }
+            }
+        });
+    }
+
     private void insertRows(int rows) {
         hoursLayout.setRows(rows);
         centerLayout.setRows(rows);
         for (int i = 0; i < rows; i++) {
             Row row = new Row(theme);
             row.hour.setText(row.hour.getHour());
+            addListenerOnTile(row.hour);
             if (gridSelected) {
                 row.hour.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
             }
             view.hoursPanel.add(row.hour, -1);
             for (Tile day : row.days) {
                 day.setText(day.getCourseName());
+                addListenerOnTile(day);
                 if (gridSelected) {
                     day.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, false));
                 }
