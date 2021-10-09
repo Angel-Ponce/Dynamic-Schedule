@@ -68,8 +68,14 @@ public class Controller {
         chooseFont(font.customFont, font.customFontBold);
         chooseTheme();
         listenerOnCells();
-        Process process = new Process(view.popupCharge, view.progressBar);
-        process.run();
+        if (props.get(4).equals("true")) {
+            System.out.println("true");
+            Process process = new Process(view.popupCharge, view.progressBar);
+            process.run();
+            view.lazyLoadOption.setSelected(true);
+        } else {
+            view.lazyLoadOption.setSelected(false);
+        }
         view.setIconImage(new ImageIcon(getClass().getResource("/Images/calendar.png")).getImage());
         view.setLocationRelativeTo(null);
         view.setVisible(true);
@@ -98,7 +104,7 @@ public class Controller {
                     in += 5;
                 }
                 model.saveCourses(rows);
-                model.saveProperties(rows.size(), theme.theme, font.fontString, seeGrid);
+                model.saveProperties(rows.size(), theme.theme, font.fontString, seeGrid, view.lazyLoadOption.isSelected());
                 System.exit(0);
             }
         });
@@ -123,7 +129,7 @@ public class Controller {
                     in += 5;
                 }
                 model.saveCourses(rows);
-                model.saveProperties(rows.size(), theme.theme, font.fontString, seeGrid);
+                model.saveProperties(rows.size(), theme.theme, font.fontString, seeGrid, view.lazyLoadOption.isSelected());
                 System.exit(0);
             }
         });
@@ -153,7 +159,7 @@ public class Controller {
                 view.pack();
                 chooseTheme();
                 chooseFont(font.customFont, font.customFontBold);
-                model.saveProperties(hoursLayout.getRows(), theme.theme, font.fontString, seeGrid);
+                model.saveProperties(hoursLayout.getRows(), theme.theme, font.fontString, seeGrid, view.lazyLoadOption.isSelected());
             }
         });
 
@@ -215,7 +221,7 @@ public class Controller {
                     view.centerPanel.removeAll();
                     view.hoursPanel.repaint();
                     view.centerPanel.repaint();
-                    model.saveProperties(0, theme.theme, font.fontString, seeGrid);
+                    model.saveProperties(0, theme.theme, font.fontString, seeGrid, view.lazyLoadOption.isSelected());
                     hoursLayout.setRows(0);
                     centerLayout.setRows(0);
                     courses.clear();

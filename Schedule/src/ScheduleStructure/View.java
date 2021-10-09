@@ -95,6 +95,7 @@ public class View extends javax.swing.JFrame {
         lettersFontOption = new javax.swing.JRadioButtonMenuItem();
         josephSophiaFontOption = new javax.swing.JRadioButtonMenuItem();
         gridOption = new javax.swing.JRadioButtonMenuItem();
+        lazyLoadOption = new javax.swing.JRadioButtonMenuItem();
         separator6 = new javax.swing.JPopupMenu.Separator();
         exitOption = new javax.swing.JMenuItem();
 
@@ -503,6 +504,16 @@ public class View extends javax.swing.JFrame {
             }
         });
         configMenu.add(gridOption);
+
+        lazyLoadOption.setSelected(true);
+        lazyLoadOption.setText("Lazy load");
+        lazyLoadOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lazyLoad.png"))); // NOI18N
+        lazyLoadOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lazyLoadOptionActionPerformed(evt);
+            }
+        });
+        configMenu.add(lazyLoadOption);
         configMenu.add(separator6);
 
         exitOption.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
@@ -551,6 +562,10 @@ public class View extends javax.swing.JFrame {
     private void gridOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gridOptionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_gridOptionActionPerformed
+
+    private void lazyLoadOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lazyLoadOptionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lazyLoadOptionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -615,6 +630,7 @@ public class View extends javax.swing.JFrame {
     public javax.swing.JRadioButtonMenuItem josephSophiaFontOption;
     public javax.swing.JLabel labelNameCourse;
     public javax.swing.JLabel labelUrlCourse;
+    public javax.swing.JRadioButtonMenuItem lazyLoadOption;
     public javax.swing.JRadioButtonMenuItem lettersFontOption;
     public javax.swing.JRadioButtonMenuItem lightBlueTheme;
     public javax.swing.JRadioButtonMenuItem lightTheme;

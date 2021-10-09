@@ -22,7 +22,7 @@ public class Model {
     public Model() {
         if (properties.getJsons().isEmpty()) {
             ArrayList<String> objects = new ArrayList();
-            Properties props = new Properties("0", Theme.LIGHT, CustomFont.VERDANA, Controller.NO_SEE_GRID);
+            Properties props = new Properties("0", Theme.LIGHT, CustomFont.VERDANA, Controller.NO_SEE_GRID, true);
             objects.add(gson.toJson(props));
             properties.saveJsons(objects);
         }
@@ -35,8 +35,8 @@ public class Model {
         }
     }
 
-    public void saveProperties(int rowCount, String theme, String font, String margins) {
-        Properties props = new Properties(String.valueOf(rowCount), theme, font, margins);
+    public void saveProperties(int rowCount, String theme, String font, String margins, boolean lazyLoad) {
+        Properties props = new Properties(String.valueOf(rowCount), theme, font, margins, lazyLoad);
         ArrayList<String> objects = new ArrayList();
         objects.add(gson.toJson(props));
         properties.saveJsons(objects);
@@ -49,6 +49,7 @@ public class Model {
         properties.add(props.getTheme());
         properties.add(props.getFont());
         properties.add(props.getGrid());
+        properties.add(String.valueOf(props.isLazyLoad()));
         return properties;
     }
 

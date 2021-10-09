@@ -10,16 +10,19 @@ package ScheduleStructure;
  * @author angelponce
  */
 public class Properties {
+
     private String rowCount;
     private String theme;
     private String font;
     private String grid;
+    private boolean lazyLoad;
 
-    public Properties(String rowCount, String theme, String font, String grid) {
+    public Properties(String rowCount, String theme, String font, String grid, boolean lazyLoad) {
         this.rowCount = rowCount;
         this.theme = theme;
         this.font = font;
         this.grid = grid;
+        this.lazyLoad = lazyLoad;
     }
 
     public String getGrid() {
@@ -53,5 +56,13 @@ public class Properties {
     public void setFont(String font) {
         this.font = font;
     }
-    
+
+    public boolean isLazyLoad() {
+        return lazyLoad;
+    }
+
+    public void setLazyLoad(boolean lazyLoad) {
+        this.lazyLoad = lazyLoad;
+    }
+
 }
