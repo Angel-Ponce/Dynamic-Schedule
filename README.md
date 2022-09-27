@@ -1,3 +1,6 @@
+# IMPORTANT
+### A new major version is avaliable in this repository: https://github.com/Angel-Ponce/dynamic-schedule-web
+
 # Dynamic-Schedule
 ![image](https://user-images.githubusercontent.com/60164099/106395508-380e4380-63c8-11eb-8c67-4463f6986c0f.png)
 
